@@ -9,7 +9,7 @@
 require 'faker'
 Mission.destroy_all
 User.destroy_all
-user1= User.create(email: "amel@gmail.com", password: "azerty", first_name: "amel", last_name: "amelou")
+user1 = User.create(email: "amel@gmail.com", password: "azerty", first_name: "amel", last_name: "amelou")
 
 puts "mission created"
 20.times do |i|
@@ -27,7 +27,7 @@ puts "mission created"
     completed: Faker::Boolean.boolean,
     personal_choice: Faker::Boolean.boolean,
     user_id: user1.id,
-    photo_url: Faker::LoremFlickr.image(size: "300x200", search_terms: ['nature',i])
+    photo_url: Faker::LoremFlickr.image(size: "300x200", search_terms: ['nature', i])
   )
 end
 puts "finished !"
