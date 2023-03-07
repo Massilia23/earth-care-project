@@ -1,3 +1,6 @@
 <h1>Missions</h1>
 
+<% @missions.each do |mission| %>
+<%= mission.title %>
+<% end %>
 <%= link_to "New mission", new_mission_path %>
