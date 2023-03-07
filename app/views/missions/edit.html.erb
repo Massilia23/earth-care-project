@@ -1,0 +1,11 @@
+<h1>Update mission</h1>
+
+<%= form_with model: @mission, url: mission_path(@mission), method: :patch do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :start_date %>
+  <%= form.date_field :start_date %>

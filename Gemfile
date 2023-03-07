@@ -79,3 +79,6 @@ end
 
 
 gem "pundit"
+
+gem "httparty"
+#pour api

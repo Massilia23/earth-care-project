@@ -1,0 +1,25 @@
+<h1>New mission</h1>
+
+<%= form_with model: @mission, url: missions_path do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :start_date %>
+  <%= form.date_field :start_date %>
+
+  <%= form.label :end_date %>
+  <%= form.date_field :end_date %>
+
+  <%= form.label :location %>
+  <%= form.text_field :location %>
+
+  <%= form.label :reward %>
+  <%= form.number_field :reward %>
+
+  <%= form.submit "Create mission" %>
+<% end %>
+
+<%= link_to "Back to missions", missions_path %>
