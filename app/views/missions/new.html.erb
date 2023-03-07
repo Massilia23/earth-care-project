@@ -7,6 +7,9 @@
   <%= form.label :description %>
   <%= form.text_area :description %>
 
+  <%= form.label :photo %>
+  <%= form.file_field :orgimg %>
+
   <%= form.label :start_date %>
   <%= form.date_field :start_date %>
 
@@ -18,8 +21,9 @@
 
   <%= form.label :reward %>
   <%= form.number_field :reward %>
+  <br>
 
-  <%= form.submit "Create mission" %>
+  <%= form.submit "Create mission", class: "mt-3" %>
 <% end %>
 
 <%= link_to "Back to missions", missions_path %>

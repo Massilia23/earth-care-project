@@ -5,6 +5,9 @@
                       <p class="card-text"> What's your mission ?<%= @mission.description %></p>
                       <p class="card-text">Your dress code<%= @mission.dess_code %></p>
                       <p class="card-text"><%= @mission.duration %>hours</p>
+                      <% if mission.photo_url.present? %>
+                          <%= image_tag mission.photo_url, class: "mission-image" %>
+                      <% end %>
 
                       <p><% if current_user == @mission.user  %>
                         <%= link_to "Delete your current mission", mission_path(@mission), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
