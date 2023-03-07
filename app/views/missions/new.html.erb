@@ -1,50 +1,32 @@
-<body class="body-form">
-	<!-- main -->
-	<div class="main-w3layouts wrapper">
-		<h1 class="title-form">NEW MISSION</h1>
-    <%= form_with model: @mission, url: missions_path do |form| %>
-		  <div class="main-agileinfo">
-        <div class="agileits-top">
-          <form action="#" method="post">
-            <input class="text" <% form.text_field :title %> <% form.label :title %> placeholder="Title" required="true">
-            <input class="text"  <% form.text_area :description %> <% form.label :description %> placeholder="Description" required="true">
-            <input class="text" type="date" <% form.date_field :start_date %>  <% form.label :start_date %> placeholder="Start date" required="true">
-            <input class="text" type="date" <% form.date_field :end_date %> <% form.label :end_date %> placeholder="End date" required="true">
-            <input class="text" <% form.text_field :location %> <% form.label :location %> placeholder="Location" required="true">
-            <input class="text" type="number" <% form.number_field :reward %> <% form.label :reward %> placeholder="Reward" required="true">
-            <br>
-            <div class="wthree-text">
-              <label class="anim">
-                <input type="checkbox" class="checkbox" required="">
-                <span>I Agree To The Terms & Conditions</span>
-              </label>
-              <div class="clear"> </div>
-            </div>
-            <%= form.submit "Create mission" %>
-          </form>
-        </div>
+<div class="container">
+  <%= simple_form_for(@mission) do |f| %>
+    <div class="form-inputs">
 
-      <%= link_to "< Back to missions", missions_path, class: "link_to_form"%>
-    <% end %>
-		  </div>
-		<!-- copyright -->
-		<div class="colorlibcopy-agile">
-			<p>© Earth-Care-Project</p>
-		</div>
-		<!-- //copyright -->
-		<ul class="colorlib-bubbles">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-	</div>
-	<!-- //main -->
-</body-form>
+      <%= f.input :title,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "title" } %>
+      <%= f.file_field :photo_url,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "your pic" } %>
+      <%= f.input :description,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "description" } %>
 
+        <%= f.date_field :start_date %>
+        <%= f.date_field :end_date %>
+
+          <div class="form-actions text-center">
+            <%= f.submit "Create mission ", class: "btn btn-primary" %>
+            <%= link_to "back to home", missions_path %>
+          </div>
+
+
+  <% end %>
+</div>
+
+       <div class="container text-center">
+        <p class="text-muted mb-0 py-2">© 2023 Earth-Care, Inc.</p>
+      </div>

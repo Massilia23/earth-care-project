@@ -14,8 +14,10 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
+
+    @mission.user = current_user
     if @mission.save
-      redirect_to mission_path(@mission)
+      redirect_to missions_path(@mission)
     else
       render :new
     end
@@ -26,7 +28,7 @@ class MissionsController < ApplicationController
 
   def update
     if @mission.update(mission_params)
-      redirect_to mission_path(@mission)
+      redirect_to missions_path(@mission)
     else
       render :edit
     end
@@ -34,7 +36,7 @@ class MissionsController < ApplicationController
 
   def destroy
     @mission.destroy
-    redirect_to missions_path
+    redirect_to missions_path(@mission)
   end
 
   private
@@ -44,6 +46,6 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :user)
+    params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo_url, :user)
   end
 end
