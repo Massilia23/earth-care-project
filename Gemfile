@@ -82,4 +82,4 @@ gem "pundit"
 
 gem "httparty"
 #pour api
-gem 'faker'
+gem 'faker', '~> 2.18', '>= 2.18.4'
