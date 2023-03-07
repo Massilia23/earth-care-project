@@ -12,13 +12,14 @@
     <h3><%= mission.title %></h3>
     <p><%= mission.description %></p>
     <p><strong>Location:</strong> <%= mission.location %></p>
-    <p><strong>Date:</strong> <%= mission.start_date.strftime('%d/%m/%Y') %> - <%= mission.end_date.strftime('%d/%m/%Y') %></p>
-    <p><strong>Time:</strong> <%= mission.start_time.strftime('%H:%M') %> - <%= (mission.start_time + mission.duration.to_i.hours).strftime('%H:%M') %></p>
-    <p><strong>Duration:</strong> <%= mission.duration %></p>
+    <% start_date = Date.today + rand(30) %>
+    <% end_date = [start_date + rand(4), Date.today + 30].min %>
+    <p><strong>Date:</strong> <%= start_date.strftime('%d/%m/%Y') %> - <%= end_date.strftime('%d/%m/%Y') %></p>
+    <p><strong>Time:</strong> <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe %></p>
+    <p><strong>Duration:</strong> <%= rand(1..5) %> hours per day</p>
     <p><strong>Dess code:</strong> <%= mission.dess_code %></p>
     <p><strong>Reward:</strong> <%= mission.reward %> points</p>
     <p><strong>Rating:</strong> <%= mission.rating %></p>
 
   </div>
 <% end %>
-
