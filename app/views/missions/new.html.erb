@@ -2,18 +2,22 @@
 	<!-- main -->
 	<div class="main-w3layouts wrapper">
 		<h1 class="title-form">NEW MISSION</h1>
-    <%= form_with model: @mission, url: missions_path do |form| %>
+    <%= simple_form_for(@mission) do |f| %>
 		  <div class="main-agileinfo">
         <div class="agileits-top">
-          <form action="#" method="post">
-            <input class="text" <% form.text_field :title %> <% form.label :title %> placeholder="Title" required="true">
-            <input class="text"  <% form.text_area :description %> <% form.label :description %> placeholder="Description" required="true">
-            <input class="text" type="file" <% form.file_field :photo %> <% form.label :photo %> placeholder="Picture" >
-            <input class="text" type="date" <% form.date_field :start_date %>  <% form.label :start_date %> placeholder="Start date" required="true">
-            <input class="text" type="date" <% form.date_field :end_date %> <% form.label :end_date %> placeholder="End date" required="true">
-            <input class="text" <% form.text_field :location %> <% form.label :location %> placeholder="Location" required="true">
-            <input class="text" type="number" <% form.number_field :reward %> <% form.label :reward %> placeholder="Reward" required="true">
-            <br>
+                <%= f.input :title %>
+                <%= f.file_field :photo_url,
+                       label: "your pic"  %>
+                <%= f.input :description %>
+                <%= f.date_field :start_date %>
+                <%= f.date_field :end_date %>
+                <%= f.input :location %>
+                <%= f.input :reward %>
+                <%= f.time_select :duration, label: "Duration" %>
+                <%= f.input :dess_code, label: " Your dress code" %>
+
+
+               <br>
 
             <div class="wthree-text">
               <label class="anim">
@@ -22,13 +26,13 @@
               </label>
               <div class="clear"> </div>
             </div>
-            <%= form.submit "Create mission" %>
-          </form>
-        </div>
+            <%= f.submit "Create mission" %>
+    <% end %>
+      </div>
 
       <%= link_to "< Back to missions", missions_path, class: "link_to_form"%>
-    <% end %>
-		  </div>
+
+	  </div>
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
 			<p>© Earth-Care-Project</p>
@@ -49,4 +53,3 @@
 	</div>
 	<!-- //main -->
 </body-form>
-
