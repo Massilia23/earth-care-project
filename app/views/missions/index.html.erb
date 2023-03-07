@@ -6,12 +6,13 @@
 
 <% @missions.each do |mission| %>
   <div class="mission">
-    <% if mission.photo_url.present? %>
+    <% if mission.photo.attached? %>
       <%= image_tag mission.photo_url, class: "mission-image" %>
     <% end %>
     <h3><%= mission.title %></h3>
     <p><%= mission.description %></p>
     <p><strong>Location:</strong> <%= mission.location %></p>
+
     <% start_date = Date.today + rand(30) %>
     <% end_date = [start_date + rand(4), Date.today + 30].min %>
     <p><strong>Date:</strong> <%= start_date.strftime('%d/%m/%Y') %> - <%= end_date.strftime('%d/%m/%Y') %></p>
