@@ -1,29 +1,50 @@
-<h1>New mission</h1>
+<body class="body-form">
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1 class="title-form">NEW MISSION</h1>
+    <%= form_with model: @mission, url: missions_path do |form| %>
+		  <div class="main-agileinfo">
+        <div class="agileits-top">
+          <form action="#" method="post">
+            <input class="text" <% form.text_field :title %> <% form.label :title %> placeholder="Title" required="true">
+            <input class="text"  <% form.text_area :description %> <% form.label :description %> placeholder="Description" required="true">
+            <input class="text" type="date" <% form.date_field :start_date %>  <% form.label :start_date %> placeholder="Start date" required="true">
+            <input class="text" type="date" <% form.date_field :end_date %> <% form.label :end_date %> placeholder="End date" required="true">
+            <input class="text" <% form.text_field :location %> <% form.label :location %> placeholder="Location" required="true">
+            <input class="text" type="number" <% form.number_field :reward %> <% form.label :reward %> placeholder="Reward" required="true">
+            <br>
+            <div class="wthree-text">
+              <label class="anim">
+                <input type="checkbox" class="checkbox" required="">
+                <span>I Agree To The Terms & Conditions</span>
+              </label>
+              <div class="clear"> </div>
+            </div>
+            <%= form.submit "Create mission" %>
+          </form>
+        </div>
 
-<%= form_with model: @mission, url: missions_path do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+      <%= link_to "< Back to missions", missions_path, class: "link_to_form"%>
+    <% end %>
+		  </div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© Earth-Care-Project</p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body-form>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
-
-  <%= form.label :photo %>
-  <%= form.file_field :orgimg %>
-
-  <%= form.label :start_date %>
-  <%= form.date_field :start_date %>
-
-  <%= form.label :end_date %>
-  <%= form.date_field :end_date %>
-
-  <%= form.label :location %>
-  <%= form.text_field :location %>
-
-  <%= form.label :reward %>
-  <%= form.number_field :reward %>
-  <br>
-
-  <%= form.submit "Create mission", class: "mt-3" %>
-<% end %>
-
-<%= link_to "Back to missions", missions_path %>
