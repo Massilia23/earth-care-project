@@ -23,7 +23,13 @@
 #   )
 # end
 
-10.times do
+require 'faker'
+Mission.destroy_all
+User.destroy_all
+user1= User.create(email: "amel@gmail.com", password: "azerty", first_name: "amel", last_name: "amelou")
+
+puts "mission created"
+20.times do
   Mission.create(
     title: Faker::Book.title,
     description: Faker::Hipster.paragraph(sentence_count: 5),
@@ -37,8 +43,8 @@
     rating: Faker::Number.between(from: 1, to: 5),
     completed: Faker::Boolean.boolean,
     personal_choice: Faker::Boolean.boolean,
-    user_id: 1,
-  # photo_url: Faker::LoremFlickr.image(size: "300x200", is_gray: false, category: 'nature')
-
+    user_id: user1.id,
+    # photo_url: Faker::LoremFlickr.image(size: "300x200", is_gray: false, category: 'nature')
   )
 end
+puts "finished !"
