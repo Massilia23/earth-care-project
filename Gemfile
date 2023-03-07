@@ -82,3 +82,4 @@ gem "pundit"
 
 gem "httparty"
 #pour api
+gem 'faker'
