@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EEF4ED;
+  height: 60px;
+  bottom: 0;
+  padding: 0 20px;
+  border-top: solid green;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.footer a {
+  display: block;
+  width: 25%;
+  text-align: center;
+}
+
+.footer i {
+  font-size: 24px;
+  color: #333;
+}
