@@ -6,6 +6,8 @@
 <p>End date : <%= @mission.end_date %></p>
 <p>Location: <%= @mission.location %></p>
 <p>Reward: <%= @mission.reward %> points</p>
-
-<%= link_to "Update mission", edit_mission_path(@mission) %>
-<%= link_to "Delete mission", mission_path(@mission), method: :delete, data: { confirm: "Are you sure?" } %>
+  <p><% if current_user == @mission.user  %>
+    <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn"  %>
+    <%= link_to "Delete your mission", mission_path(@mission), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>
+  <% end %>
