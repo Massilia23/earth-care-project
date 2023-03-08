@@ -185,7 +185,7 @@ input[class="text"] {
   color: #fff;
 }
 
-input[type="submit"] {
+.link-to-create {
   font-size: .9em;
   color: #fff;
   background: #76b852;
@@ -193,13 +193,12 @@ input[type="submit"] {
   border: 1px solid #76b852;
   cursor: pointer;
   padding: 0.9em;
-  -webkit-appearance: none;
   width: 100%;
   margin: 2em 0;
   letter-spacing: 4px;
 }
 
-input[type="submit"]:hover {
+.link-to-create {
   -webkit-transition: .5s all;
   -moz-transition: .5s all;
   -o-transition: .5s all;

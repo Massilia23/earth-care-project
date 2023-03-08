@@ -19,7 +19,7 @@
     <%= render "shared/flashes" %>
     <%= yield %>
 
-    <% unless (( controller_name == "calendars" && action_name == "index") || ( controller_name == "pages" && action_name == "profile"))%>
+    <% unless ( controller_name == "pages" && action_name == "profile")%>
       <%= render "shared/footer" %>
     <% end %>
 

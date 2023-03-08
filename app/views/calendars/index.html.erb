@@ -1,31 +1,14 @@
 <h1>YOUR CALENDAR</h1>
 
-<%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
-  <%= date %>
+<div class="calendar-container">
+  <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
+    <%= date %>
 
-  <% meetings.each do |meeting| %>
-    <div class="meeting">
-      <p><%= meeting.name %></p>
-    </div>
-  <% end %>
-<% end %>
-
-
-
-<div class="footer calendar">
-  <%= link_to missions_path do %>
-    <i class="fas fa-home"></i>
-  <% end %>
-
-  <%= link_to calendar_path do %>
-    <i class="fa-solid fa-calendar"></i>
-  <% end %>
-
-  <%= link_to missions_path do %>
-    <i class="fa-solid fa-wallet"></i>
-  <% end %>
-
-  <%= link_to profile_path do %>
-    <i class="fas fa-user"></i>
+    <% meetings.each do |meeting| %>
+      <div class="meeting">
+        <p><%= meeting.name %></p>
+        <small><%= meeting.time unless meeting.multi_days? %></small>
+      </div>
+    <% end %>
   <% end %>
 </div>
