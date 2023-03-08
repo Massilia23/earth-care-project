@@ -7,7 +7,7 @@
 <% @missions.each do |mission| %>
   <div class="mission">
 
-    <%= mission.photo_url%>
+    <%= image_tag mission.photo_url %>
 
     <h3><%= mission.title %></h3>
     <p><%= mission.description %></p>
@@ -24,3 +24,5 @@
 
   </div>
 <% end %>
+
+  <%= link_to "CHECK THE MISSION", mission_path(mission) %>

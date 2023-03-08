@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # resources :vouchers
   # Defines the root path route ("/")
   # root "articles#index"
+  get "/profile", to: "pages#profile"
 end
+
