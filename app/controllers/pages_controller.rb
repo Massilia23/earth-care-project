@@ -3,8 +3,12 @@ class PagesController < ApplicationController
   def home
     @missions = Mission.all
   end
+
   def profile
     @missions = Mission.where(user: current_user)
     @bookings = Booking.where(user: current_user)
+  end
+
+  def calendar
   end
 end
