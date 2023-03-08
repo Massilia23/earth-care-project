@@ -9,11 +9,11 @@
 require 'faker'
 Mission.destroy_all
 User.destroy_all
-user1 = User.create(email: "amel@gmail.com", password: "azerty", first_name: "amel", last_name: "amelou")
+user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "amel", last_name: "amelou")
 
 puts "mission created"
 20.times do |i|
-  Mission.create(
+  Mission.create!(
     title: Faker::Book.title,
     description: Faker::Hipster.paragraph(sentence_count: 5),
     location: Faker::Address.city + ', France',
@@ -26,7 +26,7 @@ puts "mission created"
     rating: Faker::Number.between(from: 1, to: 5),
     completed: Faker::Boolean.boolean,
     personal_choice: Faker::Boolean.boolean,
-    user_id: user1.id,
+    user: user1,
     photo_url: Faker::LoremFlickr.image(size: "300x200", search_terms: ['nature', i])
   )
 end

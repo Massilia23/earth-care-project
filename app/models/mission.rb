@@ -1,7 +1,7 @@
 class Mission < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  # has_one_attached :photo_url
+
   has_many :users, through: :bookings
 
   # validates :title, presence: true
@@ -12,3 +12,4 @@ class Mission < ApplicationRecord
   # validates :duration, presence: true
   # validates :reward, numericality: { greater_than: 0 }
 end
+
