@@ -1,13 +1,12 @@
 <h1> Hello it's le profile !</h1>
 
+<% @missions.each do |mission| %>
+<%= mission.user.first_name %> <%= mission.user.last_name %>
+<%=  mission.title %>
+<%=  mission.photo_url %>
+<%=  mission.description %>
+<%=  mission.start_date %>
+<%=  mission.end_date %>
 
-<%= @mission.title %>
-<br>
-<%= @mission.photo_url %>
-<%= @mission.description %>
-<%= @mission.start_date %>
-<%= @mission.end_date %>
-<%= @mission.duration %>
-<%= @mission.location %>
-<%= @mission.dess_code %>
-<%= @mission.reward %>
+<% end %>
+
