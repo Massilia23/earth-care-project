@@ -18,8 +18,10 @@
   <body><%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%= render "shared/footer" %> <% unless  ( controller_name == "pages" && action_name == "calendar") || ( controller_name == "pages" && action_name == "profile") %>
 
+    <% unless (( controller_name == "pages" && action_name == "calendar") || ( controller_name == "pages" && action_name == "profile"))%>
+      <%= render "shared/footer" %>
     <% end %>
+
   </body>
 </html>
