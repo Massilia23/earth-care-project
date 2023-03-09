@@ -1,84 +1,74 @@
 <% if user_signed_in? %>
 
+  <h1 class="text-center mt-3 mb-5"> Your Dashboard !</h1>
 
 
-
-
-<h1 class="text-center mt-3 mb-5"> Your Dashboard !</h1>
-
-
-<br>
-<div class="container mt-5">
-    <div class="card">
-      <div class="card-body text-center background-card-profile">
-        <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
-        - <%= current_user.email.capitalize %>
+  <br>
+  <div class="container mt-5">
+      <div class="card">
+        <div class="card-body text-center background-card-profile">
+          <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
+          - <%= current_user.email.capitalize %>
+        </div>
       </div>
-    </div>
-    <br>
-    <div class="green-line"></div>
+      <br>
+      <div class="green-line"></div>
 
-    <% @missions.each do |mission| %>
-    <br>
-    <%=  mission.title %>
-    <%=  mission.photo_url %>
-    <%=  mission.description %>
-    <%=  mission.start_date %>
-    <%=  mission.end_date %>
+      <% @missions.each do |mission| %>
+      <br>
+      <%=  mission.title %>
+      <%=  mission.photo_url %>
+      <%=  mission.description %>
+      <%=  mission.start_date %>
+      <%=  mission.end_date %>
 
-    <% end %>
+      <% end %>
 
-  <div class="container-booking">
-      <div class="header-profile">
-        <h1>Bookings Dashboard</h1>
-      </div>
-      <div class="bookings">
-        <% @missions.each do |mission| %>
-          <div class="booking-list">
-            <div class="booking">
-              <div class="booking-info">
-                <div class="booking-time"><%= mission.start_time %></div>
-                <div class="booking-location"><%= mission.location %></div>
+    <div class="container-booking">
+        <div class="header-profile">
+          <h1>Bookings Dashboard</h1>
+        </div>
+        <div class="bookings">
+          <% @missions.each do |mission| %>
+            <div class="booking-list">
+              <div class="booking">
+                <div class="booking-info">
+                  <div class="booking-time"><%= mission.title %></div>
+                  <div class="booking-time"><%= mission.start_time.strftime('%H:%M') %></div>
+                  <div class="booking-location"><%= mission.location %></div>
+                </div>
+                <div class="booking-status">Confirmed</div>
               </div>
-              <div class="booking-status">Confirmed</div>
             </div>
+          <% end %>
           </div>
-        <% end %>
         </div>
       </div>
     </div>
+
+
+
+
   </div>
 
+  <div class="footer">
+    <%= link_to missions_path do %>
+      <i class="fas fa-home"></i>
+    <% end %>
 
 
-
-</div>
-
-
-  <% @missions.each do |mission| %>
-  <%= mission.user.first_name %> <%= mission.user.last_name %>
-  <%=  mission.title %>
-  <%=  mission.photo_url %>
-  <%=  mission.description %>
-  <%=  mission.start_date %>
-  <%=  mission.end_date %>
-  <% end %>
+    <%= link_to calendars_path do %>
+      <i class="fa-solid fa-calendar"></i>
+    <% end %>
 
 
-<div class="footer calendar">
-  <%= link_to missions_path do %>
-    <i class="fas fa-home"></i>
-  <% end %>
+    <%= link_to missions_path do %>
+      <i class="fa-solid fa-wallet"></i>
+    <% end %>
 
-  <%= link_to calendars_path do %>
-    <i class="fa-solid fa-calendar"></i>
-  <% end %>
+    <%= link_to profile_path do %>
+      <i class="fas fa-user"></i>
+    <% end %>
+  </div>
 
-  <%= link_to missions_path do %>
-    <i class="fa-solid fa-wallet"></i>
-  <% end %>
-
-  <%= link_to profile_path do %>
-    <i class="fas fa-user"></i>
-  <% end %>
-</div>
+<%# <% end %>
