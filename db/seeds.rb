@@ -16,7 +16,6 @@ user2 = User.create!(email: "najib@gmail.com", password: "qwerty", first_name: "
 user3 = User.create!(email: "yannis@gmail.com", password: "frerot", first_name: "yannis", last_name: "amelou")
 user4 = User.create!(email: "lila@gmail.com", password: "tatata", first_name: "lila", last_name: "amelou")
 
-
 puts "mission created"
 20.times do |i|
   Mission.create!(
