@@ -12,50 +12,43 @@ si status ok, on créer un marker  pour ajouter un marqueur sur la carte à l'em
 InfoWindow de Google Maps qui est utilisé pour afficher des informations supplémentaires sur la mission lorsque l'utilisateur clique sur le marque %>
 
 
-
-
-
-
 <h1>Missions</h1>
 
 <%= link_to "New mission", new_mission_path %>
 
-<strong><h1 class = "titre-homepage text-center mt-4 w-100 p-3" > Hello to all concerned and conscious people !</h1></strong>
 <div class="banner">
    <div class="background-overlay">
-    <%# <img src="app/assets/images/Banner.png" alt="ban" class="banner" > %>
+      <%# <%= image_tag "background-image.jpg" %>
    </div>
-      <div class="container">
-        <div class="row row-cols-1 row-cols-md-3">
 
-              <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                <% @missions.each do |mission| %>
+   <div class="container">
+      <p class="titre-homepage text-center mt-4 w-100 p-3">Hello to all concerned and conscious people!</p>
+      <div class="row row-cols-1 row-cols-md-3">
+         <% @missions.each do |mission| %>
+            <div class="col-md-4 mb-4">
+               <div class="card h-100">
+                  <%= image_tag mission.photo_url, class: "card-img-top" %>
+                  <div class="card-body">
+                     <h5 class="card-title"><%= mission.title %></h5>
+                     <p class="card-text"><%= mission.description %></p>
+                  </div>
+                  <%= link_to "See more details",  mission_path(mission), class: "btn btn-primary" %>
 
-                <h5 class="card-title"><%= mission.title %></h5>
-                <%= image_tag mission.photo_url %>
-                <br>
-                <h5 class="card-text"><%= mission.description %></h5>
-                <p class="card-text"><strong>Location:</strong> <%= mission.location %></p>
-                <p><strong>Address:</strong><%= mission.address %></p>
+                  <ul class="list-group list-group-flush">
+                     <li class="list-group-item"><i class="far fa-clock"></i> <%=mission.duration = rand(1..5) %> hours per day - <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe%> </li>
+                     <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <%= mission.location %></li>
+                     <%# <li class="list-group-item"><strong>Address:</strong> <%= mission.address %>
+                     <li class="list-group-item"><i class="fas fa-calendar-alt"></i> <%= mission.start_date.strftime('%d/%m/%Y') %> - <%= mission.end_date.strftime('%d/%m/%Y') %></li>
+                     <li class="list-group-item"><i class="fas fa-star"></i> <%= mission.rating %></li>
+                     <li class="list-group-item"><i class="fas fa-trophy"></i> <%= mission.reward %> points</li>
+                  </ul>
+                  <%= link_to "Book your mission",  new_mission_booking_path(mission), class: "btn btn-primary" %>
+               </div>
 
-                <p class="card-text"><% start_date = Date.today + rand(30) %></p>
-                <p class="card-text"><% end_date = [start_date + rand(4), Date.today + 30].min %></p>
-                <p class="card-text"><strong>Date:</strong> <%= start_date.strftime('%d/%m/%Y') %> - <%= end_date.strftime('%d/%m/%Y') %></p>
-                <p class="card-text"><strong>Time:</strong> <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe %></p>
-                <p class="card-text"><strong>Duration:</strong> <%=mission.duration = rand(1..5) %> hours per day</p>
-                <p class="card-text"><strong>Dess code:</strong> <%= mission.dess_code %></p>
-                <p class="card-text"><strong>Reward:</strong> <%= mission.reward %> points</p>
-                <p class="card-text"><strong>Rating:</strong> <%= mission.rating %></p>
-                <%= link_to "Check this mission",   mission_path(mission) %>
-
-
-            <%= link_to "Book your mission",  new_mission_booking_path(mission) %>
-              </div>
             </div>
-            <% end %>
-        </div>
+         <% end %>
       </div>
+   </div>
 </div>
 
 
