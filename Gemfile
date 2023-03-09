@@ -83,3 +83,4 @@ gem "pundit"
 gem "httparty"
 #pour api
 gem 'faker', '~> 2.18', '>= 2.18.4'
+gem "geocoder"
