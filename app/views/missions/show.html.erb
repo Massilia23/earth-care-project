@@ -10,7 +10,9 @@
 <p>You will receive: <%= @mission.reward %> points</p>
 
 
+
 <p><% if current_user != @mission.user  %>
+
 
     <%= simple_form_for [@mission, @booking] do |f| %>
     <p> Feel Free To accept your mission !</p>

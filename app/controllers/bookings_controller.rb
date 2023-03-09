@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
     @mission = Mission.find(params[:mission_id])
 
     @booking.mission = @mission
-
   end
 
   def show

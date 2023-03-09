@@ -8,51 +8,6 @@
 @import "calendar";
 
 
-.card-bunker {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  display: flex; // modif flo
-  flex-direction: row // modif flo
-  }
-
-  .titre-show{
-    margin-top: 30px; // modif flor
-    font-family: cursive; // modif flor
-  }
-
-  .description { // modif flo
-    display: flex;
-    flex-direction: row;
-    align-self: auto
-  }
-  .card-bunker {
-    border: none;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
-  }
-
-  .card-bunker .card-img-top {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-
-  .card-bunker .card-body {
-    padding: 20px;
-  }
-
-  .card-bunker .card-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .card-bunker .card-text {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-
-
-
   .btn-primary {
     background: rgb(89.8, 68.2, 0);
     background: linear-gradient(0deg, rgb(89.8, 68.2, 0) 0%, rgb(89.8, 68.2, 0) 100%);
@@ -68,7 +23,6 @@
     // background-color: #ff4449;
     // border-color: #ff4449;
   }
-
 
   .btn-secondary {
     background-color: #A9A9A9;  // background-color: #484848;
@@ -92,15 +46,14 @@
     background: linear-gradient(0deg, rgb(238,232,170) 0%, rgb(238,232,170) 100%);
   }
 
-
-  .img_show {
-    width: 100%;
-    height: 307px;
-  }
-
-  body {
-    background-image: url('etoile.jpg');
+  .index-bg {
+    background-image: url('tree.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .col-md-4.mb-4 {
+    margin-bottom: 20px;
   }
