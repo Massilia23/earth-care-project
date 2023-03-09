@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "/profile", to: "pages#profile"
-end
+  get "/calendar", to: "pages#calendar"
 
+  resources :calendars, only: :index
+end
