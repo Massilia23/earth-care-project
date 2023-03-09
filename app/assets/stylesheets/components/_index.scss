@@ -8,6 +8,100 @@
 @import "calendar";
 
 
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Monserrat, Helveticat;
+  background: url("Banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+}
+
+.container{
+  max-width: 1400px;
+  margin: 100 auto 0;
+  padding: 100px 20px 0;
+}
+
+
+p{
+  font-weight: bolder;
+  text-transform: uppercase;
+  color:#222;
+  color: transparent;
+  font-size: 0px;;
+}
+p span {
+  display:inline-block;
+  position: relative;
+  overflow: hidden;
+  font-size: clamp(20px, 8vw, 100px);
+}
+
+p span::after{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+
+
+}
+
+p:nth-child(1) {
+  font-weight: 300;
+  animation: txt-appearance 0s 1s
+  forwards;
+}
+
+p:nth-child(2) {
+  animation: txt-appearance 0s 1.50s
+  forwards;
+}
+
+p:nth-child(1) span::after{
+  background: green;
+  animation: slide-in 0.75s ease-out forwards,
+  slide-out 0.75s ease-out forwards;
+}
+
+p:nth-child(2) span::after{
+  background: royalblue;
+  animation: slide-in 0.75s 0.3s ease-out forwards,
+  slide-out 0.75s 1.3s ease-out forwards;
+
+}
+
+ @keyframes slide-in{
+    100%{
+     transform: translateX(0%);
+    }
+ }
+
+ @keyframes slide-out{
+  100%{
+   transform: translateX(100%);
+  }
+}
+
+@keyframes txt-appearance{
+  100%{
+   color: whitesmoke;
+  }
+}
+
+
+
+
   .btn-primary {
     background: rgb(89.8, 68.2, 0);
     background: linear-gradient(0deg, rgb(89.8, 68.2, 0) 0%, rgb(89.8, 68.2, 0) 100%);
