@@ -12,6 +12,10 @@ Mission.destroy_all
 User.destroy_all
 
 user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "amel", last_name: "amelou")
+user2 = User.create!(email: "najib@gmail.com", password: "qwerty", first_name: "najib", last_name: "amelou")
+user3 = User.create!(email: "yannis@gmail.com", password: "frerot", first_name: "yannis", last_name: "amelou")
+user4 = User.create!(email: "lila@gmail.com", password: "tatata", first_name: "lila", last_name: "amelou")
+
 
 puts "mission created"
 20.times do |i|
