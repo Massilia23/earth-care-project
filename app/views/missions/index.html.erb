@@ -1,7 +1,8 @@
-<h1>Missions</h1>
 
-<strong><p> Hello to all concerned and conscious people !</p> </strong>
-<%= link_to "New mission", new_mission_path %>
+    <h1> <strong> Earth care </strong> </h1>
+
+
+    <p>The More You Care The More You Win.</p>
 
 <% content_for :scripts do %>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
@@ -47,10 +48,14 @@ result renvoyé dans le callback qui prend 2 args (status et results)
 si status ok, on créer un marker  pour ajouter un marqueur sur la carte à l'emplacement de la missio
 InfoWindow de Google Maps qui est utilisé pour afficher des informations supplémentaires sur la mission lorsque l'utilisateur clique sur le marque %>
 
-<% @missions.each do |mission| %>
-  <div class="mission">
 
-    <%= image_tag mission.photo_url %>
+  </div>
+
+
+
+<h1>Missions</h1>
+
+<%= link_to "New mission", new_mission_path %>
 
     <h3><%= mission.title %></h3>
     <p><%= mission.description %></p>
@@ -67,12 +72,52 @@ InfoWindow de Google Maps qui est utilisé pour afficher des informations suppl�
     <p><strong>Rating:</strong> <%= mission.rating %></p>
     <%= link_to "Book your mission",  new_mission_booking_path(mission) %>
 
-  </div>
-<% end %>
+
+
+
+<strong><h1 class = "titre-homepage text-center mt-4 w-100 p-3" > Hello to all concerned and conscious people !</h1></strong>
+<div class="banner">
+   <div class="background-overlay">
+    <%# <img src="app/assets/images/Banner.png" alt="ban" class="banner" > %>
+   </div>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3">
+
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                <% @missions.each do |mission| %>
+
+                <h5 class="card-title"><%= mission.title %></h5>
+                <%= image_tag mission.photo_url %>
+                <br>
+                <h5 class="card-text"><%= mission.description %></h5>
+                <p class="card-text"><strong>Location:</strong> <%= mission.location %></p>
+
+                <p class="card-text"><% start_date = Date.today + rand(30) %></p>
+                <p class="card-text"><% end_date = [start_date + rand(4), Date.today + 30].min %></p>
+                <p class="card-text"><strong>Date:</strong> <%= start_date.strftime('%d/%m/%Y') %> - <%= end_date.strftime('%d/%m/%Y') %></p>
+                <p class="card-text"><strong>Time:</strong> <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe %></p>
+                <p class="card-text"><strong>Duration:</strong> <%=mission.duration = rand(1..5) %> hours per day</p>
+                <p class="card-text"><strong>Dess code:</strong> <%= mission.dess_code %></p>
+                <p class="card-text"><strong>Reward:</strong> <%= mission.reward %> points</p>
+                <p class="card-text"><strong>Rating:</strong> <%= mission.rating %></p>
+
+            <%= link_to "Book your mission",  new_mission_booking_path(mission) %>
+              </div>
+            </div>
+            <% end %>
+        </div>
+      </div>
+</div>
+
+
+
+  <%# <%= link_to "CHECK THE MISSION", mission_path(mission) %>
 
 
   <%# <%= link_to "CHECK THE MISSION", mission_path(mission) %>
 
 
 <%# pk.eyJ1IjoidGhlb2JvbmRheiIsImEiOiJjazc0anVmMjUwOHZ0M2VwYTRlcGs2dnZjIn0.byLisvWA9__hIZ5FBFybNw %>
+
 

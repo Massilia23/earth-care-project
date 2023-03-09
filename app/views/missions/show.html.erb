@@ -1,13 +1,15 @@
 <h1><%= @mission.title %></h1>
+<h1><%= @mission.photo_url %></h1>
 
-<p><%= @mission.description %></p>
 
-<p>Start date : <%= @mission.start_date %></p>
-<p>End date : <%= @mission.end_date %></p>
-<p>Location: <%= @mission.location %></p>
-<p>Reward: <%= @mission.reward %> points</p>
+<p>Your mission will be<%= @mission.description %></p>
+
+<p>Your mission will start  : <%= @mission.start_date %></p>
+<p>Your mission will end : <%= @mission.end_date %></p>
+<p>it's Located in : <%= @mission.location %></p>
+<p>You will receive: <%= @mission.reward %> points</p>
   <p><% if current_user == @mission.user  %>
-    <%= link_to "Book this bunker", new_mission_booking_path(@mission)%>
+    <%= link_to "Book this mission", new_mission_booking_path(@mission)%>
     <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn"  %>
     <%= link_to "Delete your mission", mission_path(@mission), method: :delete, data: { confirm: "Are you sure?" } %>
     <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>

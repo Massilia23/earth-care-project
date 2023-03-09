@@ -5,5 +5,10 @@
             <%= f.date_field :end_date%>
 
                 <div class="form-actions text-center">
-                  <%= f.submit "Submit booking ", class: "btn btn primary" %>
-<% end %>
+
+
+                <%= link_to "Book your mission ", profile_path%>
+         <% end %>
+                </div>
+
+      <%= link_to "< Back to missions", missions_path, class: "btn btn primary"%>
