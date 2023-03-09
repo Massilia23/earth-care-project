@@ -3,6 +3,49 @@
 <strong><p> Hello to all concerned and conscious people !</p> </strong>
 <%= link_to "New mission", new_mission_path %>
 
+<% content_for :scripts do %>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+  <script>
+    const mapboxToken = 'pk.eyJ1IjoibWFyaWVsbGV0YXlyaSIsImEiOiJjbGYwdnpoZWEwMmt0M3pwbjA1czRydHFkIn0.onllMdPD3t7d-iGI91qE7Q';
+    mapboxgl.accessToken = mapboxToken;
+
+    const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [2.3522, 48.8566],
+    zoom: 12,
+    });
+    <% @missions.each do |mission| %>
+    const geocoder = new MapboxGeocoder({
+    accessToken: mapboxToken,
+    mapboxgl: mapboxgl,
+  });
+    geocoder.setQuery('<%= mission.address %>');
+    geocoder.on('result', function(result) {
+    const marker = new mapboxgl.Marker()
+      .setLngLat(result.result.geometry.coordinates)
+      .addTo(map);
+    const popup = new mapboxgl.Popup()
+    .setHTML(`<h4><%= mission.title %></h4><p><%= mission.description %></p><p><strong>Address:</strong> <%= mission.address %></p>`);
+    marker.setPopup(popup);
+  });
+  map.addControl(geocoder);
+  <% end %>
+
+  </script>
+<% end %>
+
+<div id="map" style="height: 400px;"></div>
+
+<% content_for :scripts do %>
+  <script async defer src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+<% end %>
+
+<%# ité sur tte les missions. pr chaque mission, objet geocoder utulusé pr géocod l'adresse de la mission.
+on utilise adresse de la mission stockée dans mission.adress.
+result renvoyé dans le callback qui prend 2 args (status et results)
+si status ok, on créer un marker  pour ajouter un marqueur sur la carte à l'emplacement de la missio
+InfoWindow de Google Maps qui est utilisé pour afficher des informations supplémentaires sur la mission lorsque l'utilisateur clique sur le marque %>
 
 <% @missions.each do |mission| %>
   <div class="mission">
@@ -11,7 +54,8 @@
 
     <h3><%= mission.title %></h3>
     <p><%= mission.description %></p>
-    <p><strong>Location:</strong> <%= mission.location %></p>
+    <p><strong>Location:</strong><%= mission.location %></p>
+    <p><strong>Address:</strong><%= mission.address %></p>
 
     <% start_date = Date.today + rand(30) %>
     <% end_date = [start_date + rand(4), Date.today + 30].min %>
@@ -21,9 +65,14 @@
     <p><strong>Dess code:</strong> <%= mission.dess_code %></p>
     <p><strong>Reward:</strong> <%= mission.reward %> points</p>
     <p><strong>Rating:</strong> <%= mission.rating %></p>
+    <%= link_to "Book your mission",  new_mission_booking_path(mission) %>
 
   </div>
 <% end %>
 
 
   <%# <%= link_to "CHECK THE MISSION", mission_path(mission) %>
+
+
+<%# pk.eyJ1IjoidGhlb2JvbmRheiIsImEiOiJjazc0anVmMjUwOHZ0M2VwYTRlcGs2dnZjIn0.byLisvWA9__hIZ5FBFybNw %>
+
