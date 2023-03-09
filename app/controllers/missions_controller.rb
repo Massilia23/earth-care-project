@@ -1,6 +1,7 @@
 class MissionsController < ApplicationController
   before_action :set_mission, only: %i[show edit update destroy]
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: %i[index]
 
   def index
     @missions = Mission.all
