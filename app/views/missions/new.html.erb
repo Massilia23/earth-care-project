@@ -1,5 +1,7 @@
 <body class="body-form">
 	<!-- main -->
+
+<%= if current_user = mission.user %>
 	<div class="main-w3layouts wrapper">
 		<h1 class="title-form">NEW MISSION</h1>
     <%= simple_form_for(@mission) do |f| %>
@@ -26,7 +28,7 @@
               <div class="clear"> </div>
             </div>
             <br>
-            <%= link_to "Create mission", profile_path, class: "link-to-create"%>
+            <%= link_to "Create mission", profile_path, data: {turbo_method: :get, turbo_confirm: "CONGRATS you're mission is post!" }, class: "btn btn-dark btn-lg btn-block "%>
     <% end %>
       </div>
 
@@ -52,4 +54,5 @@
 		</ul>
 	</div>
 	<!-- //main -->
+  <% end %>
 </body-form>

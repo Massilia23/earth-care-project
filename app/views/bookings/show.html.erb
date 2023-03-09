@@ -9,14 +9,14 @@
                           <%= image_tag mission.photo_url, class: "mission-image" %>
                       <% end %>
 
-                      <p><% if current_user == @mission.user  %>
+                  <p><% if current_user == @mission.user  %>
                         <%= link_to "Delete your current mission", mission_path(@mission), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
 
                         <%= link_to "Edit your offer", edit_mission_path(@mission.id), class: "btn btn-primary" %>
 
                         <%# ajouter le lien de HOME ds la navbar %>
 
-                        <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn btn-secondary" %>
+                        <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn btn-secondary"%>
 
                         <%# <%= link_to custom_url(:mission_id => @mission.id), class: "course-btn" do %>
-                      <% end %>
+                  <% end %>

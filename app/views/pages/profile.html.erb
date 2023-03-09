@@ -1,3 +1,9 @@
+<% if user_signed_in? %>
+
+
+
+
+
 <h1 class="text-center mt-3 mb-5"> Your Dashboard !</h1>
 
 
@@ -58,7 +64,7 @@
   <%=  mission.end_date %>
   <% end %>
 
-<% end %>
+
 <div class="footer calendar">
   <%= link_to missions_path do %>
     <i class="fas fa-home"></i>
