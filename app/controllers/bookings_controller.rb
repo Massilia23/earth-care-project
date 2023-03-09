@@ -4,9 +4,10 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @mission = Mission.find(params[:mission_id])
 
     @booking.mission = @mission
-    
+
   end
 
   def show
