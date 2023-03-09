@@ -12,15 +12,8 @@ si status ok, on créer un marker  pour ajouter un marqueur sur la carte à l'em
 InfoWindow de Google Maps qui est utilisé pour afficher des informations supplémentaires sur la mission lorsque l'utilisateur clique sur le marque %>
 
 
-<h1>Missions</h1>
-
-
-
-<div class="banner">
-   <div class="background-overlay">
-      <%# <%= image_tag "background-image.jpg" %>
-   </div>
-
+<div class="index-bg">
+  <h1>Missions</h1>
    <div class="container">
       <p class="titre-homepage text-center mt-4 w-100 p-3">Hello to all concerned and conscious people!</p>
       <div class="row row-cols-1 row-cols-md-3">
@@ -30,7 +23,7 @@ InfoWindow de Google Maps qui est utilisé pour afficher des informations suppl�
                   <%= image_tag mission.photo_url, class: "card-img-top" %>
                   <div class="card-body">
                      <h5 class="card-title"><%= mission.title %></h5>
-                     <p class="card-text"><%= mission.description %></p>
+                  <p class="card-text"><%= mission.description.truncate(20, omission: '...').html_safe %></p>
                   </div>
                   <ul class="list-group list-group-flush">
                      <li class="list-group-item"><i class="far fa-clock"></i> <%=mission.duration = rand(1..5) %> hours per day - <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe%> </li>
@@ -49,6 +42,26 @@ InfoWindow de Google Maps qui est utilisé pour afficher des informations suppl�
       </div>
    </div>
 </div>
+
+<script>
+document.querySelectorAll('.card-text').forEach((cardText) => {
+  let fullText = cardText.innerHTML;
+  let truncatedText = fullText.substring(0, 20) + '...';
+  let isTruncated = true;
+
+  cardText.innerHTML = truncatedText;
+
+  cardText.addEventListener('click', () => {
+    if (isTruncated) {
+      cardText.innerHTML = fullText;
+      isTruncated = false;
+    } else {
+      cardText.innerHTML = truncatedText;
+      isTruncated = true;
+    }
+  });
+});
+</script>
 
 
 
