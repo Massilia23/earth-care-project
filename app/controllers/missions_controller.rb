@@ -15,6 +15,8 @@ class MissionsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @declined_booking = DeclinedBooking.new
   end
 
   def new
@@ -23,6 +25,7 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
+
 
     @mission.user = current_user
     if @mission.save

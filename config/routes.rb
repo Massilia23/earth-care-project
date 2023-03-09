@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :missions do
     resources :bookings, only: %i[show new create edit update destroy]
+    resources :declined_bookings, only: %i[create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # resources :vouchers
