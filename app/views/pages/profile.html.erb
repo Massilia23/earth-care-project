@@ -1,4 +1,3 @@
-
 <h1 class="text-center mt-3 mb-5"> Your Dashboard !</h1>
 
 
@@ -50,7 +49,16 @@
 </div>
 
 
+  <% @missions.each do |mission| %>
+  <%= mission.user.first_name %> <%= mission.user.last_name %>
+  <%=  mission.title %>
+  <%=  mission.photo_url %>
+  <%=  mission.description %>
+  <%=  mission.start_date %>
+  <%=  mission.end_date %>
+  <% end %>
 
+<% end %>
 <div class="footer calendar">
   <%= link_to missions_path do %>
     <i class="fas fa-home"></i>
