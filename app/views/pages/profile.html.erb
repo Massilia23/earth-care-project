@@ -1,6 +1,53 @@
-<%= if current_user == mission.user %>
+<h1 class="text-center mt-3 mb-5"> Your Dashboard !</h1>
 
-  <h1> Hello it's le profile !</h1>
+
+<br>
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-body text-center background-card-profile">
+        <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
+        - <%= current_user.email.capitalize %>
+      </div>
+    </div>
+    <br>
+    <div class="green-line"></div>
+
+    <% @missions.each do |mission| %>
+    <br>
+    <%=  mission.title %>
+    <%=  mission.photo_url %>
+    <%=  mission.description %>
+    <%=  mission.start_date %>
+    <%=  mission.end_date %>
+
+    <% end %>
+
+  <div class="container-booking">
+      <div class="header-profile">
+        <h1>Bookings Dashboard</h1>
+      </div>
+      <div class="bookings">
+        <% @missions.each do |mission| %>
+          <div class="booking-list">
+            <div class="booking">
+              <div class="booking-info">
+                <div class="booking-time"><%= mission.start_time %></div>
+                <div class="booking-location"><%= mission.location %></div>
+              </div>
+              <div class="booking-status">Confirmed</div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
 
   <% @missions.each do |mission| %>
   <%= mission.user.first_name %> <%= mission.user.last_name %>
