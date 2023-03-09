@@ -6,17 +6,35 @@
 
 <p>Your mission will start  : <%= @mission.start_date %></p>
 <p>Your mission will end : <%= @mission.end_date %></p>
-<p>it's Located in : <%= @mission.location %></p>
+<p>It's Located in : <%= @mission.location %></p>
 <p>You will receive: <%= @mission.reward %> points</p>
 
- <%= form_for @mission do |f| %>
- <p> Feel Free To accept your mission ! <%= f.check_box :accept %></p>
+<%= form_for @mission do |f| %>
+<p> Feel Free To accept your mission !</p>
+ <%# <%= f.check_box :accept, required: true %>
 
-  <!-- form_for @object, html: { multipart: true }, do |f| -->
-  <!-- form_for @object, html: { class: "classname" }, do |f| -->
+  <%= f.label :accept do %>
+    <span class= "btn btn success">
+       <%= link_to 'Accept', new_mission_booking_path(@mission) %>
+    </span>
+    <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+       <span><strong>Yay!</strong> 🎉 Congrats you're in </span>
+      <a data-bs-dismiss="alert" aria-label="Close">
+       <i class="fas fa-times"></i>
+      </a>
+    </div>
+  <% end %>
+
+  <%= f.label :refuse do %>
+    <span class="btn btn danger">
+      <%= link_to 'Decline',  root_path(@mission) %></a>
+    </span>
+  <% end %>
 
 
- <% end %>
+
+
+<% end %>
 
 
   <p><% if current_user == @mission.user  %>
