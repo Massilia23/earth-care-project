@@ -1,4 +1,4 @@
-<%# <%= if current_user == mission.user %>
+<% if user_signed_in? %>
 
   <h1 class="text-center mt-3 mb-5"> Your Dashboard !</h1>
 
@@ -56,9 +56,11 @@
       <i class="fas fa-home"></i>
     <% end %>
 
+
     <%= link_to calendars_path do %>
       <i class="fa-solid fa-calendar"></i>
     <% end %>
+
 
     <%= link_to missions_path do %>
       <i class="fa-solid fa-wallet"></i>

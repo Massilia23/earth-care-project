@@ -1,6 +1,9 @@
 <h2 class = "text-center fw-1 fs-1 m-5">Welcome ! Time To Book Your Mission </h2>
+<%# <%= current_user.first_name %>
+<%# <%= @mission.user.first_name %> 
+      <% if current_user != @mission.user %>
 
-          <%= simple_form_for [@mission, @booking] do |f| %>
+          <% simple_form_for [@mission, @booking] do |f| %>
             <% if @mission.end_date.mjd - @mission.start_date.mjd > 1 %>
               <%= f.date_field :start_date %>
               <%= f.date_field :end_date%>
@@ -8,12 +11,10 @@
               <%= start_date.mission %>
             <% end %>
 
-
-                <div class="form-actions text-center">
-
-
                 <%= link_to "Book your mission ", profile_path%>
-         <% end %>
+          <% end %>
                 </div>
 
       <%= link_to "< Back to missions", missions_path, class: "btn btn primary"%>
+
+    <% end %>

@@ -93,9 +93,14 @@
   }
 
 
-
-
   .img_show {
     width: 100%;
     height: 307px;
+  }
+
+  body {
+    background-image: url('etoile.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
