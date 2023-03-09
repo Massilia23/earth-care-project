@@ -1,16 +1,17 @@
-<h1> Hello it's le profile !</h1>
+<%= if current_user == mission.user %>
 
-<% @missions.each do |mission| %>
-<%= mission.user.first_name %> <%= mission.user.last_name %>
-<%=  mission.title %>
-<%=  mission.photo_url %>
-<%=  mission.description %>
-<%=  mission.start_date %>
-<%=  mission.end_date %>
+  <h1> Hello it's le profile !</h1>
+
+  <% @missions.each do |mission| %>
+  <%= mission.user.first_name %> <%= mission.user.last_name %>
+  <%=  mission.title %>
+  <%=  mission.photo_url %>
+  <%=  mission.description %>
+  <%=  mission.start_date %>
+  <%=  mission.end_date %>
+  <% end %>
 
 <% end %>
-
-
 <div class="footer calendar">
   <%= link_to missions_path do %>
     <i class="fas fa-home"></i>

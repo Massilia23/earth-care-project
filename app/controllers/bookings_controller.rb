@@ -4,6 +4,9 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+
+    @booking.mission = @mission
+    
   end
 
   def show

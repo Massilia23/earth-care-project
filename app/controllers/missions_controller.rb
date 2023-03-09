@@ -1,15 +1,16 @@
 class MissionsController < ApplicationController
   before_action :set_mission, only: %i[show edit update destroy]
+  # before_action :authenticate_user!
 
   def index
     @missions = Mission.all
-    @markers = @missions.geocoded.map do |mission|
-      {
-        lat: mission.latitude,
-        lng: mission.longitudemissi
-      }
-    end
-    #geocodage en cours ici -myriam
+    # @markers = @missions.geocoded.map do |mission|
+    #   {
+    #     lat: mission.latitude,
+    #     lng: mission.longitudemissi
+    #   }
+    # end
+    # #geocodage en cours ici -myriam
   end
 
   def show

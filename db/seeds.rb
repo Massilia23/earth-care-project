@@ -7,8 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+Booking.destroy_all
 Mission.destroy_all
 User.destroy_all
+
 user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "amel", last_name: "amelou")
 
 puts "mission created"
