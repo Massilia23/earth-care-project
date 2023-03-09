@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: %i[home profile]
+  skip_before_action :authenticate_user!, only: %i[home]
   def home
     @missions = Mission.all
+
   end
 
   def profile
