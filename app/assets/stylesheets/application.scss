@@ -20,14 +20,4 @@ body a {
   color: black;
 }
 
-.container {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-.container > * {
-  transform: translateZ(40px);
-  transition: transform 0.3s ease-out;
-}
-.container:hover > * {
-  transform: translateZ(60px);
-}
+
