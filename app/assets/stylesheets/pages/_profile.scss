@@ -1,0 +1,77 @@
+.green-line {
+  height: 2px;
+  background-color: green;
+  width: 100%;
+}
+
+
+.background-card-profile {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(254,188,57,1) 0%, rgba(184,246,164,1) 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.container-booking {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-profile h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+.bookings {
+  margin-bottom: 20px;
+}
+
+.booking-list {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.booking {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.booking-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-time {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.booking-location {
+  font-size: 16px;
+  color: #666;
+}
+
+.booking-status {
+  font-size: 16px;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+}

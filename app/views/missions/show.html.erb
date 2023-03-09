@@ -8,6 +8,17 @@
 <p>Your mission will end : <%= @mission.end_date %></p>
 <p>it's Located in : <%= @mission.location %></p>
 <p>You will receive: <%= @mission.reward %> points</p>
+
+ <%= form_for @mission do |f| %>
+ <p> Feel Free To accept your mission ! <%= f.check_box :accept %></p>
+
+  <!-- form_for @object, html: { multipart: true }, do |f| -->
+  <!-- form_for @object, html: { class: "classname" }, do |f| -->
+
+
+ <% end %>
+
+
   <p><% if current_user == @mission.user  %>
     <%= link_to "Book this mission", new_mission_booking_path(@mission)%>
     <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn"  %>

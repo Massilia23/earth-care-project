@@ -4,43 +4,6 @@
 
     <p>The More You Care The More You Win.</p>
 
-<% content_for :scripts do %>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-  <script>
-    const mapboxToken = 'pk.eyJ1IjoibWFyaWVsbGV0YXlyaSIsImEiOiJjbGYwdnpoZWEwMmt0M3pwbjA1czRydHFkIn0.onllMdPD3t7d-iGI91qE7Q';
-    mapboxgl.accessToken = mapboxToken;
-
-    const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [2.3522, 48.8566],
-    zoom: 12,
-    });
-    <% @missions.each do |mission| %>
-    const geocoder = new MapboxGeocoder({
-    accessToken: mapboxToken,
-    mapboxgl: mapboxgl,
-  });
-    geocoder.setQuery('<%= mission.address %>');
-    geocoder.on('result', function(result) {
-    const marker = new mapboxgl.Marker()
-      .setLngLat(result.result.geometry.coordinates)
-      .addTo(map);
-    const popup = new mapboxgl.Popup()
-    .setHTML(`<h4><%= mission.title %></h4><p><%= mission.description %></p><p><strong>Address:</strong> <%= mission.address %></p>`);
-    marker.setPopup(popup);
-  });
-  map.addControl(geocoder);
-  <% end %>
-
-  </script>
-<% end %>
-
-<div id="map" style="height: 400px;"></div>
-
-<% content_for :scripts do %>
-  <script async defer src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
-<% end %>
 
 <%# ité sur tte les missions. pr chaque mission, objet geocoder utulusé pr géocod l'adresse de la mission.
 on utilise adresse de la mission stockée dans mission.adress.
@@ -48,7 +11,6 @@ result renvoyé dans le callback qui prend 2 args (status et results)
 si status ok, on créer un marker  pour ajouter un marqueur sur la carte à l'emplacement de la missio
 InfoWindow de Google Maps qui est utilisé pour afficher des informations supplémentaires sur la mission lorsque l'utilisateur clique sur le marque %>
 
-  </div>
 
 <h1>Missions</h1>
 
@@ -58,6 +20,7 @@ InfoWindow de Google Maps qui est utilisé pour afficher des informations suppl�
    <div class="background-overlay">
       <%# <%= image_tag "background-image.jpg" %>
    </div>
+
    <div class="container">
       <p class="titre-homepage text-center mt-4 w-100 p-3">Hello to all concerned and conscious people!</p>
       <div class="row row-cols-1 row-cols-md-3">
@@ -81,6 +44,7 @@ InfoWindow de Google Maps qui est utilisé pour afficher des informations suppl�
                   </ul>
                   <%= link_to "Book your mission",  new_mission_booking_path(mission), class: "btn btn-primary" %>
                </div>
+
             </div>
          <% end %>
       </div>
