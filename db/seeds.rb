@@ -27,6 +27,7 @@ puts "mission created"
     completed: Faker::Boolean.boolean,
     personal_choice: Faker::Boolean.boolean,
     user: user1,
+    address: Faker::Address.street_address + ', ' + Faker::Address.postcode + ' ' + Faker::Address.city + ', France',
     photo_url: Faker::LoremFlickr.image(size: "300x200", search_terms: ['nature', i])
   )
 end

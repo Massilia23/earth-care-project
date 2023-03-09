@@ -3,6 +3,13 @@ class MissionsController < ApplicationController
 
   def index
     @missions = Mission.all
+    @markers = @missions.geocoded.map do |mission|
+      {
+        lat: mission.latitude,
+        lng: mission.longitudemissi
+      }
+    end
+    #geocodage en cours ici -myriam
   end
 
   def show
