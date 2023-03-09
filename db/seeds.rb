@@ -8,6 +8,7 @@
 
 require 'faker'
 Booking.destroy_all
+DeclinedBooking.destroy_all
 Mission.destroy_all
 User.destroy_all
 
