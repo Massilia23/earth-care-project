@@ -9,31 +9,37 @@
 <p>It's Located in : <%= @mission.location %></p>
 <p>You will receive: <%= @mission.reward %> points</p>
 
-<%= form_for @mission do |f| %>
-<p> Feel Free To accept your mission !</p>
- <%# <%= f.check_box :accept, required: true %>
 
-  <%= f.label :accept do %>
-    <span class= "btn btn success">
-       <%= link_to 'Accept', new_mission_booking_path(@mission) %>
-    </span>
+<p><% if current_user != @mission.user  %>
 
-  <% end %>
+    <%= simple_form_for [@mission, @booking] do |f| %>
+    <p> Feel Free To accept your mission !</p>
+     <%# <%= f.check_box :accept, required: true %>
+     <%= f.submit "Accept" %>
 
-  <%= f.label :refuse do %>
-    <span class="btn btn danger">
-      <%= link_to 'Decline',  root_path(@mission) %></a>
-    </span>
-  <% end %>
+      <%= f.label :accept do %>
+        <span class= "btn btn-success">
+           <%= link_to 'Accept',  new_mission_booking_path(@mission) %>
+           <%# ajouter une confirmation %>
+        </span>
+
+      <% end %>
+
+    <% end %>
+
+    <%= simple_form_for [@mission, @declined_booking] do |f| %>
+    <p> Feel Free To accept your mission !</p>
+     <%# <%= f.check_box :accept, required: true %>
+     <%= f.submit "Decline" %>
 
 
-
+    <% end %>
 
 <% end %>
 
 
   <p><% if current_user == @mission.user  %>
-    <%= link_to "Book this mission", new_mission_booking_path(@mission)%>
+
     <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn"  %>
     <%= link_to "Delete your mission", mission_path(@mission), method: :delete, data: { confirm: "Are you sure?" } %>
     <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>

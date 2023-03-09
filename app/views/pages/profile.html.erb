@@ -7,7 +7,8 @@
   <div class="container mt-5">
       <div class="card">
         <div class="card-body text-center background-card-profile">
-          <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
+          <%# <%= current_user.first_name.capitalize %>
+          <%# <%= current_user.last_name.capitalize %> 
           - <%= current_user.email.capitalize %>
         </div>
       </div>
@@ -46,8 +47,18 @@
       </div>
     </div>
 
+    <%= current_user.bookings.last.mission.accept  %>
 
 
+ <% @bookings.each do |booking, mission| %>
+      <br>
+      <%= booking.mission.title %>
+      <%= booking.mission.photo_url %>
+      <%= booking.mission.description %>
+      <%= booking.mission.start_date %>
+      <%= booking.mission.end_date %>
+
+  <% end %>
 
   </div>
 
@@ -71,4 +82,4 @@
     <% end %>
   </div>
 
-<%# <% end %>
+ <% end %>
