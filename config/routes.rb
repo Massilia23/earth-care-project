@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root to: "missions#index"
 
   resources :missions do
-    resources :bookings, only: %i[show new create edit update destroy]
+    resources :bookings, only: %i[new create]
     resources :declined_bookings, only: %i[create]
   end
+  resources :bookings, only: %i[show edit update destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # resources :vouchers
   # Defines the root path route ("/")
