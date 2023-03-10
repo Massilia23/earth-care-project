@@ -1,12 +1,12 @@
 .green-line {
   height: 2px;
-  background-color: green;
+  background-color: #EA9010;
   width: 100%;
 }
 
 
 .background-card-profile {
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(254,188,57,1) 0%, rgba(184,246,164,1) 100%);
+  background: linear-gradient(to right top, #DBF9F0, #F6F7EB, #EAEFBD);;
 }
 
 * {
@@ -34,8 +34,9 @@
 }
 
 .header-profile h1 {
-  font-size: 32px;
+  font-size: 30px;
   color: #333;
+  font-family: 'Lobster', cursive;
 }
 
 .bookings {
@@ -48,6 +49,10 @@
   overflow: hidden;
 }
 
+.img-booking {
+  border-radius: 5px;
+}
+
 .booking {
   display: flex;
   justify-content: space-between;
@@ -56,11 +61,14 @@
   border-bottom: 1px solid #ccc;
   width: 100%;
     overflow: scroll;
+  border: 1px solid #90BE6D;
 }
 
 .booking-info {
   display: flex;
   flex-direction: column;
+  border-radius: 20%;
+
 }
 
 .booking-time {
@@ -76,7 +84,7 @@
 
 .booking-status {
   font-size: 16px;
-  color: #333;
+  color: green;
   text-transform: uppercase;
   font-weight: bold;
 }
