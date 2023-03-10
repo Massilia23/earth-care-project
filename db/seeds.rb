@@ -20,6 +20,8 @@ user3 = User.create!(email: "yannis@gmail.com", password: "frerot", first_name: 
 user3.save!
 user4 = User.create!(email: "lila@gmail.com", password: "tatata", first_name: "lila", last_name: "amelou")
 user4.save!
+user5 = User.create!(email: "farid@gmail.com", password: "tatata", first_name: "farid", last_name: "amelou")
+user5.save!
 
 puts "mission created"
 20.times do |i|
