@@ -32,21 +32,31 @@
 
 <p><% if current_user != @mission.user  %>
 
+
     <%= simple_form_for [@mission, @booking] do |f| %>
     <p> Feel Free To accept your mission !</p>
      <%# <%= f.check_box :accept, required: true %>
-     <%= f.submit "Accept", class: "btn btn-success" %>
+     <%= f.submit "Accept" %>
+
+      <%= f.label :accept do %>
+        <span class= "btn btn-success">
+           <%= link_to 'Accept',  new_mission_booking_path(@mission) %>
+           <%# ajouter une confirmation %>
+        </span>
+
+      <% end %>
+
     <% end %>
 
     <%= simple_form_for [@mission, @declined_booking] do |f| %>
+    <p> Feel Free To accept your mission !</p>
+     <%# <%= f.check_box :accept, required: true %>
+     <%= f.submit "Decline" %>
 
-     <%= f.submit "Decline", class: "btn btn-warning"%>
+
     <% end %>
 
 <% end %>
-
-
-   
 
 
   <p><% if current_user == @mission.user  %>
