@@ -52,7 +52,9 @@
          <% @missions.each do |mission| %>
             <div class="col-md-4 mb-5 mt-4 ml-4 mr-4">
                <div class="card h-100">
+               <% if mission.photo_url %>
                   <%= image_tag mission.photo_url, class: "card-img-top mb-1" %>
+                <% end %>
                   <div class="card-body">
                      <p class="card-title"><%= mission.title %></p>
                   <p class="card-text"><%= mission.description.truncate(60, omission: '...').html_safe %></p>
