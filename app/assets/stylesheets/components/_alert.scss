@@ -11,6 +11,7 @@
 
 .flash-success {
   border: 2px solid #1EDD88;
+
 }
 
 .flash-warning {
@@ -19,4 +20,14 @@
 
 .flash-danger {
   border: 2px solid #FD1015;
+}
+
+.btn-success {
+  border-radius: 10px;
+  background: #9ce88e;
+}
+
+.btn-warning {
+  border-radius: 10px;
+  background: #f48082;
 }
