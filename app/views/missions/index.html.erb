@@ -4,8 +4,8 @@
 <div class="index-bg">
 
 
-   <%# <h1> <strong> Earth care </strong> </h1>
-    <p>The More You Care The More You Win.</p>
+ 
+
   <h1 class="text-center text-white">Missions</h1> %>
 
 
@@ -49,24 +49,25 @@
 
     <script src="app.js"></script> %>
 
+
+
    <div class="container">
       <h2 class="titre-homepage text-center  w-100 p-3 text-white">Hello to all concerned and conscious people!</h2>
       <div class="row row-cols-1 row-cols-md-3">
          <% @missions.each do |mission| %>
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-5 mt-4 ml-4 mr-4">
                <div class="card h-100">
-                  <%= image_tag mission.photo_url, class: "card-img-top" %>
+                  <%= image_tag mission.photo_url, class: "card-img-top mb-1" %>
                   <div class="card-body">
-                     <h5 class="card-title"><%= mission.title %></h5>
-                  <p class="card-text"><%= mission.description.truncate(20, omission: '...').html_safe %></p>
+                     <p class="card-title"><%= mission.title %></p>
+                  <p class="card-text"><%= mission.description.truncate(60, omission: '...').html_safe %></p>
                   </div>
                   <ul class="list-group list-group-flush">
                      <li class="list-group-item"><i class="far fa-clock"></i> <%=mission.duration = rand(1..5) %> hours/day - <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe%> </li>
                      <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <%= mission.location %></li>
                      <%# <li class="list-group-item"><strong>Address:</strong> <%= mission.address %>
                      <li class="list-group-item"><i class="fas fa-calendar-alt"></i> <%= mission.start_date.strftime('%d/%m/%Y') %> - <%= mission.end_date.strftime('%d/%m/%Y') %></li>
-                     <li class="list-group-item"><i class="fas fa-star"></i> <%= mission.rating %></li>
-                     <li class="list-group-item"><i class="fas fa-trophy"></i> <%= mission.reward %> points</li>
+
                   </ul>
                 <%= link_to "See more details",  mission_path(mission), class: "btn btn-primary" %>
 
@@ -76,7 +77,6 @@
           <% end %>
         </div>
     </div>
-  </div>
 </div>
 
 <script>

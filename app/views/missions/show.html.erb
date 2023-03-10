@@ -1,15 +1,34 @@
-<h1><%= @mission.title %></h1>
-<h1><%= @mission.photo_url %></h1>
+<div class="index-bg">
+  <h1 class="text-center text-white"><strong>Earth care</strong></h1>
+  <p class="text-center text-white">The More You Care The More You Win.</p>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mb-4">
+        <%= image_tag @mission.photo_url, class: "w-100" %>
+      </div>
 
-<p>Your mission will be<%= @mission.description %></p>
-
-<p>Your mission will start  : <%= @mission.start_date %></p>
-<p>Your mission will end : <%= @mission.end_date %></p>
-<p>It's Located in : <%= @mission.location %></p>
-<p>You will receive: <%= @mission.reward %> points</p>
-
-
+      <div class="col-md-4">
+        <h1 class="text-center text-white"><%= @mission.title %></h1>
+        <ul class="list-group mb-3">
+          <li class="list-group-item"><i class="far fa-clock"></i> <%= @mission.duration %> hours/day - <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe%> </li>
+          <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <%= @mission.location %></li>
+          <li class="list-group-item"><i class="fas fa-calendar-alt"></i> <%= @mission.start_date.strftime('%d/%m/%Y') %> - <%= @mission.end_date.strftime('%d/%m/%Y') %></li>
+          <li class="list-group-item"><i class="fas fa-star"></i> <%= @mission.rating %></li>
+          <li class="list-group-item"><i class="fas fa-trophy"></i> <%= @mission.reward %> points</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Mission Description</h5>
+          <p class="card-text"><%= @mission.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <p><% if current_user != @mission.user  %>
 
