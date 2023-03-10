@@ -24,7 +24,7 @@
         <div class="card-body">
           <h5 class="card-title">Mission Description</h5>
           <p class="card-text"><%= @mission.description %></p>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-around">
          <%= simple_form_for [@mission, @booking] do |f| %>
          <%= f.submit "Accept", class: "btn btn-success" %>
           <% end %>

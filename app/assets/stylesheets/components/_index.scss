@@ -84,7 +84,7 @@ h3:nth-child(1) span::after{
 
 
 
-h1{
+h6{
   font-weight: bolder;
   font-family: Monserrat, Arial, Helvetica, sans-serif;
   text-transform: uppercase;
@@ -92,14 +92,14 @@ h1{
   color: transparent;
   font-size: 15px;
 }
-h1 span {
+h6 span {
   display:inline-block;
   position: relative;
   overflow: hidden;
   font-size: clamp(20px, 8vw, 50px);
 }
 
-h1 span::after{
+h6 span::after{
   content: "";
   display: block;
   position: absolute;
@@ -112,13 +112,13 @@ h1 span::after{
 
 
 
-h1:nth-child(2) {
+h6:nth-child(2) {
   animation: txt-appearance 0s 1.50s
   forwards;
 }
 
 
-h1:nth-child(2) span::after{
+h6:nth-child(2) span::after{
   background: royalblue;
   animation: slide-in 0.75s 0.3s ease-out forwards,
   slide-out 0.75s 2s ease-out forwards;
