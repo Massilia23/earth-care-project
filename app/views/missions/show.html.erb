@@ -41,16 +41,6 @@
   </div>
 </div>
 
-<p><% if current_user != @mission.user  %>
-
-    <%= simple_form_for [@mission, @declined_booking] do |f| %>
-    <p> Feel Free To accept your mission !</p>
-     <%# <%= f.check_box :accept, required: true %>
-     <%= f.submit "Decline" %>
-
-    <% end %>
-
-<% end %>
 
   <p><% if current_user == @mission.user  %>
 
