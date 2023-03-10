@@ -13,7 +13,7 @@
         <ul class="list-group mb-3">
           <li class="list-group-item"><i class="far fa-clock"></i> <%= @mission.duration %> hours/day - <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe%> </li>
           <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <%= @mission.location %></li>
-          <li class="list-group-item"><i class="fas fa-calendar-alt"></i> <%= @mission.start_date.strftime('%d/%m/%Y') %> - <%= @mission.end_date.strftime('%d/%m/%Y') %></li>
+          <li class="list-group-item"><i class="fas fa-calendar-alt"></i> <%= @mission.duration.strftime('%d/%m/%Y') %> - <%= @mission.end_date.strftime('%d/%m/%Y') %></li>
           <li class="list-group-item"><i class="fas fa-star"></i> <%= @mission.rating %></li>
           <li class="list-group-item"><i class="fas fa-trophy"></i> <%= @mission.reward %> points</li>
         </ul>
@@ -46,7 +46,7 @@
 <% end %>
 
 
-   
+
 
 
   <p><% if current_user == @mission.user  %>

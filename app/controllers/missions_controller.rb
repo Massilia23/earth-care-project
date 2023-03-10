@@ -25,11 +25,9 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
-
-
     @mission.user = current_user
     if @mission.save
-      redirect_to missions_path(@mission)
+      redirect_to profile_path
     else
       render :new
     end
@@ -58,6 +56,6 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo_url, :duration, :dess_code, :user)
+    params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo, :duration, :dess_code, :accept, :user)
   end
 end
