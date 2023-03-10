@@ -1,1 +1,9 @@
-<h1> my wallet</h1>
+<h1>voucher</h1>
+
+
+<%= simple_form_for([@booking, @voucher]) do |f| %>
+  <%= f.text_area :total_points, style: 'display:none' %>
+  <%= f.submit "J'ai complété la mission !" %>
+<% end %>
+
+ <%= @booking.mission.reward %>

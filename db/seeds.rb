@@ -36,7 +36,6 @@ puts "mission created"
     dess_code: Faker::Job.field,
     reward: Faker::Number.between(from: 20, to: 60),
     rating: Faker::Number.between(from: 1, to: 5),
-    completed: Faker::Boolean.boolean,
     personal_choice: Faker::Boolean.boolean,
     user: user1,
     address: Faker::Address.street_address + ', ' + Faker::Address.postcode + ' ' + Faker::Address.city + ', France',

@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :missions
   has_many :bookings
+  has_many :vouchers
 end

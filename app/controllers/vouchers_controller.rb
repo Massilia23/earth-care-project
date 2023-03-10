@@ -1,11 +1,22 @@
 class VouchersController < ApplicationController
 # before_action :set_voucher only: %i[show]
-  def def new
+
+  def new
     @voucher = Voucher.new
+    @booking = Booking.find(params[:booking_id])
   end
 
-  def show
-    @voucher = Voucher.find[params[:id]]
+  def create
+    @voucher = Voucher.new(voucher_params)
+    @voucher.user = current_user
+    @booking = Booking.find(params[:booking_id])
+    @voucher.booking = @booking
+    @voucher.total_points = @voucher.booking.mission.reward
+    if @voucher.save
+      redirect_to profile_path
+    else
+      render :new
+    end
   end
 
   def completed?
@@ -17,9 +28,9 @@ class VouchersController < ApplicationController
     end
   end
 
+  private
 
-  # private
-
-  # def set_voucher
-  # end
+  def voucher_params
+    params.require(:voucher).permit(:total_points, :user_id, :booking_id)
+  end
 end

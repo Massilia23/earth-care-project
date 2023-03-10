@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new
     @booking.mission = @mission
-    @booking.voucher = @voucher
+   
 
     @booking.user = current_user
 
