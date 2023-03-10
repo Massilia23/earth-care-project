@@ -29,17 +29,18 @@
         <div class="d-flex justify-content-around">
          <%= simple_form_for [@mission, @booking] do |f| %>
          <%= f.submit "Accept", class: "btn btn-success" %>
-          <% end %>
+         <% end %>
 
          <%= simple_form_for [@mission, @declined_booking] do |f| %>
          <%= f.submit "Decline", class: "btn btn-warning" %>
-           <% end %>
+        <% end %>
         </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
   <p><% if current_user == @mission.user  %>

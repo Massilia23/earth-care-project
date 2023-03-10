@@ -16,7 +16,7 @@
  <%# les points debloqués lors du booking %>
      <p>Your wallet is unlocked</p>
       <% @vouchers.each do |voucher, booking| %>
-        <%= voucher.booking.mission.reward %>
+       <strong> You unlocked <%= voucher.booking.mission.reward %> points </strong>
       <% end %>
 
 

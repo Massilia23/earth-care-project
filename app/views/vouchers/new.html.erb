@@ -1,9 +1,8 @@
-<h1>voucher</h1>
+                                              <h1>Wallet</h1>
 
-
+<strong> to Unlocked your  <%= @booking.mission.reward %> points for this mission click on the button below </strong>
+<br>
 <%= simple_form_for([@booking, @voucher]) do |f| %>
   <%= f.text_area :total_points, style: 'display:none' %>
-  <%= f.submit "J'ai complété la mission !" %>
+  <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
 <% end %>
-
- <%= @booking.mission.reward %>
