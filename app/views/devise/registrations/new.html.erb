@@ -7,6 +7,17 @@
         <div class="agileits-top">
 
             <div class="form-inputs" style="width: 100%">
+            <%= f.input :first_name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "first_name" }%>
+
+             <%= f.input :last_name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "last_name" }%>
+
+
             <%= f.input :email,
                           required: true,
                           autofocus: true,
@@ -21,7 +32,7 @@
           </div>
 
           <div class="form-actions">
-          <%= f.button :submit, "Sign Up" %>
+          <%= f.button :submit, "Sign Up", class: "btn btn-flat" %>
           </div>
 
         </div>
