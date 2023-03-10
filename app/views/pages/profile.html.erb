@@ -4,9 +4,15 @@
   <div class="container mt-5">
       <div class="card">
         <div class="card-body text-center background-card-profile">
+<<<<<<< HEAD
+          <%= current_user.first_name %>
+           <%= current_user.last_name %>
+          - <%= current_user.email %>
+=======
           <%# <%= current_user.first_name.capitalize %>
           <%# <%= current_user.last_name.capitalize %>
           <%= current_user.email.capitalize %>
+>>>>>>> f30f996bff6a59ff649d4bc22b0e60356c7882a9
         </div>
       </div>
       <br>
@@ -18,6 +24,10 @@
           <h1>Booking Dashboard</h1>
         </div>
         <div class="bookings">
+<<<<<<< HEAD
+
+=======
+>>>>>>> f30f996bff6a59ff649d4bc22b0e60356c7882a9
         <%# <% current_user.bookings.last.mission.accept %>
           <% @bookings.each do |booking, mission| %>
             <div class="booking-list">
@@ -28,7 +38,10 @@
                   <div class="booking-time"><%= booking.mission.description %></div>
                   <div class="booking-time"><%= booking.mission.start_date %></div>
                   <div class="booking-time"><%= booking.mission.end_date %></div>
+<<<<<<< HEAD
+=======
                   <div class="booking-status">Confirmed</div>
+>>>>>>> f30f996bff6a59ff649d4bc22b0e60356c7882a9
                 </div>
 
               </div>

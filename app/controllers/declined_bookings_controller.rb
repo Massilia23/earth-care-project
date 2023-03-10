@@ -1,6 +1,4 @@
 class DeclinedBookingsController < ApplicationController
-
-
   def create
     @declined_booking = DeclinedBooking.new
     @declined_booking.user = current_user
@@ -8,7 +6,6 @@ class DeclinedBookingsController < ApplicationController
     if @declined_booking.save
       redirect_to root_path
     else
-     
     end
   end
 end
