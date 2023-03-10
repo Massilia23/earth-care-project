@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new
     @booking.mission = @mission
+   
 
     @booking.user = current_user
 
@@ -35,7 +36,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :status_owner, :status_user, :user, :mission)
+    params.require(:booking).permit(:start_date, :end_date, :status_owner, :status_user, :user, :mission, :voucher)
   end
 
   def set_booking

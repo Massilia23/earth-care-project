@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
     resources :declined_bookings, only: %i[create]
   end
-  resources :bookings, only: %i[show edit update destroy]
+  resources :bookings, only: %i[show edit update destroy] do
+    resources :vouchers,  only: %i[new create show]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # resources :vouchers
   # Defines the root path route ("/")

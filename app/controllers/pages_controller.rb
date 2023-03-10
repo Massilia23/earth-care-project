@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   def profile
     @missions = Mission.where(user: current_user)
     @bookings = Booking.where(user: current_user)
+    @vouchers = Voucher.where(user: current_user)
   end
 
   def calendar
