@@ -72,7 +72,7 @@
               <div class="booking">
                 <div class="booking-info">
                   <div class="booking-time"><%= mission.title %></div>
-                  <div class="booking-time"><%= mission.duration.strftime('%H:%M') %></div>
+                  <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %></div>
                   <div class="booking-location"><%= mission.location %></div>
                 </div>
                 <div class="booking-status">Created</div>
