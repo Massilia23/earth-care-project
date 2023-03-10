@@ -33,7 +33,7 @@ puts "mission created"
     personal_choice: Faker::Boolean.boolean,
     user: user1,
     address: Faker::Address.street_address + ', ' + Faker::Address.postcode + ' ' + Faker::Address.city + ', France',
-    photo_url: Faker::LoremFlickr.image(size: "300x200", search_terms: ['nature', i])
+    photo_url: Faker::LoremFlickr.image(size: "150x100", search_terms: ['nature', i])
   )
 end
 puts "finished !"
