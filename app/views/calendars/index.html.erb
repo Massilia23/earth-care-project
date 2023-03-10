@@ -1,14 +1,18 @@
-<h1>YOUR CALENDAR</h1>
+
+<br>
+<br>
+<h3 class="titre-calendar">Your Calendar</h3>
+<br>
 
 <div class="calendar-container">
-  <%= month_calendar(events: @missions, end_attribute: :end_date) do |date, missions| %>
+  <%= month_calendar(events: @missions, attribute: :start_date, end_attribute: :end_date) do |date, missions| %>
     <%= date %>
 
-    <% missions.each do |mission| %>
+
       <div class="meeting">
-        <p><%= mission.name %></p>
-        <small><%= mission.time unless mission.multi_days? %></small>
+        <% missions.each do |mission| %>
+          <%= mission.title %>
+        <% end %>
       </div>
-    <% end %>
   <% end %>
 </div>
