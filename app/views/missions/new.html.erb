@@ -16,8 +16,6 @@
                 <%= f.input :reward %>
                 <%= f.time_select :duration, label: "Duration" %>
                 <%= f.input :dess_code, label: " Your dress code" %>
-
-
                <br>
 
             <div class="wthree-text">
@@ -28,7 +26,7 @@
               <div class="clear"> </div>
             </div>
             <br>
-            <%= link_to "Create mission", profile_path, data: {turbo_method: :get, turbo_confirm: "CONGRATS you're mission is post!" }, class: "btn btn-dark btn-lg btn-block "%>
+          <%= f.submit %>
     <% end %>
       </div>
 
