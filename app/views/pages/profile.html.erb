@@ -5,9 +5,9 @@
       <div class="card">
         <div class="card-body text-center background-card-profile">
 
-          <%# <%= current_user.first_name.capitalize %>
-          <%# <%= current_user.last_name.capitalize %>
-          <%= current_user.email.capitalize %>
+          <%= current_user.first_name.capitalize%>
+          <%= current_user.last_name.capitalize%>
+          -<%= current_user.email.capitalize %>
 
         </div>
       </div>
@@ -74,7 +74,7 @@
 
   </div>
   <br>
-  
+
   <div class="footer">
     <%= link_to missions_path do %>
       <i class="fas fa-home"></i>
