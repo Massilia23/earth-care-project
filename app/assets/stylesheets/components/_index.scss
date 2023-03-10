@@ -237,9 +237,6 @@ h1:nth-child(2) span::after{
 
 
 
-
-
-
   .btn-primary {
     background: rgb(89.8, 68.2, 0);
     background: linear-gradient(0deg, rgb(89.8, 68.2, 0) 0%, rgb(89.8, 68.2, 0) 100%);
@@ -293,20 +290,20 @@ h1:nth-child(2) span::after{
   .card {
     background-color: rgba(255, 255, 255, 0.8); /* Ajouter de la transparence */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ajouter une ombre légère pour plus de profondeur */
-    border-radius: 10px;
+    border-radius: 20px;
 
   }
 
   .card-img-top {
     background-color: rgba(255, 255, 255, 0.8); /* Ajouter de la transparence */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border-radius: 20px;
 
   }
 
   .list-group-item {
     background-color: rgba(255, 255, 255, 0.8); /* Ajouter de la transparence */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border-radius: 20px;
 
   }
