@@ -5,19 +5,27 @@
       <div class="card">
         <div class="card-body text-center background-card-profile">
 
-          <%= current_user.first_name.capitalize%>
+           <%= current_user.first_name.capitalize%>
           <%= current_user.last_name.capitalize%>
-          <%= current_user.email %>
+          -<%= current_user.email %>
 
         </div>
       </div>
 
 
- <%# les points debloqués lors du booking %>
-     <p>Your wallet is unlocked</p>
-      <% @vouchers.each do |voucher, booking| %>
-       <strong> You unlocked <%= voucher.booking.mission.reward %> points </strong>
-      <% end %>
+
+
+                  <%# si id de booking exist %>
+
+
+      <p> Your wallet is unlocked</p>
+
+              <% @vouchers.each do |voucher| %>
+                <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
+                 <strong> to Unlocked your  <%= voucher.booking.mission.reward %> points for this mission click on the button below </strong>
+                    <br>
+              <% end %>
+
 
 
       <br>
@@ -40,8 +48,18 @@
                   <div class="booking-time"><%= booking.mission.title %></div>
                   <div class="booking-time"><%= booking.mission.start_date %></div>
                   <div class="booking-time"><%= booking.mission.end_date %></div>
+                  <% if booking.vouchers.empty?  %>
+                    <%= simple_form_for([booking, @voucher]) do |f| %>
+                        <%= f.text_area :total_points, style: 'display:none' %>
+                        <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
+                    <% end %>
+                  <% end %>
+
 
                   <div class="booking-status">Confirmed</div>
+
+
+
 
                   <%# <div class="booking-time"><%= booking.mission.description.truncate(20, omission: '...').html_safe %>
 
@@ -98,8 +116,10 @@
       <i class="fa-solid fa-calendar"></i>
     <% end %>
 
-    <%= link_to new_booking_voucher_path(current_user.bookings.last) do %>
-      <i class="fa-solid fa-wallet"></i>
+    <% if current_user %>
+      <%= link_to new_booking_voucher_path(current_user.bookings.last) do %>
+        <i class="fa-solid fa-wallet"></i>
+      <% end %>
     <% end %>
 
     <%= link_to missions_path do %>
@@ -111,5 +131,4 @@
     <% end %>
   </div>
 
-
- <% end %>
+<% end %>

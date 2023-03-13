@@ -33,7 +33,7 @@ class MissionsController < ApplicationController
 
     @mission.user = current_user
     if @mission.save
-      redirect_to missions_path(@mission)
+      redirect_to profile_path
     else
       render :new
     end

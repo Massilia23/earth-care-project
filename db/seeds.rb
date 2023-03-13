@@ -7,10 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+
+Voucher.destroy_all
 Booking.destroy_all
 DeclinedBooking.destroy_all
 Mission.destroy_all
 User.destroy_all
+
 
 user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "Amel", last_name: "Zahir")
 user1.save!
