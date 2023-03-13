@@ -1,0 +1,14 @@
+.scroll-to-bottom {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-to-bottom i {
+  font-size: 1.5rem;
+  color: #333;
+}

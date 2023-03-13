@@ -1,10 +1,14 @@
 
+<%# <div class="container1">
+    <h1>
+
 
 <div class="index-bg">
 
 
 <div class="container1">
     <h3>
+
       <span>
         Earth Care
       </span>
@@ -21,7 +25,7 @@
 
 
 
-</div>
+</div> %>
 
     <%# <div class="loader">
         <span class="lettre">E</span>
@@ -42,67 +46,44 @@
         <h1> !</h1>
     </div>
 
-
     <script src="app.js"></script> %>
+  <div class="page-header mt-3 mb-2">
+    <h4 class="text-title">Earth Care</h4>
+    <h6 class="text-is">The More You Care, The More You Earn</h6>
+  </div>
+<div class="container">
+  <% @missions.each do |mission| %>
+    <div class="margin">
+      <div class="card-main radius h-25 mt-4">
+        <div class="mt-3">
+      <h2 class="text-center mb-3"><%= mission.title %></h2>
 
-
-
-   <div class="container">
-
-      <div class="row row-cols-1 row-cols-md-3">
-         <% @missions.each do |mission| %>
-            <div class="col-md-4 mb-5 mt-4 ml-4 mr-4">
-               <div class="card h-100">
-               <% if mission.photo_url %>
-                  <%= image_tag mission.photo_url, class: "card-img-top mb-1" %>
-                <% end %>
-                  <div class="card-body">
-                     <p class="card-title"><%= mission.title %></p>
-                  <p class="card-text"><%= mission.description.truncate(60, omission: '...').html_safe %></p>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                     <li class="list-group-item"><i class="far fa-clock"></i> <%=mission.duration = rand(1..5) %> hours/day - <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe%> </li>
-                     <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <%= mission.location %></li>
-                     <%# <li class="list-group-item"><strong>Address:</strong> <%= mission.address %>
-                     <li class="list-group-item"><i class="fas fa-calendar-alt"></i> <%= mission.start_date.strftime('%d/%m/%Y') %> - <%= mission.end_date.strftime('%d/%m/%Y') %></li>
-
-                  </ul>
-                <%= link_to "See more details",  mission_path(mission), class: "btn btn-primary" %>
-
-               </div>
-
-              </div>
-          <% end %>
+          <div class="color-font text-center">
+            <span><i class="fas fa-calendar-alt"></i> <%= mission.start_date %> - </span>
+            <span><%= mission.end_date %></span>
+            <span><i class="far fa-clock"></i> <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %></span>
+          </div>
         </div>
+        <div class="color-font text-center pb-2">
+          <span><i class="fas fa-star"></i>  <%= mission.rating %> Stars</span>
+          <span><i class="fas fa-trophy"></i>  <%= mission.reward %> Points</span>
+        </div>
+        <% if mission.photo_url %>
+          <div class="image-wrapper">
+            <%= link_to mission_path(mission) do %>
+              <%= image_tag mission.photo_url, height: 150, class: "w- object-fit-fill", class: "card-img-top" %>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="card-main-details">
+          <div class="overflow-text">
+            <div class="d-flex">
+              <span class=" card-main-pricing color-font w-10 mb-3"><i class="fas fa-map-marker-alt"></i> <%= mission.location %></span>
+            </div>
+            <p class="text-center width overflow-scroll"> <%= mission.description %></p>
+          </div>
+        </div>
+      </div>
     </div>
+  <% end %>
 </div>
-
-<script>
-document.querySelectorAll('.card-text').forEach((cardText) => {
-  let fullText = cardText.innerHTML;
-  let truncatedText = fullText.substring(0, 20) + '...';
-  let isTruncated = true;
-
-  cardText.innerHTML = truncatedText;
-
-  cardText.addEventListener('click', () => {image.png
-    if (isTruncated) {
-      cardText.innerHTML = fullText;
-      isTruncated = false;
-    } else {
-      cardText.innerHTML = truncatedText;
-      isTruncated = true;
-    }
-  });
-});
-</script>
-
-
-
-  <%# <%= link_to "CHECK THE MISSION", mission_path(mission) %>
-
-
-  <%# <%= link_to "CHECK THE MISSION", mission_path(mission) %>
-
-
-<%# pk.eyJ1IjoidGhlb2JvbmRheiIsImEiOiJjazc0anVmMjUwOHZ0M2VwYTRlcGs2dnZjIn0.byLisvWA9__hIZ5FBFybNw %>

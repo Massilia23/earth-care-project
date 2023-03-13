@@ -5,18 +5,18 @@ class MissionsController < ApplicationController
 
   def index
     @missions = Mission.all
-    # @markers = @missions.geocoded.map do |mission|
-    #   {
-    #     lat: mission.latitude,
-    #     lng: mission.longitudemissi
-    #   }
-    # end
-    # #geocodage en cours ici -myriam
+
   end
 
   def show
     @booking = Booking.new
     @declined_booking = DeclinedBooking.new
+
+    @mission_marker =
+      {
+        lat: @mission.latitude,
+        lng: @mission.longitude
+      }
   end
 
   def new
@@ -25,9 +25,11 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
+
+
     @mission.user = current_user
     if @mission.save
-      redirect_to profile_path
+      redirect_to missions_path(@mission)
     else
       render :new
     end
@@ -56,6 +58,6 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo, :duration, :dess_code, :accept, :user)
+    params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo_url, :duration, :dess_code, :user)
   end
 end
