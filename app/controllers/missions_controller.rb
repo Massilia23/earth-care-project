@@ -9,9 +9,13 @@ class MissionsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
-    @declined_booking = DeclinedBooking.new
-
+    @booking = Booking.find_by(user: current_user, mission: @mission)
+    if @booking.nil?
+      @booking = Booking.new
+      @declined_booking = DeclinedBooking.new
+    else
+      @voucher = Voucher.new
+    end
     @mission_marker =
       {
         lat: @mission.latitude,
@@ -60,4 +64,5 @@ class MissionsController < ApplicationController
   def mission_params
     params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo_url, :duration, :dess_code, :user)
   end
+
 end

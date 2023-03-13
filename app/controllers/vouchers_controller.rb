@@ -32,6 +32,7 @@ class VouchersController < ApplicationController
     @voucher.total_points = @voucher.booking.mission.reward
     if @voucher.save
       redirect_to profile_path
+      # wallet
     else
       render :new
     end

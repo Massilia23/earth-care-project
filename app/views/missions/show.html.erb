@@ -28,13 +28,28 @@
           <p class="text-center width overflow-scroll"> <%= @mission.description %></p>
           <div class="text-center">
             <div class="d-flex justify-content-around">
-              <%= simple_form_for [@mission, @booking] do |f| %>
-                <%= f.submit "Accept", class: "btn btn-success" %>
+
+              <% if current_user != @mission.user %>
+                <% if @booking.persisted? %>
+                  <strong> to Unlocked your  <%= @booking.mission.reward %> points for this mission click on the button below </strong>
+                  <br>
+                  <%= simple_form_for([@booking, @voucher]) do |f| %>
+                    <%= f.text_area :total_points, style: 'display:none' %>
+                    <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
+                  <% end %>
+                  <%# si id de booking exist %>
+                <% else %>
+                  <%= simple_form_for [@mission, @booking] do |f| %>
+                    <%= f.submit "Accept", class: "btn btn-success" %>
+                  <% end %>
+                  <%= simple_form_for [@mission, @declined_booking] do |f| %>
+                    <%= f.submit "Decline", class: "btn btn-warning" %>
+                  <% end %>
+                <% end %>
               <% end %>
-              <%= simple_form_for [@mission, @declined_booking] do |f| %>
-                <%= f.submit "Decline", class: "btn btn-warning" %>
-              <% end %>
+
             </div>
+
             <div class="text-center mt-2">
               <div style="width: 100%; height: 200px;"
                 data-controller="map"
@@ -44,6 +59,9 @@
             </div>
           </div>
         </div>
+
+
+
 
         <p>
           <% if current_user == @mission.user %>
