@@ -1,1 +1,68 @@
- 
+<div class="container premier-para">
+  <h2 class="titre-homepage">Earth Care</h2>
+  <br>
+  <h4 class="sous-titre">The More You Care, The More You Earn.</h4>
+  <br>
+  <%= link_to "Discover", root_path, class: "premier-btn", type: "button" %>
+  <%= link_to "Our Missions", missions_path, class: "second-btn", type: "button"  %>
+  <br>
+  <br>
+</div>
+
+
+<div class="container second-para text-center">
+  <h2 class="title-h2-home center">Join Us</h2>
+  <br>
+  <br>
+  <p class="text-join-us">+1000 Volunteers</p>
+  <br>
+  <div class="horizontal-separator"></div>
+  <br>
+  <p class="text-join-us">+500 Missions</p>
+  <br>
+  <div class="horizontal-separator"></div>
+  <br>
+  <p class="text-join-us">+100 Partners</p>
+</div>
+
+<div class="container third-para">
+  <h2 class="title-p3-home text-center">Community</h2>
+    <br>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
+        </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag('Test-1.jpg') %>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag('Test-2.jpg') %>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag('Test-3.jpg') %>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag('Test-4.jpg') %>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      <br>
+    </div>
+</div>
+
+
+</div>
