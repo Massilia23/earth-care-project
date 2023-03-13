@@ -1,60 +1,58 @@
-<div class="index-bg">
-  <h1 class="text-center text-white"><strong>Earth care</strong></h1>
-  <p class="text-center text-white">The More You Care The More You Win.</p>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 mb-4">
-        <% if @mission.photo_url %>
-        <%= image_tag @mission.photo_url, class: "w-100" %>
-        <% end %>
+<div class="container">
+  <div class="margin">
+    <div class="card-main radius h-25 mt-5">
+      <div class="mt-3">
+        <div class="color-font text-center">
+          <span><i class="fas fa-calendar-alt"></i> <%= @mission.start_date %> - </span>
+          <span><%= @mission.end_date %></span>
+          <span><i class="far fa-clock"></i> <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe%></span>
+        </div>
+      </div>
+      <div class="color-font text-center pb-2">
+        <span><i class="fas fa-star"></i>  <%= @mission.rating %> Stars</span>
+        <span><i class="fas fa-trophy"></i>  <%= @mission.reward %> Points</span>
       </div>
 
-      <div class="col-md-4">
-        <h1 class="text-center text-white"><%= @mission.title %></h1>
-        <ul class="list-group mb-3">
-          <li class="list-group-item"><i class="far fa-clock"></i> <%= @mission.duration %> hours/day - <%= Time.new(2000, 1, 1, rand(5..21), [0, 15, 30, 45].sample).strftime('%H:%M') %> <strong>sharp</strong><%="👌".html_safe%> </li>
-          <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <%= @mission.location %></li>
-          <li class="list-group-item"><i class="fas fa-calendar-alt"></i> <%= @mission.duration.strftime('%d/%m/%Y') %> - <%= @mission.end_date.strftime('%d/%m/%Y') %></li>
-          <li class="list-group-item"><i class="fas fa-star"></i> <%= @mission.rating %></li>
-          <li class="list-group-item"><i class="fas fa-trophy"></i> <%= @mission.reward %> points</li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Mission Description</h5>
-          <p class="card-text"><%= @mission.description %></p>
-        <div class="d-flex justify-content-between">
-         <%= simple_form_for [@mission, @booking] do |f| %>
-         <%= f.submit "Accept", class: "btn btn-success" %>
+      <% if @mission.photo_url %>
+        <div class="image-wrapper">
+          <%= image_tag @mission.photo_url, height: 150, class: "w-100 object-fit-cover", class: "card-img-top" %>
+        </div>
+      <% end %>
+      <div class="card-main-details">
+        <div class="overflow-text">
+          <h2 class="text-center mb-3"><%= @mission.title %></h2>
+          <div class="d-flex">
+            <span class=" color-font w-10 mb-3"><%= @mission.address %></span>
+            <span class="color-font w-10 mb-3"><%=  @mission.location %></span>
+          </div>
+          <p class="text-center width overflow-scroll"> <%= @mission.description %></p>
+          <div class="text-center">
+            <div class="d-flex justify-content-around">
+              <%= simple_form_for [@mission, @booking] do |f| %>
+                <%= f.submit "Accept", class: "btn btn-success" %>
+              <% end %>
+              <%= simple_form_for [@mission, @declined_booking] do |f| %>
+                <%= f.submit "Decline", class: "btn btn-warning" %>
+              <% end %>
+            </div>
+            <div class="text-center mt-2">
+              <div style="width: 100%; height: 200px;"
+                data-controller="map"
+                data-map-markers-value="<%= @mission_marker.to_json %>"
+                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          <% if current_user == @mission.user %>
+            <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn"  %>
+            <%= link_to "Delete your mission", mission_path(@mission), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>
           <% end %>
-
-         <%= simple_form_for [@mission, @declined_booking] do |f| %>
-         <%= f.submit "Decline", class: "btn btn-warning" %>
-           <% end %>
-        </div>
-        </div>
+        </p>
       </div>
     </div>
   </div>
 </div>
-
-<p><% if current_user != @mission.user  %>
-
-    <%= simple_form_for [@mission, @declined_booking] do |f| %>
-    <p> Feel Free To accept your mission !</p>
-     <%# <%= f.check_box :accept, required: true %>
-     <%= f.submit "Decline" %>
-
-    <% end %>
-
-<% end %>
-
-  <p><% if current_user == @mission.user  %>
-
-    <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn"  %>
-    <%= link_to "Delete your mission", mission_path(@mission), method: :delete, data: { confirm: "Are you sure?" } %>
-    <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>
-  <% end %>

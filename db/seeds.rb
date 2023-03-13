@@ -12,35 +12,306 @@ DeclinedBooking.destroy_all
 Mission.destroy_all
 User.destroy_all
 
-user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "amel", last_name: "amelou")
+user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "Amel", last_name: "Zahir")
 user1.save!
-user2 = User.create!(email: "najib@gmail.com", password: "qwerty", first_name: "najib", last_name: "amelou")
+user2 = User.create!(email: "najib@gmail.com", password: "azerty", first_name: "Najib", last_name: "Zahir")
 user2.save!
-user3 = User.create!(email: "yannis@gmail.com", password: "frerot", first_name: "yannis", last_name: "amelou")
+user3 = User.create!(email: "yannis@gmail.com", password: "azerty", first_name: "Yannis", last_name: "Zahir")
 user3.save!
-user4 = User.create!(email: "lila@gmail.com", password: "tatata", first_name: "lila", last_name: "amelou")
+user4 = User.create!(email: "lila@gmail.com", password: "azerty", first_name: "Lila", last_name: "Zahir")
 user4.save!
-user5 = User.create!(email: "farid@gmail.com", password: "tatata", first_name: "farid", last_name: "amelou")
+user5 = User.create!(email: "farid@gmail.com", password: "azerty", first_name: "Farid", last_name: "Zahir")
 user5.save!
+user6 = User.create!(first_name: "Ahmad", last_name: "Ali", email: "ahmadali@example.com", password: "password")
+user6.save!
+user7 = User.create!(first_name: "Fatima", last_name: "Ali", email: "fatimaali@example.com", password: "password")
+user7.save!
+user8 = User.create!(first_name: "Yusuf", last_name: "Ali", email: "yusufali@example.com", password: "password")
+user8.save!
+user9 = User.create!(first_name: "Aisha", last_name: "Ali", email: "aishaali@example.com", password: "password")
+user9.save!
+user10 = User.create!(first_name: "Mohammed", last_name: "Ali", email: "mohammedali@example.com", password: "password")
+user10.save!
+
+
+# puts "mission created"
+# 20.times do |i|
+#   Mission.create!(
+#     title: Faker::Book.title,
+#     description: Faker::Hipster.paragraph(sentence_count: 5),
+#     location: Faker::Address.city + ', France',
+#     start_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'),
+#     end_date: Faker::Date.between(from: '2023-01-01', to: '2023-12-31'),
+#     start_time: Faker::Time.between(from: DateTime.now, to: DateTime.now + 1, format: :short),
+#     duration: Faker::Number.between(from: 1, to: 5).to_s + ' hours',
+#     dess_code: Faker::Job.field,
+#     reward: Faker::Number.between(from: 20, to: 60),
+#     rating: Faker::Number.between(from: 1, to: 5),
+#     completed: Faker::Boolean.boolean,
+#     personal_choice: Faker::Boolean.boolean,
+#     user: user1,
+#     address: Faker::Address.street_address + ', ' + Faker::Address.postcode + ' ' + Faker::Address.city + ', France',
+#     photo_url: Faker::LoremFlickr.image(size: "150x100", search_terms: ['nature', i])
+#   )
+# end
+# puts "finished !"
 
 puts "mission created"
-20.times do |i|
-  Mission.create!(
-    title: Faker::Book.title,
-    description: Faker::Hipster.paragraph(sentence_count: 5),
-    location: Faker::Address.city + ', France',
-    start_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'),
-    end_date: Faker::Date.between(from: '2023-01-01', to: '2023-12-31'),
-    start_time: Faker::Time.between(from: DateTime.now, to: DateTime.now + 1, format: :short),
-    duration: Faker::Number.between(from: 1, to: 5).to_s + ' hours',
-    dess_code: Faker::Job.field,
-    reward: Faker::Number.between(from: 20, to: 60),
-    rating: Faker::Number.between(from: 1, to: 5),
-    completed: Faker::Boolean.boolean,
-    personal_choice: Faker::Boolean.boolean,
-    user: user1,
-    address: Faker::Address.street_address + ', ' + Faker::Address.postcode + ' ' + Faker::Address.city + ', France',
-    photo_url: Faker::LoremFlickr.image(size: "150x100", search_terms: ['nature', i])
+
+# Seed 1
+Mission.create!(
+  title: "Cleaning the Calanques",
+  description: "Join us for a day of cleaning the Calanques, one of Marseille's most beautiful natural areas. We'll be picking up litter and debris to help keep this stunning location pristine for future generations. Please wear sturdy shoes and bring a hat and sunscreen.",
+  start_date: Date.tomorrow,
+  end_date: Date.tomorrow + 4.days,
+  duration: "8:00",
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("08:00"),
+  rating: rand(1..5),
+  user: user1,
+  photo_url: "https://images.unsplash.com/photo-1604948559069-3287d5c5a6e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FsYW5xdWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
+  address: "Calanques de Marseille, Luminy, Marseille 13008"
+)
+
+# Seed 2
+Mission.create(
+  title: "Beach Cleanup",
+  description: "Come help us clean up the beach at Plage du Prado in Marseille. We'll be picking up trash and debris to help protect marine life and keep the beach beautiful. Wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
+  start_date: Date.tomorrow + 1.day,
+  end_date: Date.tomorrow + 5.days,
+  duration: Time.parse("7:30"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("09:30"),
+  rating: rand(1..5),
+  user: user2,
+  photo_url: "https://images.unsplash.com/photo-1610093674388-cee0337f2684?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBjbGVhbmluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
+  address: "Plage du Prado, Marseille 13008"
+)
+
+# Seed 3
+Mission.create(
+  title: "Planting Trees in the City",
+  description: "Join us for a morning of tree planting in the city of Aix-en-Provence. We'll be planting saplings in a local park to help combat climate change and create a greener environment. Please wear sturdy shoes and bring gloves if you have them.",
+  start_date: Date.tomorrow + 2.days,
+  end_date: Date.tomorrow + 6.days,
+  duration: Time.parse("4:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("10:00"),
+  rating: rand(1..5),
+  user: user3,
+  photo_url: "https://images.unsplash.com/photo-1513086670993-297187d3a281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBsYW50aW5nJTIwdHJlZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+  address: "1 Av. Jules Ferry, 13100 Aix-en-Provence
+  "
+)
+
+# 4
+Mission.create(
+  title: "Community Garden Planting in the 5th Arrondissement",
+  description: "Join us for an afternoon of planting in the community garden in the 5th arrondissement. We'll be planting a variety of fruits and vegetables to help support the local community and promote sustainable living. Please wear comfortable clothes and bring a hat and sunscreen.",
+  start_date: Date.tomorrow + 3.days,
+  end_date: Date.tomorrow + 7.days,
+  duration: Time.parse("3:00"),
+  location: "Ile-de-France",
+  reward: rand(20..100),
+  start_time: Time.parse("13:00"),
+  rating: rand(1..5),
+  user: user2,
+  photo_url: "https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGdhcmRlbiUyMHBsYW50aW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
+  address: "7 Rue Mouffetard, Paris 75005"
+)
+
+# Seed 5
+Mission.create(
+  title: "Trail Maintenance in Calanques National Park",
+  description: "Join us for a day of trail maintenance in the Calanques National Park. We'll be repairing and clearing the trails to help protect this beautiful park and ensure that it can be enjoyed by future generations. Please wear sturdy shoes and bring a hat and sunscreen.",
+  start_date: Date.tomorrow + 4.days,
+  end_date: Date.tomorrow + 8.days,
+  duration: Time.parse("7:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("08:00"),
+  rating: rand(1..5),
+  user: user1,
+  photo_url: "https://images.unsplash.com/photo-1651303812964-44676108f8d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+  address: "Calanques National Park, Marseille 13008"
+)
+
+# Seed 6
+Mission.create(
+  title: "Beach Cleanup at Pointe Rouge",
+  description: "Come help us clean up the beach at Pointe Rouge in Marseille. We'll be picking up trash and debris to help protect marine life and keep the beach beautiful. Wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
+  start_date: Date.tomorrow + 5.days,
+  end_date: Date.tomorrow + 9.days,
+  duration: Time.parse("5:30"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("09:30"),
+  rating: rand(1..5),
+  user: user2,
+  photo_url: "https://images.unsplash.com/photo-1563245159-f793f19d8c37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJlYWNoJTIwY2xlYW51cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
+  address: "Plage de la Pointe Rouge, Marseille 13008"
+)
+
+# Seed 7
+Mission.create(
+  title: "Cleaning up the City Center",
+  description: "Join us for a morning of cleaning up the city center in Aix-en-Provence. We'll be picking up litter and debris to help keep the streets clean and beautiful. Please wear comfortable shoes and bring gloves if you have them.",
+  start_date: Date.tomorrow + 6.days,
+  end_date: Date.tomorrow + 10.days,
+  duration: Time.parse("4:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("10:00"),
+  rating: rand(1..5),
+  user: user3,
+  photo_url: "https://images.unsplash.com/photo-1624971035514-2bbbc81ea9fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2xlYW51cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
+  address: "300 avenue Giuseppe Verdi 13100, Aix-en-Provence"
+)
+
+# Seed 8
+  Mission.create(
+    title: "Beach Cleanup at Plage des Catalans",
+    description: "Join us for a morning of cleaning up the beach at Plage des Catalans. We'll be picking up litter and debris to help protect marine life and keep the beach beautiful. Please wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
+    start_date: Date.tomorrow + 7.days,
+    end_date: Date.tomorrow + 11.days,
+    duration: Time.parse("5:00"),
+    location: "Bouches-du-Rhone",
+    reward: rand(20..100),
+    start_time: Time.parse("10:00"),
+    rating: rand(1..5),
+    user: user3,
+    photo_url: "https://images.unsplash.com/photo-1569254983547-44dc559f038f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJlYWNoJTIwY2xlYW51cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
+    address: "Plage des Catalans, Marseille"
   )
-end
+
+# Seed 9
+Mission.create(
+  title: "River Cleanup in the Parc de Sceaux",
+  description: "Help us clean up the banks of the river in Parc de Sceaux. We'll be picking up trash and debris to help protect the local ecosystem and ensure the river stays healthy. Wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
+  start_date: Date.tomorrow + 8.days,
+  end_date: Date.tomorrow + 12.days,
+  duration: Time.parse("5:30"),
+  location: "Ile-de-France",
+  reward: rand(20..100),
+  start_time: Time.parse("14:00"),
+  rating: rand(1..5),
+  user: user4,
+  photo_url: "https://images.unsplash.com/photo-1672760128983-2a30b9d4af10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGFyYyUyMGRlJTIwc2NlYXV4fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
+  address: "Parc de Sceaux, Paris"
+)
+
+# Seed 10
+Mission.create(
+  title: "Trail Maintenance in the Montagne Sainte-Victoire",
+  description: "Join us for a day of trail maintenance in the Montagne Sainte-Victoire. We'll be repairing and clearing the trails to help protect this beautiful mountain and ensure that it can be enjoyed by future generations. Please wear sturdy shoes and bring a hat and sunscreen.",
+  start_date: Date.tomorrow + 9.days,
+  end_date: Date.tomorrow + 13.days,
+  duration: Time.parse("7:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("08:00"),
+  rating: rand(1..5),
+  user: user1,
+  photo_url: "https://images.unsplash.com/photo-1541623089466-8e777dd05d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHNhaW50ZSUyMHZpY3RvaXJlJTIwbW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
+  address: "Montagne Sainte-Victoire, Aix-en-Provence"
+)
+
+# Seed 11
+Mission.create(
+  title: "Beach Cleanup at Plage de la Corniche",
+  description: "Come help us clean up the beach at Plage de la Corniche in Marseille. We'll be picking up trash and debris to help protect marine life and keep the beach beautiful. Wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
+  start_date: Date.tomorrow + 10.days,
+  end_date: Date.tomorrow + 14.days,
+  duration: Time.parse("5:30"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("09:30"),
+  rating: rand(1..5),
+  user: user2,
+  photo_url: "https://images.unsplash.com/photo-1566840601924-07789e0ad0b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y29ybmljaGUlMjBtYXJzZWlsbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
+  address: "Plage de la Corniche, Marseille"
+)
+
+# Seed 12
+Mission.create(
+  title: "Cleaning up the Park in Aix-en-Provence",
+  description: "Join us for a morning of cleaning up the park in Aix-en-Provence. We'll be picking up litter and debris to help keep the park clean and beautiful. Please wear comfortable shoes and bring gloves if you have them.",
+  start_date: Date.tomorrow + 11.days,
+  end_date: Date.tomorrow + 15.days,
+  duration: Time.parse("4:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("10:00"),
+  rating: rand(1..5),
+  user: user5,
+  photo_url: "https://images.unsplash.com/photo-1580600301354-0ce8faef576c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amFyZGlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
+  address: "Parc Jourdan, Aix-en-Provence"
+)
+# Seed 13
+Mission.create(
+  title: "Eco-Friendly Fashion Show in Marseille",
+  description: "Join us for an evening of fashion and sustainability in Marseille. We'll be showcasing the latest eco-friendly fashion designs and discussing ways to reduce waste in the fashion industry. Please dress to impress in your favorite sustainable outfit!",
+  start_date: Date.tomorrow + 20.days,
+  end_date: Date.tomorrow + 21.days,
+  duration: Time.parse("2:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("19:00"),
+  rating: rand(1..5),
+  user: user1,
+  photo_url: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFzaGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+  address: "Palais des Congrès, Marseille"
+)
+
+# Seed 14
+Mission.create(
+  title: "Tree Planting in the Parc de la Tête d'Or",
+  description: "Join us for a morning of tree planting in the Parc de la Tête d'Or in Lyon. We'll be planting a variety of trees to help support the local ecosystem and combat climate change. Please wear comfortable clothes and shoes that can get dirty, and bring gloves if you have them.",
+  start_date: Date.tomorrow + 25.days,
+  end_date: Date.tomorrow + 28.days,
+  duration: Time.parse("4:00"),
+  location: "Rhône",
+  reward: rand(20..100),
+  start_time: Time.parse("9:00"),
+  rating: rand(1..5),
+  user: user4,
+  photo_url: "https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhbnRpbmclMjB0cmVlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  address: "Parc de la Tête d'Or, Lyon"
+)
+
+# Seed 15
+Mission.create(
+  title: "Urban Garden Cleanup in Aix-en-Provence",
+  description: "Join us for a morning of cleaning up the urban garden in Aix-en-Provence. We'll be weeding, pruning, and planting to help promote sustainable urban agriculture. Please wear comfortable clothes and bring gardening gloves if you have them.",
+  start_date: Date.tomorrow + 30.days,
+  end_date: Date.tomorrow + 34.days,
+  duration: Time.parse("3:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("10:00"),
+  rating: rand(1..5),
+  user: user5,
+  photo_url: "https://images.unsplash.com/photo-1486814758653-7e3f452bdddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHVyYmFuJTIwZ2FyZGVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  address: "Jardin des Plantes, Aix-en-Provence"
+)
+
+Mission.create(
+  title: "environmental awareness workshop
+  ",
+  description: "Join us for a morning workshop the with young children, share your experiment and answer questions",
+  start_date: Date.tomorrow + 30.days,
+  end_date: Date.tomorrow + 34.days,
+  duration: Time.parse("3:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("10:00"),
+  rating: rand(1..5),
+  user: user5,
+  photo_url: "https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHRlYWNoaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+  address: "21 Rue Haxo, Marseille 13001"
+)
+
 puts "finished !"

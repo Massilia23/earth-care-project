@@ -10,10 +10,21 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/cards";
+@import "components/index";
+@import "components/scroll";
+@import "components/header";
 
 
+.radius{
+  border-radius: 20px !important;
+}
 
-// body a {
-//   text-decoration: none;
-//   color: black;
+.margin{
+  margin: auto;
+  width: 80vw;
+}
+
+// body{
+//   background-color: $picked;
 // }

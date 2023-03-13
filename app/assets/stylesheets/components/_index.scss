@@ -7,70 +7,72 @@
 @import "footer";
 @import "calendar";
 
-
-*, ::before, ::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Monserrat;
-  // background: url("Banner.png");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  height: 100vh;
-}
-
-.container1{
-  max-width: 1400px;
-  margin: 100 auto 0;
-  padding: 100px 20px 0;
-}
+$my-blue: #e0eaf2;
 
 
-h1{
-  font-weight: bolder;
-  text-transform: uppercase;
-  color:#eadddd;
-  color: transparent;
-  font-size: 50px;;
-}
-h1 span {
-  display:inline-block;
-  position: relative;
-  overflow: hidden;
-  font-size: clamp(20px, 8vw, 100px);
-}
+// *, ::before, ::after {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
 
-h1 span::after{
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transform: translateX(-100%);
-}
+// body {
+//   font-family: Monserrat;
+//   // background: url("Banner.png");
+//   // background-position: center;
+//   // background-repeat: no-repeat;
+//   // background-size: cover;
+//   height: 100vh;
+// }
 
-h1:nth-child(1) {
-  font-weight: 200;
-  animation: txt-appearance 0s 1s
-  forwards;
-}
+// .container1{
+//   max-width: 1400px;
+//   margin: 100 auto 0;
+//   padding: 100px 20px 0;
+// }
 
-// h3:nth-child(2) {
-//   animation: txt-appearance 0s 1.50s
+
+// h1{
+//   font-weight: bolder;
+//   text-transform: uppercase;
+//   color:#eadddd;
+//   color: transparent;
+//   font-size: 50px;;
+// }
+// h1 span {
+//   display:inline-block;
+//   position: relative;
+//   overflow: hidden;
+//   font-size: clamp(20px, 8vw, 100px);
+// }
+
+// h1 span::after{
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   transform: translateX(-100%);
+// }
+
+// h1:nth-child(1) {
+//   font-weight: 200;
+//   animation: txt-appearance 0s 1s
 //   forwards;
 // }
 
-h1:nth-child(1) span::after{
-  background: rgb(215, 179, 95);
-  animation: slide-in 0.75s ease-out forwards,
-  slide-out 0.75s ease-out forwards;
-}
+// // h3:nth-child(2) {
+// //   animation: txt-appearance 0s 1.50s
+// //   forwards;
+// // }
+
+// h1:nth-child(1) span::after{
+//   background: rgb(215, 179, 95);
+//   animation: slide-in 0.75s ease-out forwards,
+//   slide-out 0.75s ease-out forwards;
+// }
 
 // h3:nth-child(2) span::after{
 //   background: royalblue;
@@ -80,68 +82,64 @@ h1:nth-child(1) span::after{
 // }
 
 
+// h3{
+//   font-weight: bolder;
+//   font-family: Monserrat, Arial, Helvetica, sans-serif;
+//   text-transform: uppercase;
+//   color:#b4a5a5;
+//   color: transparent;
+//   font-size: 15px;
+// }
+// h3 span {
+//   display:inline-block;
+//   position: relative;
+//   overflow: hidden;
+//   font-size: clamp(20px, 8vw, 50px);
+// }
+
+// h3 span::after{
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   transform: translateX(-100%);
+// }
 
 
 
-
-h3{
-  font-weight: bolder;
-  font-family: Monserrat, Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-  color:#b4a5a5;
-  color: transparent;
-  font-size: 15px;
-}
-h3 span {
-  display:inline-block;
-  position: relative;
-  overflow: hidden;
-  font-size: clamp(20px, 8vw, 50px);
-}
-
-h3 span::after{
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transform: translateX(-100%);
-}
+// h3:nth-child(2) {
+//   animation: txt-appearance 0s 1.50s
+//   forwards;
+// }
 
 
+// h3:nth-child(2) span::after{
+//   background: royalblue;
+//   animation: slide-in 0.75s 0.3s ease-out forwards,
+//   slide-out 0.75s 2s ease-out forwards;
 
-h3:nth-child(2) {
-  animation: txt-appearance 0s 1.50s
-  forwards;
-}
+// }
 
+//  @keyframes slide-in{
+//     100%{
+//      transform: translateX(0%);
+//     }
+//  }
 
-h3:nth-child(2) span::after{
-  background: royalblue;
-  animation: slide-in 0.75s 0.3s ease-out forwards,
-  slide-out 0.75s 2s ease-out forwards;
+//  @keyframes slide-out{
+//   100%{
+//    transform: translateX(100%);
+//   }
+// }
 
-}
-
- @keyframes slide-in{
-    100%{
-     transform: translateX(0%);
-    }
- }
-
- @keyframes slide-out{
-  100%{
-   transform: translateX(100%);
-  }
-}
-
-@keyframes txt-appearance{
-  100%{
-   color: whitesmoke;
-  }
-}
+// @keyframes txt-appearance{
+//   100%{
+//    color: whitesmoke;
+//   }
+// }
 
 
 // *, ::before, ::after {
@@ -232,76 +230,6 @@ h3:nth-child(2) span::after{
 //   transition: opacity 0.4s ease-out;
 // }
 
-  .btn-primary {
-    background: rgb(89.8, 68.2, 0);
-    background: linear-gradient(0deg, rgb(89.8, 68.2, 0) 0%, rgb(89.8, 68.2, 0) 100%);
-    border: none;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    // background-color: #ff5a5f;
-    // border-color: #ff5a5f;
-  }
-
-  .btn-primary:hover {
-    background: rgb(189,183,107);
-    background: linear-gradient(0deg, rgb(189,183,107) 0%, rgb(189,183,107) 100%);
-    border: none;
-    // background-color: #ff4449;
-    // border-color: #ff4449;
-  }
-
-  // .btn-secondary {
-  //   background-color: #A9A9A9;  // background-color: #484848;
-  //   border-color: #A9A9A9;
-  //   // background-color: #484848;
-  //   // border-color: #484848;
-  // }
-
-  .btn-secondary:hover {
-    background-color: #363636;
-    border-color: #363636;
-  }
-
-  .btn-danger {
-    background: rgb(189,183,107);
-    background: linear-gradient(0deg, rgb(189,183,107) 0%, rgbrgb(189,183,107) 100%);
-    border: none;
-  }
-  .btn-danger:hover  {
-    background: rgb(238,232,170);
-    background: linear-gradient(0deg, rgb(238,232,170) 0%, rgb(238,232,170) 100%);
-  }
-
   .index-bg {
-    background-image: url('etoile.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-color: rgba(0,0,0,0.5);
-  }
-
-  .col-md-4.mb-4 {
-    margin-bottom: 20px;
-  }
-
-  .card {
-    background-color: rgba(255, 255, 255, 0.8); /* Ajouter de la transparence */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ajouter une ombre légère pour plus de profondeur */
-    border-radius: 20px;
-
-  }
-
-  .card-img-top {
-    background-color: rgba(255, 255, 255, 0.8); /* Ajouter de la transparence */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-
-  }
-
-  .list-group-item {
-    background-color: rgba(255, 255, 255, 0.8); /* Ajouter de la transparence */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
-
+    background-color: $my-blue;
   }

@@ -1,11 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background-color: #EEF4ED;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 900;
   height: 60px;
 }
 
@@ -15,4 +15,28 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  border-radius: 50%;
+}
+
+.navbar-custom {
+  height: 140px;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 900;
+  display: none;
+  float: center;
+  min-width: 10rem;
+  padding: .5rem 0;
+  margin: .125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  background-color: $picked;
 }
