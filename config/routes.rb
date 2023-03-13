@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   get "/calendar", to: "pages#calendar"
 
   resources :calendars, only: :index
-  resources :vouchers, only: :show
+  resources :vouchers, only: %i[show index]
 end

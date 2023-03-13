@@ -9,13 +9,13 @@ class MissionsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find_by(user: current_user, mission: @mission)
-    if @booking.nil?
+    # @booking = Booking.find_by(user: current_user, mission: @mission)
+    # if @booking.nil?
       @booking = Booking.new
       @declined_booking = DeclinedBooking.new
-    else
-      @voucher = Voucher.new
-    end
+    # else
+    #   @voucher = Voucher.new
+    # end
     @mission_marker =
       {
         lat: @mission.latitude,
@@ -33,7 +33,7 @@ class MissionsController < ApplicationController
 
     @mission.user = current_user
     if @mission.save
-      redirect_to missions_path(@mission)
+      redirect_to profile_path
     else
       render :new
     end

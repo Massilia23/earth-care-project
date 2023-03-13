@@ -30,23 +30,14 @@
             <div class="d-flex justify-content-around">
 
               <% if current_user != @mission.user %>
-                <% if @booking.persisted? %>
-                  <strong> to Unlocked your  <%= @booking.mission.reward %> points for this mission click on the button below </strong>
-                  <br>
-                  <%= simple_form_for([@booking, @voucher]) do |f| %>
-                    <%= f.text_area :total_points, style: 'display:none' %>
-                    <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
-                  <% end %>
-                  <%# si id de booking exist %>
-                <% else %>
                   <%= simple_form_for [@mission, @booking] do |f| %>
                     <%= f.submit "Accept", class: "btn btn-success" %>
                   <% end %>
                   <%= simple_form_for [@mission, @declined_booking] do |f| %>
                     <%= f.submit "Decline", class: "btn btn-warning" %>
                   <% end %>
-                <% end %>
               <% end %>
+
 
             </div>
 
