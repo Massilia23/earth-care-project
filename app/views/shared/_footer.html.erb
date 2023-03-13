@@ -7,7 +7,13 @@
     <i class="fa-solid fa-calendar"></i>
   <% end %>
 
-  <%# <%= link_to missions_path do %>
+
+ <%# <% if current_user && Booking.all != [] %>
+      <%= link_to profile_path do %>
+        <i class="fa-solid fa-wallet"></i>
+      <% end %>
+
+
   <%# <%= link_to booking_voucher_path(@voucher) do %>
     <%# <i class="fa-solid fa-wallet"></i> %>
   <%# <% end %>
@@ -21,3 +27,6 @@
   <% end %>
 </div>
 <%# new_booking_voucher_path(current_user.bookings.last) %>
+
+
+<%# <%= link_to missions_path do %>

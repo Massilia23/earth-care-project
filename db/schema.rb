@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_12_182711) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_141835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,7 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_182711) do
     t.datetime "duration"
     t.string "location"
     t.string "dess_code"
-    t.integer "reward"
     t.datetime "start_time"
     t.integer "rating"
     t.boolean "personal_choice"
@@ -95,7 +94,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_182711) do
     t.float "longitude"
     t.string "address"
     t.string "accept"
+    t.integer "points"
+    t.integer "reward"
     t.index ["user_id"], name: "index_missions_on_user_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "mission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "reward_points"
+    t.index ["mission_id"], name: "index_rewards_on_mission_id"
+    t.index ["user_id"], name: "index_rewards_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -131,6 +142,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_182711) do
   add_foreign_key "declined_bookings", "users"
   add_foreign_key "meetings", "users"
   add_foreign_key "missions", "users"
+  add_foreign_key "rewards", "missions"
+  add_foreign_key "rewards", "users"
   add_foreign_key "vouchers", "bookings"
   add_foreign_key "vouchers", "users"
 end

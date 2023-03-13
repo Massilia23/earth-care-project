@@ -10,6 +10,7 @@ class VouchersController < ApplicationController
 
   def show
     # Voucher.create(code: "123")
+    @booking = Booking.find(params[:booking_id])
     @voucher = Voucher.find(params[:id])
     @voucher = Voucher.last
     @qrcode = @voucher.code
@@ -28,6 +29,7 @@ class VouchersController < ApplicationController
     @voucher = Voucher.new(voucher_params)
     @voucher.user = current_user
     @booking = Booking.find(params[:booking_id])
+    # @voucher.mission = Mission.find(params(@booking.mission))
     @voucher.booking = @booking
     @voucher.total_points = @voucher.booking.mission.reward
     if @voucher.save
@@ -38,18 +40,19 @@ class VouchersController < ApplicationController
     end
   end
 
-  def completed?
-    @booking.voucher = @voucher
-    if @booking.completed_mission?
-       @voucher = Voucher.new
-    else
-      render
-    end
-  end
+  # def completed?(booking)
+  #   @voucher = Voucher.find(params[:id])
+  #   booking.voucher = voucher
+  #   if @booking.completed_mission?
+
+  #   else
+  #     render
+  #   end
+  # end
 
   private
 
   def voucher_params
-    params.require(:voucher).permit(:total_points, :code, :svg, :user_id, :booking_id)
+    params.require(:voucher).permit(:total_points, :code, :svg, :mission_id)
   end
 end
