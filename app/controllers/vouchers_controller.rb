@@ -10,14 +10,15 @@ class VouchersController < ApplicationController
 
   def show
     # Voucher.create(code: "123")
+    @voucher = Voucher.find(params[:id])
     @voucher = Voucher.last
-    @code = @voucher.code
-    @qrcode = RQRCodeCore::QRCode.new("http://127.0.0.1:3000")
-    @svg = @qrcode.as_svg(
+    @qrcode = @voucher.code
+    @code = RQRCode::QRCode.new("http://127.0.0.1:3000")
+    @svg = @code.as_svg(
       off_set: 0,
       color: "000",
       shape_rendering: "crispEdges",
-      module_size: 6,
+      module_size: 6
       # standalone: true,
       # use_path: true
     )

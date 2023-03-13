@@ -283,7 +283,7 @@ DEPENDENCIES
   puma (~> 5.0)
   pundit
   rails (~> 7.0.4, >= 7.0.4.2)
-  rqrcode (~> 2.0)
+  rqrcode
   sassc-rails
   selenium-webdriver
   simple_calendar (~> 2.4)
