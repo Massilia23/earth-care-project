@@ -86,3 +86,5 @@ gem 'faker', '~> 2.18', '>= 2.18.4'
 
 gem 'geocoder'
 
+# gem "rqrcode", "~> 2.0"
+ gem "rqrcode"

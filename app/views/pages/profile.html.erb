@@ -12,6 +12,14 @@
         </div>
       </div>
 
+
+ <%# les points debloqués lors du booking %>
+     <p>Your wallet is unlocked</p>
+      <% @vouchers.each do |voucher, booking| %>
+       <strong> You unlocked <%= voucher.booking.mission.reward %> points </strong>
+      <% end %>
+
+
       <br>
       <div class="green-line"></div>
       <br>
@@ -48,6 +56,12 @@
     </div>
     <br>
 
+
+
+
+
+
+
     <div class="container-booking">
         <div class="header-profile">
           <h1>Creation Dashboard</h1>
@@ -58,7 +72,7 @@
               <div class="booking">
                 <div class="booking-info">
                   <div class="booking-time"><%= mission.title %></div>
-                  <div class="booking-time"><%= mission.duration.strftime('%H:%M') %></div>
+                  <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %></div>
                   <div class="booking-location"><%= mission.location %></div>
                 </div>
                 <div class="booking-status">Created</div>
@@ -84,7 +98,7 @@
       <i class="fa-solid fa-calendar"></i>
     <% end %>
 
-    <%= link_to missions_path do %>
+    <%= link_to new_booking_voucher_path(current_user.bookings.last) do %>
       <i class="fa-solid fa-wallet"></i>
     <% end %>
 
