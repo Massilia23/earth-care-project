@@ -9,5 +9,4 @@ class User < ApplicationRecord
   has_many :missions, through: :bookings
 
   has_many :vouchers
-
 end
