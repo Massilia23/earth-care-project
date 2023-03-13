@@ -116,14 +116,25 @@
       <i class="fa-solid fa-calendar"></i>
     <% end %>
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 84a7a4b2afcdc9cba3e33eb934cc686733893ce0
     <% if current_user %>
       <%= link_to new_booking_voucher_path(current_user.bookings.last) do %>
         <i class="fa-solid fa-wallet"></i>
       <% end %>
+<<<<<<< HEAD
+=======
+    <%= link_to booking_voucher_path(@voucher)  do %>
+      <i class="fa-solid fa-wallet"></i>
+>>>>>>> 792fc4df1556d866854d328d49b6c15026fa8fda
+=======
       
     <%= link_to booking_voucher_path(@voucher)  do %>
       <i class="fa-solid fa-wallet"></i>
 
+>>>>>>> 84a7a4b2afcdc9cba3e33eb934cc686733893ce0
     <% end %>
 
     <%= link_to missions_path do %>
