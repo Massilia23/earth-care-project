@@ -36,3 +36,21 @@
   margin-bottom: 0;
   position: fixed;
 }
+
+.footer-homepage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EEF4ED;
+  height: 60px;
+  bottom: 0;
+  padding: 0 20px;
+  background-color: #FDF1ED;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.social-media {
+  font-size: 30px;
+  margin-left: 50px;
+}

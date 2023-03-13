@@ -19,7 +19,7 @@
 }
 
 .navbar-custom {
-  height: 140px;
+  height: 100px;
 }
 .dropdown-menu {
   position: absolute;
@@ -39,4 +39,9 @@
   border: 1px solid rgba(0,0,0,.15);
   border-radius: .25rem;
   background-color: $picked;
+}
+
+.navbar-custom {
+  height: 59px;
+  position: sticky;
 }
