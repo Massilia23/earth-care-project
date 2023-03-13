@@ -8,7 +8,6 @@
 
 require 'faker'
 
-
 Voucher.destroy_all
 Booking.destroy_all
 DeclinedBooking.destroy_all
