@@ -1,1 +1,84 @@
 // Specific CSS for your home-page
+.premier-para {
+  background-color: #d2edff;
+  padding-top: 6px;
+}
+
+.titre-homepage {
+  font-weight: bold;
+  font-family: serif;
+  font-size: 44px;
+}
+
+.sous-titre{
+  font-style: italic;
+}
+
+.premier-btn {
+  padding: 9px 24px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 8px;
+  background-image: linear-gradient(300deg, #4dc390, #4381C1);
+  transition-duration: 200ms;
+  color: #d2edff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  background-clip: border-box;
+  -webkit-text-fill-color: inherit;
+}
+
+.second-btn {
+  padding: 9px 24px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 8px;
+  color: #409e75;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  background-clip: border-box;
+  -webkit-text-fill-color: inherit;
+}
+
+.second-para {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #FDF1ED;
+}
+
+.title-h2-home {
+  margin-bottom: 0px;
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-family: serif;
+}
+
+.text-join-us{
+  font-size: 30px;
+  font-family: serif;
+}
+
+.horizontal-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #757575;
+  justify-content: center;
+}
+
+.third-para {
+  background-color: #FFF8D6;
+}
+
+.title-p3-home {
+  margin-bottom: 0px;
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding-top: 20px;
+  font-family: serif;
+}
