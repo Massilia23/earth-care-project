@@ -33,7 +33,7 @@
 .header-profile h1 {
   font-weight: bold;
   font-family: serif;
-  font-size: 34px;
+  font-size: 20px;
 }
 
 .bookings {
@@ -65,7 +65,7 @@
 .booking-info {
   display: flex;
   flex-direction: column;
-  border-radius: 20%;
+  border-radius: 20px;
 
 }
 
@@ -88,7 +88,7 @@
 }
 
 .card-profile-wallet {
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .voucher-link {
@@ -110,7 +110,7 @@
 .profile-card {
 	background-color: #AC795C;
   margin-bottom: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .profile-pic {
@@ -204,4 +204,11 @@
   height: 1px;
   background: #CECECE;
   border-radius: 0;
+}
+
+.premier-paraf {
+  background-color: #d2edff;
+  padding-top: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
