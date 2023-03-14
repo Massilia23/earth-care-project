@@ -15,7 +15,6 @@ DeclinedBooking.destroy_all
 Mission.destroy_all
 User.destroy_all
 
-
 user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "Amel", last_name: "Zahir")
 user1_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795627/122739028_mcyvpe.jpg")
 # user1.photo.attach(io: user1_file, filename: "user1.jpg", content_type: "image/jpg")
@@ -57,33 +56,11 @@ user10_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v16787
 # user9.photo.attach(io: user10_file, filename: "user10.jpg", content_type: "image/jpg")
 user10.save!
 
-
-# puts "mission created"
-# 20.times do |i|
-#   Mission.create!(
-#     title: Faker::Book.title,
-#     description: Faker::Hipster.paragraph(sentence_count: 5),
-#     location: Faker::Address.city + ', France',
-#     start_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'),
-#     end_date: Faker::Date.between(from: '2023-01-01', to: '2023-12-31'),
-#     start_time: Faker::Time.between(from: DateTime.now, to: DateTime.now + 1, format: :short),
-#     duration: Faker::Number.between(from: 1, to: 5).to_s + ' hours',
-#     dess_code: Faker::Job.field,
-#     reward: Faker::Number.between(from: 20, to: 60),
-#     rating: Faker::Number.between(from: 1, to: 5),
-#     completed: Faker::Boolean.boolean,
-#     personal_choice: Faker::Boolean.boolean,
-#     user: user1,
-#     address: Faker::Address.street_address + ', ' + Faker::Address.postcode + ' ' + Faker::Address.city + ', France',
-#     photo_url: Faker::LoremFlickr.image(size: "150x100", search_terms: ['nature', i])
-#   )
-# end
-# puts "finished !"
-
 puts "mission created"
 
+
 # Seed 1
-Mission.create!(
+mission1 = Mission.create!(
   title: "Cleaning the Calanques",
   description: "Join us for a day of cleaning the Calanques, one of Marseille's most beautiful natural areas. We'll be picking up litter and debris to help keep this stunning location pristine for future generations. Please wear sturdy shoes and bring a hat and sunscreen.",
   start_date: Date.tomorrow,
@@ -97,6 +74,8 @@ Mission.create!(
   photo_url: "https://images.unsplash.com/photo-1604948559069-3287d5c5a6e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FsYW5xdWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
+charoom1= Chatroom.create!( mission_id: mission1.id)
+
 
 # Seed 2
 Mission.create(

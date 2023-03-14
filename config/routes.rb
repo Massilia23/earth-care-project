@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :missions do
     resources :bookings, only: %i[new create]
     resources :declined_bookings, only: %i[create]
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
   end
   resources :bookings, only: %i[show edit update destroy] do
     resources :vouchers,  only: %i[new create show]
@@ -18,4 +21,5 @@ Rails.application.routes.draw do
 
   resources :calendars, only: :index
   resources :vouchers, only: %i[show index]
+
 end
