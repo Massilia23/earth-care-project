@@ -76,7 +76,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
+gem "pg_search"
 
 gem "pundit"
 

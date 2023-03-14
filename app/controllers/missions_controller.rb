@@ -4,7 +4,11 @@ class MissionsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
-    @missions = Mission.all
+    if params[:query]
+      @missions = Mission.search(params[:query])
+    else
+     @missions = Mission.all
+    end
   end
 
   def show
