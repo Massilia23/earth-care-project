@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
   <br>
   <br>
+
   <div class="container">
+
       <div class="card">
         <div class="card-body text-center background-card-profile">
 
@@ -18,22 +20,23 @@
                   <%# si id de booking exist %>
 
 
-      <p>  Find your wallet here </p>
+      <strong> <p>  Find your wallet here </p> </strong>
 
               <% @vouchers.each do |voucher| %>
                 <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
-                 <strong>  You have  <%= voucher.booking.mission.reward %> points for this mission  </strong>
+                 <strong>  You have  <%= voucher.booking.mission.reward %> points for the <%= voucher.booking.mission.title %> mission  </strong>
                   <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
                     <br>
+                      <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher) %>
+                      <p> Click on the link to generate the QR code "voucher" </p>
 
-              <p> Click on the link to generate the QR code "voucher" </p>
-              <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher) %>
+
               <% end %>
             <%# (voucher.booking) %>
       <br>
       <div class="green-line"></div>
       <br>
-
+      </div>
 
     <div class="container-booking">
         <div class="header-profile">
@@ -41,7 +44,6 @@
         </div>
         <div class="bookings">
 
-        <%# <% current_user.bookings.last.mission.accept %>
           <% @bookings.each do |booking, mission| %>
             <div class="booking-list">
               <div class="booking">
@@ -50,9 +52,11 @@
                   <div class="booking-time"><%= booking.mission.title %></div>
                   <div class="booking-time"><%= booking.mission.start_date %></div>
                   <div class="booking-time"><%= booking.mission.end_date %></div>
+                   <div class="booking-status">Confirmed</div>
 
-                  <strong> to Unlocked your points for this mission click on the button below </strong>
+
                   <% if booking.vouchers.empty?  %>
+                    <strong> to Unlocked your points for this mission click on the button below </strong>
                     <%= simple_form_for([booking, @voucher]) do |f| %>
                         <%= f.text_area :total_points, style: 'display:none' %>
                         <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
@@ -60,7 +64,7 @@
                   <% end %>
 
 
-                  <div class="booking-status">Confirmed</div>
+
 
 
 
@@ -79,7 +83,17 @@
     <br>
 
 
+
+
+
+
+
+
+
+
+
     <div class="container-booking">
+
         <div class="header-profile">
           <h1>Creation Dashboard</h1>
         </div>
@@ -91,13 +105,26 @@
                   <div class="booking-time"><%= mission.title %></div>
                   <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %></div>
                   <div class="booking-location"><%= mission.location %></div>
+                  <%= link_to "Edit you posted mission", edit_mission_path(mission),class: "btn"  %>
+                  <%= link_to "Delete your mission", mission_path(mission),  data: {turbo_method: :delete, confirm: "Are you sure?" } %>
                 </div>
                 <div class="booking-status">Created</div>
+
               </div>
             </div>
+
           <% end %>
+       <%# <% if current_user == @mission.user %>
+
           </div>
+       
         </div>
+
+
+
+            <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>
+
+
       </div>
     </div>
 
