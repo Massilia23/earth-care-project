@@ -1,5 +1,43 @@
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb- navbar-custom">
+  <div class="container-fluid">
+    <%= link_to missions_path, class: "navbar-brand" do %>
+      <%= image_tag "https://www.logomyway.com/logos_new/9047/1_375621915085.png", class:"rounded" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto text-end">
+        <% if user_signed_in? %>
+
+          <li class="nav-item dropdown text-end ">
+           <%= image_tag "https://avatars.githubusercontent.com/u/119122764?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+            <%= link_to "Discover", new_mission_path, class: "dropdown-item" %>
+             <%= link_to "Your profile", profile_path, class: "dropdown-item" %>
+              <%= link_to "Post a mission", new_mission_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {method: :delete}, class: "dropdown-item" %>
+
+
+
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <div class="container premier-para">
-  <h2 class="titre-homepage">Earth Care</h2>
+  <h2 class="titre-homepage text-center">Earth Care</h2>
   <br>
   <h4 class="sous-titre">The More You Care, The More You Earn.</h4>
   <br>
@@ -23,7 +61,24 @@
   <div class="horizontal-separator"></div>
   <br>
   <p class="text-join-us">+100 Partners</p>
+    <div class="logo-carousel">
+      <div class="carousel-container-logo slide-track">
+        <div class="logo-item"><%= image_tag('AMOr-benamor.png') %></div>
+        <div class="logo-item"><%= image_tag('Lidl-Logo.png') %></div>
+        <div class="logo-item"><%= image_tag('Fnac_Logo.png') %></div>
+        <div class="logo-item"><%= image_tag('flyer-cafe-barbesbd.jpg') %></div>
+        <div class="logo-item"><%= image_tag('Emblema-Carrefour.png') %></div>
+        <div class="logo-item"><%= image_tag('Hamoud_logo.png') %></div>
+        <div class="logo-item"><%= image_tag('logo-biocoop-2019.png') %></div>
+        <div class="logo-item"><%= image_tag('mecca-cola-logo-png-transparent.png') %></div>
+        <div class="logo-item"><%= image_tag('Darty.png') %></div>
+        <div class="logo-item"><%= image_tag('pv.png') %></div>
+        <div class="logo-item"><%= image_tag('Decathlon-logo.png') %></div>
+      </div>
+    </div>
 </div>
+
+
 
 <div class="container third-para">
   <h2 class="title-p3-home text-center">Community</h2>
@@ -37,20 +92,20 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
 
         </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= image_tag('Test-1.jpg') %>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag('Test-1.jpg') %>
+          </div>
+          <div class="carousel-item">
+              <%= image_tag('Test-2.jpg') %>
+          </div>
+          <div class="carousel-item">
+              <%= image_tag('Test-3.jpg') %>
+          </div>
+          <div class="carousel-item">
+              <%= image_tag('Test-4.jpg') %>
+          </div>
         </div>
-        <div class="carousel-item">
-            <%= image_tag('Test-2.jpg') %>
-        </div>
-        <div class="carousel-item">
-            <%= image_tag('Test-3.jpg') %>
-        </div>
-        <div class="carousel-item">
-            <%= image_tag('Test-4.jpg') %>
-        </div>
-      </div>
 
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -64,5 +119,23 @@
     </div>
 </div>
 
+<div class="container fourth-para">
+  <h2 class="title-p3-home text-center title-fourth">Follow Us</h2>
+  <br>
+  <br>
 
+  <i class="fa-brands fa-instagram social-media"></i>
+
+  <i class="fa-brands fa-facebook social-media"></i>
+
+  <i class="fa-brands fa-linkedin social-media"></i>
+
+  <i class="fa-brands fa-github social-media"></i>
+  <br>
+  <br>
+  <div class="horizontal-separator"></div>
+  <br>
+  <p class="text-center">CONTACT: support@earth-care-project.com</p>
+  <p class="text-center">21 rue Haxo, 13001 Marseille</p>
+  <br>
 </div>

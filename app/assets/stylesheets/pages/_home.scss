@@ -5,6 +5,7 @@
 }
 
 .titre-homepage {
+  margin-top: 50px;
   font-weight: bold;
   font-family: serif;
   font-size: 44px;
@@ -45,7 +46,7 @@
 .second-para {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #FDF1ED;
+  background-color: #d2edff;
 }
 
 .title-h2-home {
@@ -71,6 +72,7 @@
 
 .third-para {
   background-color: #FFF8D6;
+
 }
 
 .title-p3-home {
@@ -81,4 +83,82 @@
   letter-spacing: 0.5px;
   padding-top: 20px;
   font-family: serif;
+}
+
+.carousel-item img{
+  border-radius: 20px;
+  padding: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.fourth-para {
+  background-color: #FFD4B2
+}
+
+.title-fourth {
+  padding-top: 40px;
+}
+
+.container-partenaires {
+  max-width: 500px;
+  margin: auto;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.flex-container .item:first-child {
+  margin-left: auto;
+}
+
+.flex-container .item:last-child {
+  margin-right: auto;
+}
+/* Code that matters
+* :END
+*/
+.logo-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 60px; /* Set the height of the carousel */
+  display: flex;
+  justify-content: center; /* Center the carousel horizontally */
+
+}
+
+.carousel-container-logo {
+  display: flex;
+  width: max-content;
+  align-items: center; /* Center the carousel items vertically */
+  animation: carousel 15s linear infinite;
+}
+
+.item {
+  margin-right: 80px;
+  height: 80px; /* Set the height of the carousel items */
+  width: 100px;
+}
+
+.item img {
+  height: 80px; /* Set the height of the logo images */
+  width: 100px;
+}
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.slide-track {
+		animation: scroll 70 linear infinite;
 }

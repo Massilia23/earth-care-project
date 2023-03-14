@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
     <title>EarthCareProject</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,7 +22,10 @@
 
 
 
-  <body><%= render "shared/navbar" %>
+  <body>
+    <% unless ( controller_name == "pages" && action_name == "home")%>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
 

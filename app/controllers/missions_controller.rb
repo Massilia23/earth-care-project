@@ -5,7 +5,6 @@ class MissionsController < ApplicationController
 
   def index
     @missions = Mission.all
-
   end
 
   def show
@@ -22,6 +21,7 @@ class MissionsController < ApplicationController
         lng: @mission.longitude
       }
   end
+
 
   def new
     @mission = Mission.new
@@ -64,5 +64,4 @@ class MissionsController < ApplicationController
   def mission_params
     params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo_url, :duration, :dess_code, :user)
   end
-
 end

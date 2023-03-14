@@ -302,8 +302,7 @@ Mission.create(
 )
 
 Mission.create(
-  title: "environmental awareness workshop
-  ",
+  title: "Environmental awareness workshop",
   description: "Join us for a morning workshop the with young children, share your experiment and answer questions",
   start_date: Date.tomorrow + 30.days,
   end_date: Date.tomorrow + 34.days,
