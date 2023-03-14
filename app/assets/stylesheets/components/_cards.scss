@@ -29,18 +29,26 @@
   align-items: flex-end;
   position: relative;
 }
-
-.btn-success{
+.btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
   border-radius: 20px;
   text-decoration: none;
   margin-top: 10px;
 }
 
-.btn-warning{
-  border-radius: 20px;
-  text-decoration: none;
-  margin-top: 10px;
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
 }
+
+.btn-warning {
+  background-color: #c3b27e;
+  border-color: #ffc107;
+  color: #fff;
+}
+
 
 .width{
   height: 11vh;
@@ -64,7 +72,19 @@ span{
   text-align: center;
 }
 
+
 .image-wrapper {
-  position: relative;
   overflow: hidden;
+  height: 150px;
+  border-radius: 10px;
+  margin-right: 25px;
+  margin-left: 25px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
 }
