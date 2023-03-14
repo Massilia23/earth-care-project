@@ -37,8 +37,9 @@ user10.save!
 
 puts "mission created"
 
+
 # Seed 1
-Mission.create!(
+mission1 = Mission.create!(
   title: "Cleaning the Calanques",
   description: "Join us for a day of cleaning the Calanques, one of Marseille's most beautiful natural areas. We'll be picking up litter and debris to help keep this stunning location pristine for future generations. Please wear sturdy shoes and bring a hat and sunscreen.",
   start_date: Date.tomorrow,
@@ -52,6 +53,8 @@ Mission.create!(
   photo_url: "https://images.unsplash.com/photo-1604948559069-3287d5c5a6e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FsYW5xdWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
+charoom1= Chatroom.create!( mission_id: mission1.id)
+
 
 # Seed 2
 Mission.create(

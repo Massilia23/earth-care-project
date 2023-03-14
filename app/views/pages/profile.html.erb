@@ -61,11 +61,12 @@
                         <%= f.text_area :total_points, style: 'display:none' %>
                         <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
                     <% end %>
+
                   <% end %>
 
-
-
-
+                      <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
+                    <i class="fa-solid fa-comments"></i>
+                  <% end %>
 
 
 
@@ -117,7 +118,7 @@
        <%# <% if current_user == @mission.user %>
 
           </div>
-       
+
         </div>
 
 
