@@ -88,3 +88,6 @@ gem 'geocoder'
 
 # gem "rqrcode", "~> 2.0"
  gem "rqrcode"
+
+ gem "pg_search"
+ # pour search bar
