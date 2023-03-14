@@ -72,6 +72,7 @@
 
 .third-para {
   background-color: #FFF8D6;
+
 }
 
 .title-p3-home {
@@ -131,12 +132,11 @@
 
 }
 
-.carousel-container {
+.carousel-container-logo {
   display: flex;
   width: max-content;
-  animation: carousel 80s infinite;
   align-items: center; /* Center the carousel items vertically */
-  animation: carousel 90s linear infinite;
+  animation: carousel 15s linear infinite;
 }
 
 .item {
@@ -146,7 +146,7 @@
 }
 
 .item img {
-  height: 70px; /* Set the height of the logo images */
+  height: 80px; /* Set the height of the logo images */
   width: 100px;
 }
 
@@ -160,5 +160,5 @@
 }
 
 .slide-track {
-		animation: scroll 10 linear infinite;
+		animation: scroll 70 linear infinite;
 }
