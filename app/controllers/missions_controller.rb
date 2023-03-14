@@ -4,13 +4,13 @@ class MissionsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query"
-      @missions = Mision.where(sql_query, query: "%#{params[:query]}%")
+    if params[:query]
+      @missions = Mission.search(params[:query])
     else
-    @missions = Mission.all
+     @missions = Mission.all
     end
   end
+
 
   def show
 
