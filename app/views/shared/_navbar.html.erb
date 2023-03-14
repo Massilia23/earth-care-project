@@ -1,10 +1,7 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb- navbar-custom">
   <div class="container-fluid">
-  <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+
     <%= link_to missions_path, class: "navbar-brand" do %>
       <%= image_tag "https://www.logomyway.com/logos_new/9047/1_375621915085.png", class:"rounded" %>
     <% end %>
@@ -19,15 +16,13 @@
         <% if user_signed_in? %>
 
           <li class="nav-item dropdown text-end ">
-           <%= image_tag "https://avatars.githubusercontent.com/u/119122764?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+           <%# <%= image_tag "https://avatars.githubusercontent.com/u/119122764?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>
             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
             <%= link_to "Discover", new_mission_path, class: "dropdown-item" %>
              <%= link_to "Your profile", profile_path, class: "dropdown-item" %>
               <%= link_to "Post a mission", new_mission_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {method: :delete}, class: "dropdown-item" %>
-
-
-
             </div>
           </li>
         <% else %>

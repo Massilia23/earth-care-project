@@ -1,9 +1,9 @@
-<body class="body-form">
+<%# <body class="body-form"> %>
 	<!-- main -->
 
 <% if user_signed_in? %>
-	<div class="main-w3layouts wrapper">
-		<h1 class="title-form">NEW MISSION</h1>
+	<div class="container second-para">
+		<h4 class="title-form">CREATE YOUR MISSION</h4>
     <%= simple_form_for(@mission) do |f| %>
 		  <div class="main-agileinfo">
         <div class="agileits-top">
@@ -26,32 +26,21 @@
               <div class="clear"> </div>
             </div>
             <br>
-          <%= f.submit %>
+          <div class = "btn "><%= f.submit %> </div>
     <% end %>
-      </div>
+       </div>
 
-      <%= link_to "< Back to missions", missions_path, class: "link_to_form"%>
-
-	  </div>
+          <strong> <%= link_to "< Back to missions", missions_path, class: "link_to_form"%>  </strong>
+	   </div>
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
 			<p>© Earth-Care-Project</p>
 		</div>
 		<!-- //copyright -->
-		<ul class="colorlib-bubbles">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+
+
 	</div>
 	<!-- //main -->
 
 <% end %>
-</body-form>
+<%# </body-form> %>

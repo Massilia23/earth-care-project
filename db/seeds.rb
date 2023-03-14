@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
 Voucher.destroy_all
 Booking.destroy_all
@@ -14,55 +15,52 @@ DeclinedBooking.destroy_all
 Mission.destroy_all
 User.destroy_all
 
-
 user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "Amel", last_name: "Zahir")
+user1_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795627/122739028_mcyvpe.jpg")
+# user1.photo.attach(io: user1_file, filename: "user1.jpg", content_type: "image/jpg")
 user1.save!
 user2 = User.create!(email: "najib@gmail.com", password: "azerty", first_name: "Najib", last_name: "Zahir")
+user2_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795781/119122764_aakao8.jpg")
+# user2.photo.attach(io: user2_file, filename: "user2.jpg", content_type: "image/jpg")
 user2.save!
 user3 = User.create!(email: "yannis@gmail.com", password: "azerty", first_name: "Yannis", last_name: "Zahir")
+user3_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795720/105856055_aen7ji.jpg")
+# user3.photo.attach(io: user3_file, filename: "user3.jpg", content_type: "image/jpg")
 user3.save!
 user4 = User.create!(email: "lila@gmail.com", password: "azerty", first_name: "Lila", last_name: "Zahir")
+user4_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795820/g4axleppi0jphmkxitou_neiwfh.jpg")
+# user4.photo.attach(io: user4_file, filename: "user4.jpg", content_type: "image/jpg")
 user4.save!
 user5 = User.create!(email: "farid@gmail.com", password: "azerty", first_name: "Farid", last_name: "Zahir")
+user5_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678799482/vgqoqi2xh9dynulom8sz_ym643e.jpg")
+# user5.photo.attach(io: user5_file, filename: "user5.jpg", content_type: "image/jpg")
 user5.save!
 user6 = User.create!(first_name: "Ahmad", last_name: "Ali", email: "ahmadali@example.com", password: "password")
+user6_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795884/122787104_gswbao.jpg")
+# user6.photo.attach(io: user6_file, filename: "user6.jpg", content_type: "image/jpg")
 user6.save!
 user7 = User.create!(first_name: "Fatima", last_name: "Ali", email: "fatimaali@example.com", password: "password")
+user7_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795907/107549303_e7e9br.jpg")
+# user7.photo.attach(io: user7_file, filename: "user7.jpg", content_type: "image/jpg")
 user7.save!
 user8 = User.create!(first_name: "Yusuf", last_name: "Ali", email: "yusufali@example.com", password: "password")
+user8_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795926/m4ogwtgpsto8e1s8uwtl_yaiup4.jpg")
+# user8.photo.attach(io: user8_file, filename: "user8.jpg", content_type: "image/jpg")
 user8.save!
 user9 = User.create!(first_name: "Aisha", last_name: "Ali", email: "aishaali@example.com", password: "password")
+user9_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795966/113301850_ajlxfj.jpg")
+# user9.photo.attach(io: user9_file, filename: "user9.jpg", content_type: "image/jpg")
 user9.save!
 user10 = User.create!(first_name: "Mohammed", last_name: "Ali", email: "mohammedali@example.com", password: "password")
+user10_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795993/111004630_xnn9xz.jpg")
+# user9.photo.attach(io: user10_file, filename: "user10.jpg", content_type: "image/jpg")
 user10.save!
-
-
-# puts "mission created"
-# 20.times do |i|
-#   Mission.create!(
-#     title: Faker::Book.title,
-#     description: Faker::Hipster.paragraph(sentence_count: 5),
-#     location: Faker::Address.city + ', France',
-#     start_date: Faker::Date.between(from: '2022-01-01', to: '2022-12-31'),
-#     end_date: Faker::Date.between(from: '2023-01-01', to: '2023-12-31'),
-#     start_time: Faker::Time.between(from: DateTime.now, to: DateTime.now + 1, format: :short),
-#     duration: Faker::Number.between(from: 1, to: 5).to_s + ' hours',
-#     dess_code: Faker::Job.field,
-#     reward: Faker::Number.between(from: 20, to: 60),
-#     rating: Faker::Number.between(from: 1, to: 5),
-#     completed: Faker::Boolean.boolean,
-#     personal_choice: Faker::Boolean.boolean,
-#     user: user1,
-#     address: Faker::Address.street_address + ', ' + Faker::Address.postcode + ' ' + Faker::Address.city + ', France',
-#     photo_url: Faker::LoremFlickr.image(size: "150x100", search_terms: ['nature', i])
-#   )
-# end
-# puts "finished !"
 
 puts "mission created"
 
+
 # Seed 1
-Mission.create!(
+mission1 = Mission.create!(
   title: "Cleaning the Calanques",
   description: "Join us for a day of cleaning the Calanques, one of Marseille's most beautiful natural areas. We'll be picking up litter and debris to help keep this stunning location pristine for future generations. Please wear sturdy shoes and bring a hat and sunscreen.",
   start_date: Date.tomorrow,
@@ -76,6 +74,8 @@ Mission.create!(
   photo_url: "https://images.unsplash.com/photo-1604948559069-3287d5c5a6e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FsYW5xdWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
+charoom1= Chatroom.create!( mission_id: mission1.id)
+
 
 # Seed 2
 Mission.create(
