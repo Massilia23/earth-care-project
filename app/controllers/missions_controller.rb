@@ -4,21 +4,32 @@ class MissionsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
+<<<<<<< HEAD
     if params[:query]
       @missions = Mission.search(params[:query])
     else
      @missions = Mission.all
     end
+=======
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query"
+      @missions = Mision.where(sql_query, query: "%#{params[:query]}%")
+    else
+    @missions = Mission.all
+>>>>>>> c034ba3d941d2bad8ff8c48ef7d051ad956a5dec
   end
+end
 
   def show
+
     # @booking = Booking.find_by(user: current_user, mission: @mission)
     # if @booking.nil?
-      @booking = Booking.new
+       @booking = Booking.new
+
       @declined_booking = DeclinedBooking.new
     # else
     #   @voucher = Voucher.new
-    # end
+    end
     @mission_marker =
       {
         lat: @mission.latitude,
@@ -48,7 +59,7 @@ class MissionsController < ApplicationController
 
   def update
     if @mission.update(mission_params)
-      redirect_to missions_path(@mission)
+      redirect_to profile_path
     else
       render :edit
     end
