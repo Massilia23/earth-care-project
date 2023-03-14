@@ -20,7 +20,8 @@ class MissionsController < ApplicationController
         lat: @mission.latitude,
         lng: @mission.longitude
       }
-  endgit 
+  end
+
 
   def new
     @mission = Mission.new
