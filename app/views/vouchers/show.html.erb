@@ -1,8 +1,29 @@
 
  <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
 
+<div class="container second-para text-center">
   <h1>Scan this QR code to use it in our different partners</h1>
               <%= @svg.html_safe %>
+</div>
+
+
+  <div class="container qr code">
+    <br>
+    <br>
+    <h1 class="titre-qr code text-center mb-4 mt-2">Scan this QR code to use it in our different partners</h1>
+    <br>
+    <br>
+
+    <h6 class="qr code text-center">
+      <div style= "height: 400px;
+           width:100%;
+
+      ">
+    <%= @svg.html_safe %></h6>
+    <br>
+    </div>
+  </div>
+
 
 <%# <%= simple_form_for([@booking, @voucher]) do |f| %>
   <%# <%= f.text_area :total_points, style: 'display:none' %>

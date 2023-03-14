@@ -1,14 +1,21 @@
+
+
+<div class="container third-para">
+
 <h1>Update mission</h1>
 
-<%= form_with model: @mission, url: mission_path(@mission), method: :patch do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+  <%= form_with model: @mission, url: mission_path(@mission), method: :patch do |form| %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
 
-  <%= form.label :start_date %>
-  <%= form.date_field :start_date %>
-  <%= form.submit %>
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date %>
 
+     <%= form.label :end_date %>
+    <%= form.date_field :end_date %>
+    <%= form.submit %>
   <% end %>
+</div>
