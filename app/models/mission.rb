@@ -4,6 +4,7 @@ class Mission < ApplicationRecord
   has_one_attached :photo
   has_many :users, through: :bookings
   geocoded_by :address
+  has_one :chatroom
   after_validation :geocode, if: :will_save_change_to_address?
   # geoloc deter a patir adresse de la mission
   # si une adresse modif dans une mission, coordonnées géo update avec if
