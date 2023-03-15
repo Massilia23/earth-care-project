@@ -21,7 +21,7 @@ class MissionsController < ApplicationController
       @declined_booking = DeclinedBooking.new
     # else
     #   @voucher = Voucher.new
-    
+
     @mission_marker =
       {
         lat: @mission.latitude,
