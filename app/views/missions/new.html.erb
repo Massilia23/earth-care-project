@@ -8,7 +8,7 @@
 		  <div class="main-agileinfo">
         <div class="agileits-top">
                 <%= f.input :title %>
-                <%= f.file_field :photo_url, label: "your pic"  %>
+                <%= f.input :photo, as: :file %>
                 <%= f.input :description %>
                 <%= f.date_field :start_date %>
                 <%= f.date_field :end_date %>

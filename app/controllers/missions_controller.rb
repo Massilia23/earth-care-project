@@ -7,18 +7,16 @@ class MissionsController < ApplicationController
     if params[:query]
       @missions = Mission.search(params[:query])
     else
-     @missions = Mission.all
+      @missions = Mission.all
     end
   end
 
-
   def show
-
     # @booking = Booking.find_by(user: current_user, mission: @mission)
     # if @booking.nil?
-       @booking = Booking.new
+    @booking = Booking.new
 
-      @declined_booking = DeclinedBooking.new
+    @declined_booking = DeclinedBooking.new
     # else
     #   @voucher = Voucher.new
 
@@ -29,14 +27,12 @@ class MissionsController < ApplicationController
       }
   end
 
-
   def new
     @mission = Mission.new
   end
 
   def create
     @mission = Mission.new(mission_params)
-
 
     @mission.user = current_user
     if @mission.save
@@ -69,6 +65,6 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo_url, :duration, :dess_code, :user)
+    params.require(:mission).permit(:title, :description, :start_date, :end_date, :location, :reward, :photo, :duration, :dess_code, :user)
   end
 end
