@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @missions = Mission.where(user: current_user)
     @bookings = Booking.where(user: current_user)
     @vouchers = Voucher.where(user: current_user)
+    @chatroom = Chatroom.where(user: current_user)
     @voucher = Voucher.new
   end
 

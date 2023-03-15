@@ -73,9 +73,13 @@ mission1 = Mission.create!(
   user: user1,
   address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
+
+
+
 mission1_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1604948559069-3287d5c5a6e5_fswyic.jpg")
 mission1.photo.attach(io: mission1_file, filename: "mission1.jpg", content_type: "image/jpg")
 mission1.save
+
 
 chatroom1 = Chatroom.create!(mission_id: mission1.id)
 
@@ -93,9 +97,13 @@ mission2 = Mission.create(
   user: user2,
   address: "Plage du Prado, Marseille 13008"
 )
+
+chatroom2 = Chatroom.create!( mission_id: mission2.id)
+
 mission2_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1610093674388-cee0337f2684_mymzjv.jpg")
 mission2.photo.attach(io: mission2_file, filename: "mission2.jpg", content_type: "image/jpg")
 mission2.save
+
 
 # Seed 3
 mission3 = Mission.create(
@@ -148,9 +156,13 @@ mission5 = Mission.create(
   photo_url: "https://images.unsplash.com/photo-1651303812964-44676108f8d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
   address: "Calanques National Park, Marseille 13008"
 )
+
+chatroom5 = Chatroom.create!( mission_id: mission5.id)
+
 mission5_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1651303812964-44676108f8d8_n1ku8e.jpg")
 mission5.photo.attach(io: mission5_file, filename: "mission5.jpg", content_type: "image/jpg")
 mission5.save
+
 
 # Seed 6
 mission6 = Mission.create(
@@ -238,9 +250,13 @@ mission10 = Mission.create(
   user: user1,
   address: "Montagne Sainte-Victoire, Aix-en-Provence"
 )
+
+chatroom10 = Chatroom.create!( mission_id: mission10.id)
+
 mission10_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1541623089466-8e777dd05d70_bgj2hm.jpg")
 mission10.photo.attach(io: mission10_file, filename: "mission10.jpg", content_type: "image/jpg")
 mission10.save
+
 
 # Seed 11
 mission11 = Mission.create(
@@ -292,9 +308,13 @@ mission13 = Mission.create(
   user: user1,
   address: "Palais des Congrès, Marseille"
 )
+
+chatroom13 = Chatroom.create!( mission_id: mission13.id)
+
 mission13_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1539109136881-3be0616acf4b_nto0gh.jpg")
 mission13.photo.attach(io: mission13_file, filename: "mission13.jpg", content_type: "image/jpg")
 mission13.save
+
 
 # Seed 14
 mission14 = Mission.create(
