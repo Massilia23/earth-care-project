@@ -8,11 +8,13 @@
 
 require 'faker'
 require "open-uri"
+# Message.destroy_all
+Chatroom.destroy_all
 
 Voucher.destroy_all
 Booking.destroy_all
 DeclinedBooking.destroy_all
-Chatroom.destroy_all
+
 Mission.destroy_all
 User.destroy_all
 
@@ -73,15 +75,12 @@ mission1 = Mission.create!(
   user: user1,
   address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
-
-
-
+chatroom1 = Chatroom.create!(mission_id: mission1.id)
 mission1_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1604948559069-3287d5c5a6e5_fswyic.jpg")
 mission1.photo.attach(io: mission1_file, filename: "mission1.jpg", content_type: "image/jpg")
 mission1.save
 
 
-chatroom1 = Chatroom.create!(mission_id: mission1.id)
 
 # Seed 2
 mission2 = Mission.create(
