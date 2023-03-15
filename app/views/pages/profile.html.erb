@@ -40,16 +40,16 @@
         <div class="card card-profile-wallet">
           <div class="card-body">
                   <%# si id de booking exist %>
-            <p class="wallet-title">  Your Wallet </p>
+            <p class="wallet-title">  Wallet 💰💰💰 </p>
 
               <% @vouchers.each do |voucher| %>
                 <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
-                <strong>  You have  <%= voucher.booking.mission.reward %> points for this mission.  </strong>
+                <strong class="voucher-info"> You collected  <%= voucher.booking.mission.reward %> points for this mission.  </strong>
                   <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
                     <br>
                     <br>
 
-              <p> Click on the link to generate the QR code "voucher" </p>
+              <p class="voucher-info"> Click on the link below to generate your QR code </p>
               <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher), class: "voucher-link" %>
               <% end %>
             <%# (voucher.booking) %>
@@ -66,7 +66,7 @@
     <div class="container premier-para">
       <div class="container-booking">
         <div class="header-profile">
-          <h1>My Bookings</h1>
+          <h1>My missions as a Participant</h1>
         </div>
         <div class="bookings">
 
@@ -85,7 +85,7 @@
 
 
                   <% if booking.vouchers.empty?  %>
-                    <strong> To unlocked your points for this mission click on the button below </strong>
+                    <strong  class="voucher-info"> To unlocked your points for this mission click on the button below </strong>
                     <%= simple_form_for([booking, @voucher]) do |f| %>
                         <%= f.text_area :total_points, style: 'display:none' %>
                         <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
@@ -122,7 +122,7 @@
     <div class="container premier-paraf">
       <div class="container-booking">
           <div class="header-profile">
-            <h1>My Missions</h1>
+            <h1>My mission as a Creator</h1>
           </div>
           <div class="bookings">
             <% @missions.each do |mission| %>
