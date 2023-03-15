@@ -329,29 +329,29 @@ input.checkbox:checked:after {
 // }
 
 // .input[type=submit].container second-para {
+
+// input[type=button], input[type=submit], input[type=reset] {
+
 //   background-color: #04AA6D;
 //   background-image: linear-gradient(300deg, #4dc390, #4381C1);
 //   border: none;
 //   color: white;
 //   padding: 16px ;
 //   text-decoration: none;
+
 //   border-radius: 3px;
+
+//   border-radius: 1px;
+
 //   margin: 2px 2px;
 //   align-self: center;
 //   cursor: pointer;
 // }
+
 // .container second-para.input[type=button], input[type=submit], input[type=reset]:hover{
 //   background-color: #3e8e41;
 
 // }
-
-
-
-
-
-
-
-
 
 @keyframes rippling {
   50% {

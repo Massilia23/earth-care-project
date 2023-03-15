@@ -60,10 +60,6 @@
 
 
 
-
-
-
-
           <% if current_user == @mission.user %>
             <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn"  %>
             <%= link_to "Delete your mission", mission_path(@mission.id), method: :delete, data: { confirm: "Are you sure?" } %>

@@ -4,17 +4,24 @@ class MissionsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
-    @missions = Mission.all
+    if params[:query]
+      @missions = Mission.search(params[:query])
+    else
+     @missions = Mission.all
+    end
   end
 
+
   def show
-    @booking = Booking.find_by(user: current_user, mission: @mission)
-    if @booking.nil?
-      @booking = Booking.new
+
+    # @booking = Booking.find_by(user: current_user, mission: @mission)
+    # if @booking.nil?
+       @booking = Booking.new
+
       @declined_booking = DeclinedBooking.new
     # else
     #   @voucher = Voucher.new
-    end
+
     @mission_marker =
       {
         lat: @mission.latitude,

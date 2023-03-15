@@ -1,56 +1,17 @@
-
-<%# <div class="container1">
-    <h1>
-
-
-<div class="index-bg">
-
-
-<div class="container1">
-    <h3>
-
-      <span>
-        Earth Care
-      </span>
-    </h3>
-
-    <h6>
-
-      <span>
-        The More You Care The More You Earn !
-      </span>
-
-    </h6>
-
-
-
-
-</div> %>
-
-    <%# <div class="loader">
-        <span class="lettre">E</span>
-        <span class="lettre">A</span>
-        <span class="lettre">R</span>
-        <span class="lettre">T</span>
-        <span class="lettre">H</span>
-        <span class="lettre"></span>
-        <span class="lettre">C</span>
-        <span class="lettre">A</span>
-        <span class="lettre">R</span>
-        <span class="lettre">E</span>
-
-
-    </div>
-
-    <div class="accueil">
-        <h1> !</h1>
-    </div>
-
-    <script src="app.js"></script> %>
   <div class="page-header mt-3 mb-2">
     <h4 class="text-title">Earth Care</h4>
-    <h6 class="text-is">The More You Care, The More You Earn</h6>
+    <span class="text-is">The More You Care, The More You Earn</span>
   </div>
+
+  <div class="container-fluid">
+     <form class="d-flex">
+      <form action="/search" method="GET">
+        <input type="text" name="query" placeholder="Search or missions...">
+          <button class="btn btn-outline-success" type= "submit"> GO </button>
+       </form>
+     </form>
+  </div>
+
 <div class="container">
   <% @missions.each do |mission| %>
     <div class="margin">
