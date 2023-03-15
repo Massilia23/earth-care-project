@@ -12,49 +12,60 @@ require "open-uri"
 Voucher.destroy_all
 Booking.destroy_all
 DeclinedBooking.destroy_all
+Message.destroy_all
 Chatroom.destroy_all
 Mission.destroy_all
 User.destroy_all
 
+
 user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "Amel", last_name: "Zahir", nickname:"Amelou")
 user1_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795627/122739028_mcyvpe.jpg")
-# user1.photo.attach(io: user1_file, filename: "user1.jpg", content_type: "image/jpg")
+user1.photo.attach(io: user1_file, filename: "user1.jpg", content_type: "image/jpg")
 user1.save!
+
 user2 = User.create!(email: "najib@gmail.com", password: "azerty", first_name: "Najib", last_name: "Zahir", nickname:"Najib11")
 user2_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795781/119122764_aakao8.jpg")
-# user2.photo.attach(io: user2_file, filename: "user2.jpg", content_type: "image/jpg")
+user2.photo.attach(io: user2_file, filename: "user2.jpg", content_type: "image/jpg")
 user2.save!
+
 user3 = User.create!(email: "yannis@gmail.com", password: "azerty", first_name: "Yannis", last_name: "Zahir", nickname:"Yannis50")
 user3_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795720/105856055_aen7ji.jpg")
-# user3.photo.attach(io: user3_file, filename: "user3.jpg", content_type: "image/jpg")
+user3.photo.attach(io: user3_file, filename: "user3.jpg", content_type: "image/jpg")
 user3.save!
+
 user4 = User.create!(email: "lila@gmail.com", password: "azerty", first_name: "Lila", last_name: "Zahir", nickname:"Lila16")
 user4_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795820/g4axleppi0jphmkxitou_neiwfh.jpg")
-# user4.photo.attach(io: user4_file, filename: "user4.jpg", content_type: "image/jpg")
+user4.photo.attach(io: user4_file, filename: "user4.jpg", content_type: "image/jpg")
 user4.save!
+
 user5 = User.create!(email: "farid@gmail.com", password: "azerty", first_name: "Farid", last_name: "Zahir", nickname:"Farid01")
 user5_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678799482/vgqoqi2xh9dynulom8sz_ym643e.jpg")
-# user5.photo.attach(io: user5_file, filename: "user5.jpg", content_type: "image/jpg")
+user5.photo.attach(io: user5_file, filename: "user5.jpg", content_type: "image/jpg")
 user5.save!
+
 user6 = User.create!(first_name: "Ahmad", last_name: "Ali", email: "ahmadali@example.com", password: "password", nickname:"Ahmad17")
 user6_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795884/122787104_gswbao.jpg")
-# user6.photo.attach(io: user6_file, filename: "user6.jpg", content_type: "image/jpg")
+user6.photo.attach(io: user6_file, filename: "user6.jpg", content_type: "image/jpg")
 user6.save!
+
 user7 = User.create!(first_name: "Fatima", last_name: "Ali", email: "fatimaali@example.com", password: "password", nickname:"Fatima03")
 user7_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795907/107549303_e7e9br.jpg")
-# user7.photo.attach(io: user7_file, filename: "user7.jpg", content_type: "image/jpg")
+user7.photo.attach(io: user7_file, filename: "user7.jpg", content_type: "image/jpg")
 user7.save!
+
 user8 = User.create!(first_name: "Yusuf", last_name: "Ali", email: "yusufali@example.com", password: "password", nickname:"Yusuf04")
 user8_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795926/m4ogwtgpsto8e1s8uwtl_yaiup4.jpg")
-# user8.photo.attach(io: user8_file, filename: "user8.jpg", content_type: "image/jpg")
+user8.photo.attach(io: user8_file, filename: "user8.jpg", content_type: "image/jpg")
 user8.save!
+
 user9 = User.create!(first_name: "Aisha", last_name: "Ali", email: "aishaali@example.com", password: "password", nickname:"Aisha13")
 user9_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795966/113301850_ajlxfj.jpg")
-# user9.photo.attach(io: user9_file, filename: "user9.jpg", content_type: "image/jpg")
+user9.photo.attach(io: user9_file, filename: "user9.jpg", content_type: "image/jpg")
 user9.save!
+
 user10 = User.create!(first_name: "Mohammed", last_name: "Ali", email: "mohammedali@example.com", password: "password", nickname:"Mohammed16")
 user10_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795993/111004630_xnn9xz.jpg")
-# user9.photo.attach(io: user10_file, filename: "user10.jpg", content_type: "image/jpg")
+user10.photo.attach(io: user10_file, filename: "user10.jpg", content_type: "image/jpg")
 user10.save!
 
 puts "mission created"
