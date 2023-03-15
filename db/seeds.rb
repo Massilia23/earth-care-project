@@ -59,7 +59,6 @@ user10.save!
 
 puts "mission created"
 
-
 # Seed 1
 mission1 = Mission.create!(
   title: "Cleaning the Calanques",
@@ -72,11 +71,17 @@ mission1 = Mission.create!(
   start_time: Time.parse("08:00"),
   rating: rand(1..5),
   user: user1,
-  photo_url: "https://images.unsplash.com/photo-1604948559069-3287d5c5a6e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FsYW5xdWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
-chatroom1 = Chatroom.create!( mission_id: mission1.id)
 
+
+
+mission1_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1604948559069-3287d5c5a6e5_fswyic.jpg")
+mission1.photo.attach(io: mission1_file, filename: "mission1.jpg", content_type: "image/jpg")
+mission1.save
+
+
+chatroom1 = Chatroom.create!(mission_id: mission1.id)
 
 # Seed 2
 mission2 = Mission.create(
@@ -90,12 +95,18 @@ mission2 = Mission.create(
   start_time: Time.parse("09:30"),
   rating: rand(1..5),
   user: user2,
-  photo_url: "https://images.unsplash.com/photo-1610093674388-cee0337f2684?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBjbGVhbmluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Plage du Prado, Marseille 13008"
 )
+
 chatroom2 = Chatroom.create!( mission_id: mission2.id)
+
+mission2_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1610093674388-cee0337f2684_mymzjv.jpg")
+mission2.photo.attach(io: mission2_file, filename: "mission2.jpg", content_type: "image/jpg")
+mission2.save
+
+
 # Seed 3
-Mission.create(
+mission3 = Mission.create(
   title: "Planting Trees in the City",
   description: "Join us for a morning of tree planting in the city of Aix-en-Provence. We'll be planting saplings in a local park to help combat climate change and create a greener environment. Please wear sturdy shoes and bring gloves if you have them.",
   start_date: Date.tomorrow + 2.days,
@@ -106,13 +117,14 @@ Mission.create(
   start_time: Time.parse("10:00"),
   rating: rand(1..5),
   user: user3,
-  photo_url: "https://images.unsplash.com/photo-1513086670993-297187d3a281?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBsYW50aW5nJTIwdHJlZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
-  address: "1 Av. Jules Ferry, 13100 Aix-en-Provence
-  "
+  address: "1 Av. Jules Ferry, 13100 Aix-en-Provence"
 )
+mission3_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1513086670993-297187d3a281_zagnh4.jpg")
+mission3.photo.attach(io: mission3_file, filename: "mission3.jpg", content_type: "image/jpg")
+mission3.save
 
 # 4
-Mission.create(
+mission4 = Mission.create(
   title: "Community Garden Planting in the 5th Arrondissement",
   description: "Join us for an afternoon of planting in the community garden in the 5th arrondissement. We'll be planting a variety of fruits and vegetables to help support the local community and promote sustainable living. Please wear comfortable clothes and bring a hat and sunscreen.",
   start_date: Date.tomorrow + 3.days,
@@ -123,9 +135,11 @@ Mission.create(
   start_time: Time.parse("13:00"),
   rating: rand(1..5),
   user: user2,
-  photo_url: "https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGdhcmRlbiUyMHBsYW50aW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
   address: "7 Rue Mouffetard, Paris 75005"
 )
+mission4_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1622383563227-04401ab4e5ea_fouadq.jpg")
+mission4.photo.attach(io: mission4_file, filename: "mission4.jpg", content_type: "image/jpg")
+mission4.save
 
 # Seed 5
 mission5 = Mission.create(
@@ -142,9 +156,16 @@ mission5 = Mission.create(
   photo_url: "https://images.unsplash.com/photo-1651303812964-44676108f8d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
   address: "Calanques National Park, Marseille 13008"
 )
+
 chatroom5 = Chatroom.create!( mission_id: mission5.id)
+
+mission5_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1651303812964-44676108f8d8_n1ku8e.jpg")
+mission5.photo.attach(io: mission5_file, filename: "mission5.jpg", content_type: "image/jpg")
+mission5.save
+
+
 # Seed 6
-Mission.create(
+mission6 = Mission.create(
   title: "Beach Cleanup at Pointe Rouge",
   description: "Come help us clean up the beach at Pointe Rouge in Marseille. We'll be picking up trash and debris to help protect marine life and keep the beach beautiful. Wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
   start_date: Date.tomorrow + 5.days,
@@ -155,12 +176,14 @@ Mission.create(
   start_time: Time.parse("09:30"),
   rating: rand(1..5),
   user: user2,
-  photo_url: "https://images.unsplash.com/photo-1563245159-f793f19d8c37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJlYWNoJTIwY2xlYW51cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Plage de la Pointe Rouge, Marseille 13008"
 )
+mission6_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1563245159-f793f19d8c37_nu6kcn.jpg")
+mission6.photo.attach(io: mission6_file, filename: "mission6.jpg", content_type: "image/jpg")
+mission6.save
 
 # Seed 7
-Mission.create(
+mission7 = Mission.create(
   title: "Cleaning up the City Center",
   description: "Join us for a morning of cleaning up the city center in Aix-en-Provence. We'll be picking up litter and debris to help keep the streets clean and beautiful. Please wear comfortable shoes and bring gloves if you have them.",
   start_date: Date.tomorrow + 6.days,
@@ -171,28 +194,32 @@ Mission.create(
   start_time: Time.parse("10:00"),
   rating: rand(1..5),
   user: user3,
-  photo_url: "https://images.unsplash.com/photo-1624971035514-2bbbc81ea9fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2xlYW51cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
   address: "300 avenue Giuseppe Verdi 13100, Aix-en-Provence"
 )
+mission7_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1624971035514-2bbbc81ea9fe_cmdglc.jpg")
+mission7.photo.attach(io: mission7_file, filename: "mission7.jpg", content_type: "image/jpg")
+mission7.save
 
 # Seed 8
-  Mission.create(
-    title: "Beach Cleanup at Plage des Catalans",
-    description: "Join us for a morning of cleaning up the beach at Plage des Catalans. We'll be picking up litter and debris to help protect marine life and keep the beach beautiful. Please wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
-    start_date: Date.tomorrow + 7.days,
-    end_date: Date.tomorrow + 11.days,
-    duration: Time.parse("5:00"),
-    location: "Bouches-du-Rhone",
-    reward: rand(20..100),
-    start_time: Time.parse("10:00"),
-    rating: rand(1..5),
-    user: user3,
-    photo_url: "https://images.unsplash.com/photo-1569254983547-44dc559f038f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJlYWNoJTIwY2xlYW51cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
-    address: "Plage des Catalans, Marseille"
-  )
+mission8 = Mission.create(
+  title: "Beach Cleanup at Plage des Catalans",
+  description: "Join us for a morning of cleaning up the beach at Plage des Catalans. We'll be picking up litter and debris to help protect marine life and keep the beach beautiful. Please wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
+  start_date: Date.tomorrow + 7.days,
+  end_date: Date.tomorrow + 11.days,
+  duration: Time.parse("5:00"),
+  location: "Bouches-du-Rhone",
+  reward: rand(20..100),
+  start_time: Time.parse("10:00"),
+  rating: rand(1..5),
+  user: user3,
+  address: "Plage des Catalans, Marseille"
+)
+mission8_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1569254983547-44dc559f038f_m3sj7b.jpg")
+mission8.photo.attach(io: mission8_file, filename: "mission8.jpg", content_type: "image/jpg")
+mission8.save
 
 # Seed 9
-Mission.create(
+mission9 = Mission.create(
   title: "River Cleanup in the Parc de Sceaux",
   description: "Help us clean up the banks of the river in Parc de Sceaux. We'll be picking up trash and debris to help protect the local ecosystem and ensure the river stays healthy. Wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
   start_date: Date.tomorrow + 8.days,
@@ -203,9 +230,11 @@ Mission.create(
   start_time: Time.parse("14:00"),
   rating: rand(1..5),
   user: user4,
-  photo_url: "https://images.unsplash.com/photo-1672760128983-2a30b9d4af10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGFyYyUyMGRlJTIwc2NlYXV4fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Parc de Sceaux, Paris"
 )
+mission9_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1672760128983-2a30b9d4af10_myebjo.jpg")
+mission9.photo.attach(io: mission9_file, filename: "mission9.jpg", content_type: "image/jpg")
+mission9.save
 
 # Seed 10
 mission10 = Mission.create(
@@ -219,13 +248,18 @@ mission10 = Mission.create(
   start_time: Time.parse("08:00"),
   rating: rand(1..5),
   user: user1,
-  photo_url: "https://images.unsplash.com/photo-1541623089466-8e777dd05d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHNhaW50ZSUyMHZpY3RvaXJlJTIwbW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
   address: "Montagne Sainte-Victoire, Aix-en-Provence"
 )
+
 chatroom10 = Chatroom.create!( mission_id: mission10.id)
 
+mission10_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1541623089466-8e777dd05d70_bgj2hm.jpg")
+mission10.photo.attach(io: mission10_file, filename: "mission10.jpg", content_type: "image/jpg")
+mission10.save
+
+
 # Seed 11
-Mission.create(
+mission11 = Mission.create(
   title: "Beach Cleanup at Plage de la Corniche",
   description: "Come help us clean up the beach at Plage de la Corniche in Marseille. We'll be picking up trash and debris to help protect marine life and keep the beach beautiful. Wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
   start_date: Date.tomorrow + 10.days,
@@ -236,12 +270,14 @@ Mission.create(
   start_time: Time.parse("09:30"),
   rating: rand(1..5),
   user: user2,
-  photo_url: "https://images.unsplash.com/photo-1566840601924-07789e0ad0b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y29ybmljaGUlMjBtYXJzZWlsbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
   address: "Plage de la Corniche, Marseille"
 )
+mission11_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1566840601924-07789e0ad0b0_ocftxj.jpg")
+mission11.photo.attach(io: mission11_file, filename: "mission11.jpg", content_type: "image/jpg")
+mission11.save
 
 # Seed 12
-Mission.create(
+mission12 = Mission.create(
   title: "Cleaning up the Park in Aix-en-Provence",
   description: "Join us for a morning of cleaning up the park in Aix-en-Provence. We'll be picking up litter and debris to help keep the park clean and beautiful. Please wear comfortable shoes and bring gloves if you have them.",
   start_date: Date.tomorrow + 11.days,
@@ -252,9 +288,12 @@ Mission.create(
   start_time: Time.parse("10:00"),
   rating: rand(1..5),
   user: user5,
-  photo_url: "https://images.unsplash.com/photo-1580600301354-0ce8faef576c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amFyZGlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Parc Jourdan, Aix-en-Provence"
 )
+mission12_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1580600301354-0ce8faef576c_edvkjy.jpg")
+mission12.photo.attach(io: mission12_file, filename: "mission12.jpg", content_type: "image/jpg")
+mission12.save
+
 # Seed 13
 mission13 = Mission.create(
   title: "Eco-Friendly Fashion Show in Marseille",
@@ -267,13 +306,18 @@ mission13 = Mission.create(
   start_time: Time.parse("19:00"),
   rating: rand(1..5),
   user: user1,
-  photo_url: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFzaGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   address: "Palais des Congrès, Marseille"
 )
+
 chatroom13 = Chatroom.create!( mission_id: mission13.id)
 
+mission13_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1539109136881-3be0616acf4b_nto0gh.jpg")
+mission13.photo.attach(io: mission13_file, filename: "mission13.jpg", content_type: "image/jpg")
+mission13.save
+
+
 # Seed 14
-Mission.create(
+mission14 = Mission.create(
   title: "Tree Planting in the Parc de la Tête d'Or",
   description: "Join us for a morning of tree planting in the Parc de la Tête d'Or in Lyon. We'll be planting a variety of trees to help support the local ecosystem and combat climate change. Please wear comfortable clothes and shoes that can get dirty, and bring gloves if you have them.",
   start_date: Date.tomorrow + 25.days,
@@ -284,12 +328,14 @@ Mission.create(
   start_time: Time.parse("9:00"),
   rating: rand(1..5),
   user: user4,
-  photo_url: "https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhbnRpbmclMjB0cmVlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   address: "Parc de la Tête d'Or, Lyon"
 )
+mission14_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1598335624134-5bceb5de202d_mukodu.jpg")
+mission14.photo.attach(io: mission14_file, filename: "mission14.jpg", content_type: "image/jpg")
+mission14.save
 
 # Seed 15
-Mission.create(
+mission15 = Mission.create(
   title: "Urban Garden Cleanup in Aix-en-Provence",
   description: "Join us for a morning of cleaning up the urban garden in Aix-en-Provence. We'll be weeding, pruning, and planting to help promote sustainable urban agriculture. Please wear comfortable clothes and bring gardening gloves if you have them.",
   start_date: Date.tomorrow + 30.days,
@@ -300,11 +346,13 @@ Mission.create(
   start_time: Time.parse("10:00"),
   rating: rand(1..5),
   user: user5,
-  photo_url: "https://images.unsplash.com/photo-1486814758653-7e3f452bdddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHVyYmFuJTIwZ2FyZGVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   address: "Jardin des Plantes, Aix-en-Provence"
 )
+mission15_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1486814758653-7e3f452bdddb_kgs9rg.jpg")
+mission15.photo.attach(io: mission15_file, filename: "mission15.jpg", content_type: "image/jpg")
+mission15.save
 
-Mission.create(
+mission16 = Mission.create(
   title: "Environmental awareness workshop",
   description: "Join us for a morning workshop the with young children, share your experiment and answer questions",
   start_date: Date.tomorrow + 30.days,
@@ -318,5 +366,8 @@ Mission.create(
   photo_url: "https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHRlYWNoaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   address: "21 Rue Haxo, Marseille 13001"
 )
+mission16_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1529390079861-591de354faf5_ajgsqt.jpg")
+mission16.photo.attach(io: mission16_file, filename: "mission16.jpg", content_type: "image/jpg")
+mission16.save
 
 puts "finished !"

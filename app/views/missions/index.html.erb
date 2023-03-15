@@ -29,10 +29,10 @@
           <span><i class="fas fa-star"></i>  <%= mission.rating %> Stars</span>
           <span><i class="fas fa-trophy"></i>  <%= mission.reward %> Points</span>
         </div>
-        <% if mission.photo_url %>
+        <% if mission.photo.attached? %>
           <div class="image-wrapper">
             <%= link_to mission_path(mission) do %>
-              <%= image_tag mission.photo_url, height: 150, class: "w- object-fit-fill", class: "card-img-top" %>
+              <% cl_image_tag mission.photo.key, height: 150, class: "w- object-fit-fill", class: "card-img-top" %>
             <% end %>
           </div>
         <% end %>
