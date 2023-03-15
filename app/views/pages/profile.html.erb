@@ -101,7 +101,7 @@
 
                       <%# <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
                     <%# <i class="fa-solid fa-comments"></i> %>
-                    <%# <% end %> 
+                    <%# <% end %>
 
 
 
@@ -125,7 +125,7 @@
             <h1>My Missions</h1>
           </div>
           <div class="bookings">
-            <% @missions.each do |mission| %>
+            <% @missions.each do |mission, chatroom| %>
               <div class="booking-list">
                 <div class="booking">
                   <div class="booking-info">
@@ -134,13 +134,17 @@
                     <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %>
                     </div>
                     <div class="booking-location"><%= mission.location %>
+                            <%# <%= mission.chatroom %> 
                     </div>
                   </div>
                   <div class="booking-status">Created
+                    <%= link_to "Chat", mission_chatroom_path(@chatroom.mission, @chatroom)
+
                   </div>
                 </div>
               </div>
             <% end %>
+
 
 
 
@@ -183,6 +187,11 @@
         <i class="fa-solid fa-comments"></i>
       <% end %>
 
+<% if mission.if != []%>
+  <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
+    <i class="fa-regular fa-message logochat-color"></i>
+  <% end %>
+<% end %>
 
       <%= link_to profile_path do %>
         <i class="fas fa-user"></i>

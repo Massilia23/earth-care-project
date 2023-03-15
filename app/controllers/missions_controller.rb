@@ -14,11 +14,11 @@ class MissionsController < ApplicationController
 
   def show
 
-    # @booking = Booking.find_by(user: current_user, mission: @mission)
-    # if @booking.nil?
-       @booking = Booking.new
-
+    @booking = Booking.find_by(user: current_user, mission: @mission)
+    if @booking.nil?
+      @booking = Booking.new
       @declined_booking = DeclinedBooking.new
+    end
     # else
     #   @voucher = Voucher.new
 

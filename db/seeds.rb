@@ -75,11 +75,11 @@ mission1 = Mission.create!(
   photo_url: "https://images.unsplash.com/photo-1604948559069-3287d5c5a6e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FsYW5xdWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
-charoom1= Chatroom.create!( mission_id: mission1.id)
+chatroom1 = Chatroom.create!( mission_id: mission1.id)
 
 
 # Seed 2
-Mission.create(
+mission2 = Mission.create(
   title: "Beach Cleanup",
   description: "Come help us clean up the beach at Plage du Prado in Marseille. We'll be picking up trash and debris to help protect marine life and keep the beach beautiful. Wear comfortable clothes and shoes that can get wet, and bring a refillable water bottle.",
   start_date: Date.tomorrow + 1.day,
@@ -93,7 +93,7 @@ Mission.create(
   photo_url: "https://images.unsplash.com/photo-1610093674388-cee0337f2684?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBjbGVhbmluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
   address: "Plage du Prado, Marseille 13008"
 )
-
+chatroom2 = Chatroom.create!( mission_id: mission2.id)
 # Seed 3
 Mission.create(
   title: "Planting Trees in the City",
@@ -128,7 +128,7 @@ Mission.create(
 )
 
 # Seed 5
-Mission.create(
+mission5 = Mission.create(
   title: "Trail Maintenance in Calanques National Park",
   description: "Join us for a day of trail maintenance in the Calanques National Park. We'll be repairing and clearing the trails to help protect this beautiful park and ensure that it can be enjoyed by future generations. Please wear sturdy shoes and bring a hat and sunscreen.",
   start_date: Date.tomorrow + 4.days,
@@ -142,7 +142,7 @@ Mission.create(
   photo_url: "https://images.unsplash.com/photo-1651303812964-44676108f8d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
   address: "Calanques National Park, Marseille 13008"
 )
-
+chatroom5 = Chatroom.create!( mission_id: mission5.id)
 # Seed 6
 Mission.create(
   title: "Beach Cleanup at Pointe Rouge",
@@ -208,7 +208,7 @@ Mission.create(
 )
 
 # Seed 10
-Mission.create(
+mission10 = Mission.create(
   title: "Trail Maintenance in the Montagne Sainte-Victoire",
   description: "Join us for a day of trail maintenance in the Montagne Sainte-Victoire. We'll be repairing and clearing the trails to help protect this beautiful mountain and ensure that it can be enjoyed by future generations. Please wear sturdy shoes and bring a hat and sunscreen.",
   start_date: Date.tomorrow + 9.days,
@@ -222,6 +222,7 @@ Mission.create(
   photo_url: "https://images.unsplash.com/photo-1541623089466-8e777dd05d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHNhaW50ZSUyMHZpY3RvaXJlJTIwbW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
   address: "Montagne Sainte-Victoire, Aix-en-Provence"
 )
+chatroom10 = Chatroom.create!( mission_id: mission10.id)
 
 # Seed 11
 Mission.create(
@@ -255,7 +256,7 @@ Mission.create(
   address: "Parc Jourdan, Aix-en-Provence"
 )
 # Seed 13
-Mission.create(
+mission13 = Mission.create(
   title: "Eco-Friendly Fashion Show in Marseille",
   description: "Join us for an evening of fashion and sustainability in Marseille. We'll be showcasing the latest eco-friendly fashion designs and discussing ways to reduce waste in the fashion industry. Please dress to impress in your favorite sustainable outfit!",
   start_date: Date.tomorrow + 20.days,
@@ -269,6 +270,7 @@ Mission.create(
   photo_url: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFzaGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   address: "Palais des Congrès, Marseille"
 )
+chatroom13 = Chatroom.create!( mission_id: mission13.id)
 
 # Seed 14
 Mission.create(
