@@ -2,7 +2,7 @@
 	<!-- main -->
 
 <% if user_signed_in? %>
-	<div class="container second-para">
+	<div class="container-form-new">
 		<h4 class="title-form">CREATE YOUR MISSION</h4>
     <%= simple_form_for(@mission) do |f| %>
 		  <div class="main-agileinfo">
@@ -26,9 +26,9 @@
               <div class="clear"> </div>
             </div>
             <br>
-          <div class = "btn "><%= f.submit %> </div>
+                  <%= f.submit %>
     <% end %>
-       </div>
+      </div>
 
           <strong> <%= link_to "< Back to missions", missions_path, class: "link_to_form"%>  </strong>
 	   </div>
@@ -40,7 +40,7 @@
 
 
 	</div>
-	<!-- //main -->
+
 
 <% end %>
 <%# </body-form> %>
