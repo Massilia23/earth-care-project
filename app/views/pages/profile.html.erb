@@ -1,62 +1,91 @@
 <% if user_signed_in? %>
-  <br>
-  <br>
 
-  <div class="container">
+  <div class="premier-paraf">
+    <div class="container-card-profile mt-5">
+      <div class="row ">
+        <div class="col-lg-12">
+          <div>
+            <div class="col-md-4">
+              <div class="profile-card text-center">
 
-      <div class="card">
-        <div class="card-body text-center background-card-profile">
+                <div class="profile-info">
 
-           <%= current_user.first_name.capitalize%>
-          <%= current_user.last_name.capitalize%>
-          -<%= current_user.email %>
+                  <img class="profile-pic" src="https://images.unsplash.com/photo-1483884105135-c06ea81a7a80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80">
+                  <%# <img class="profile-pic" <%= image_tag current_user.photo.key %>
+                  <br>
+                  <h2 class="hvr-underline-from-center"><%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%></h2>
+                  <div>"I signed up because I had a strong interest in ecology and wanted to make a difference.
+                    I also wanted to meet people who shared the same interests.""
+                  </div>
+                  <i class="fa-solid fa-trophy"></i>
+                  <i class="fa-solid fa-thumbs-up"></i>
+                  <i class="fa-solid fa-check"></i>
+                </div>
 
+              </div>
+            </div>
+
+
+          </div>
         </div>
       </div>
+      <div class="green-line">
+      </div>
+    </div>
+  </div>
 
-
-
-
+  <div class="premier-paraf">
+    <div class="container">
+      <div class="col-12">
+        <div class="card card-profile-wallet">
+          <div class="card-body">
                   <%# si id de booking exist %>
-
-
-      <strong> <p>  Find your wallet here </p> </strong>
+            <p class="wallet-title">  Your Wallet </p>
 
               <% @vouchers.each do |voucher| %>
                 <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
-                 <strong>  You have  <%= voucher.booking.mission.reward %> points for the <%= voucher.booking.mission.title %> mission  </strong>
+                <strong>  You have  <%= voucher.booking.mission.reward %> points for this mission.  </strong>
                   <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
                     <br>
-                      <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher) %>
-                      <p> Click on the link to generate the QR code "voucher" </p>
+                    <br>
 
-
+              <p> Click on the link to generate the QR code "voucher" </p>
+              <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher), class: "voucher-link" %>
               <% end %>
             <%# (voucher.booking) %>
-      <br>
-      <div class="green-line"></div>
-      <br>
+          </div>
+        </div>
       </div>
+    </div>
+    <br>
+    <div class="green-line">
+    </div>
+    <br>
 
-    <div class="container-booking">
+
+    <div class="container premier-para">
+      <div class="container-booking">
         <div class="header-profile">
           <h1>My Bookings</h1>
         </div>
         <div class="bookings">
 
+
+          <%# <% current_user.bookings.last.mission.accept %>
+
           <% @bookings.each do |booking, mission| %>
             <div class="booking-list">
               <div class="booking">
                 <div class="booking-info">
-                  <div class="booking-time"><%= image_tag booking.mission.photo_url, class: "img-booking"%></div>
                   <div class="booking-time"><%= booking.mission.title %></div>
                   <div class="booking-time"><%= booking.mission.start_date %></div>
                   <div class="booking-time"><%= booking.mission.end_date %></div>
                    <div class="booking-status">Confirmed</div>
 
 
+
                   <% if booking.vouchers.empty?  %>
-                    <strong> to Unlocked your points for this mission click on the button below </strong>
+                    <strong> To unlocked your points for this mission click on the button below </strong>
                     <%= simple_form_for([booking, @voucher]) do |f| %>
                         <%= f.text_area :total_points, style: 'display:none' %>
                         <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
@@ -64,9 +93,16 @@
 
                   <% end %>
 
+
                       <%# <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
                     <%# <i class="fa-solid fa-comments"></i> %>
                   <%# <% end %>
+
+
+                      <%# <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
+                    <%# <i class="fa-solid fa-comments"></i> %>
+                    <%# <% end %> 
+
 
 
 
@@ -77,49 +113,44 @@
               </div>
             </div>
           <% end %>
-          </div>
         </div>
       </div>
     </div>
-    <br>
 
 
 
-
-
-
-
-
-
-
-
-    <div class="container-booking">
-
-        <div class="header-profile">
-          <h1>Creation Dashboard</h1>
-        </div>
-        <div class="bookings">
-          <% @missions.each do |mission| %>
-            <div class="booking-list">
-              <div class="booking">
-                <div class="booking-info">
-                  <div class="booking-time"><%= mission.title %></div>
-                  <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %></div>
-                  <div class="booking-location"><%= mission.location %></div>
-                  <%= link_to "Edit you posted mission", edit_mission_path(mission),class: "btn"  %>
-                  <%= link_to "Delete your mission", mission_path(mission),  data: {turbo_method: :delete, confirm: "Are you sure?" } %>
-                </div>
-                <div class="booking-status">Created</div>
-
-              </div>
-            </div>
-
-          <% end %>
-       <%# <% if current_user == @mission.user %>
-
+    <div class="container premier-paraf">
+      <div class="container-booking">
+          <div class="header-profile">
+            <h1>My Missions</h1>
           </div>
+          <div class="bookings">
+            <% @missions.each do |mission| %>
+              <div class="booking-list">
+                <div class="booking">
+                  <div class="booking-info">
+                    <div class="booking-time"><%= mission.title %>
+                    </div>
+                    <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %>
+                    </div>
+                    <div class="booking-location"><%= mission.location %>
+                    </div>
+                  </div>
+                  <div class="booking-status">Created
+                  </div>
+                </div>
+              </div>
+            <% end %>
 
-        </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -127,33 +158,35 @@
 
 
       </div>
+
+      <br>
+
+  </div>
+
+    <div class="footer">
+      <%= link_to root_path do %>
+        <i class="fas fa-home"></i>
+      <% end %>
+
+      <%= link_to calendars_path do %>
+        <i class="fa-solid fa-calendar"></i>
+      <% end %>
+
+
+
+      <%= link_to profile_path  do %>
+        <i class="fa-solid fa-wallet"></i>
+      <% end %>
+
+
+      <%= link_to missions_path do %>
+        <i class="fa-solid fa-comments"></i>
+      <% end %>
+
+
+      <%= link_to profile_path do %>
+        <i class="fas fa-user"></i>
+      <% end %>
     </div>
-
-
-  </div>
-  <br>
-
-  <div class="footer">
-    <%= link_to root_path do %>
-      <i class="fas fa-home"></i>
-    <% end %>
-
-    <%= link_to calendars_path do %>
-      <i class="fa-solid fa-calendar"></i>
-    <% end %>
-
-
-    <%= link_to profile_path  do %>
-      <i class="fa-solid fa-wallet"></i>
-    <% end %>
-
-    <%= link_to missions_path do %>
-      <i class="fa-solid fa-comments"></i>
-    <% end %>
-
-    <%= link_to profile_path do %>
-      <i class="fas fa-user"></i>
-    <% end %>
-  </div>
 
 <% end %>

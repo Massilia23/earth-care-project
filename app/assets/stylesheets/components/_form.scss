@@ -94,20 +94,23 @@ img {
   background: -webkit-linear-gradient(to top, #76b852, #8DC26F);
   background: -moz-linear-gradient(to top, #76b852, #8DC26F);
   background: -o-linear-gradient(to top, #76b852, #8DC26F);
-  background: linear-gradient(to top, #EEF4ED, #134074);
+  background: linear-gradient(to top, #EEF4ED, #e5e9ed);
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Roboto', sans-serif;
+
 }
 
 .title-form {
-  font-size: 3em;
+  font-family:serif ;
+  font-size: 3e;
   text-align: center;
-  color: #fff;
-  font-weight: 100;
+  color: #000;
+  font-weight: bold;
+
   text-transform: capitalize;
   letter-spacing: 4px;
-  font-family: 'Roboto', sans-serif;
+  text-align: center;
+
 }
 
 /*-- main --*/
@@ -120,6 +123,9 @@ img {
   margin: 3em auto;
   background: rgba(0, 0, 0, 0.18);
   background-size: cover;
+  border-radius: 10px;
+  box-shadow:10px 5px 5px #5790b6;
+
 }
 
 .agileits-top {
@@ -136,7 +142,7 @@ input[class="text"] {
   display: block;
   border: none;
   padding: 0.8em;
-  border: solid 1px rgba(255, 255, 255, 0.37);
+  border: solid 1px white;
   -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
@@ -145,7 +151,8 @@ input[class="text"] {
   background-size: 100%;
   background-repeat: no-repeat;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', serif;
+  border-radius: 10px;
 }
 
 
@@ -169,6 +176,7 @@ input[class="text"] {
 ::-webkit-input-placeholder {
   color: #fff;
   font-weight: 100;
+
 }
 
 :-moz-placeholder {
@@ -187,7 +195,7 @@ input[class="text"] {
 
 .link-to-create {
   font-size: .9em;
-  color: #fff;
+  color: #333;
   background: #76b852;
   outline: none;
   border: 1px solid #76b852;
@@ -238,7 +246,7 @@ input[class="text"] {
 }
 
 input.checkbox {
-  background: #705D56;
+  background: #ed7f58;
   cursor: pointer;
   width: 1.2em;
   height: 1.2em;
@@ -292,6 +300,19 @@ input.checkbox:checked:after {
   animation: .4s rippling .4s ease;
   animation-fill-mode: forwards;
 }
+
+// input[type=button], input[type=submit], input[type=reset] {
+//   background-color: #04AA6D;
+//   background-image: linear-gradient(300deg, #4dc390, #4381C1);
+//   border: none;
+//   color: white;
+//   padding: 16px ;
+//   text-decoration: none;
+//   border-radius: 1px;
+//   margin: 2px 2px;
+//   align-self: center;
+//   cursor: pointer;
+// }
 
 @keyframes rippling {
   50% {
@@ -746,5 +767,3 @@ input.checkbox:checked:after {
   color: white;
   margin-left: 5px;
 }
-
-

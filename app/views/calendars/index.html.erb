@@ -9,10 +9,10 @@
     <%= date %>
 
 
-      <div class="meeting">
-        <% missions.each do |mission| %>
+      <% missions.each do |mission| %>
+        <div class="meeting">
           <%= mission.title %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
   <% end %>
 </div>
