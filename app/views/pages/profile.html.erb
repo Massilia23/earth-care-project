@@ -133,14 +133,7 @@
                     </div>
                     <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %>
                     </div>
-<<<<<<< HEAD
-                    <div class="booking-location"> <%= mission.location %>
-                            <%# <%= mission.chatroom %>
-                    </div>
-                  </div>
-                  <div class="booking-status"> Created
-                    <%# <%= link_to "Chat", mission_chatroom_path(@chatroom.mission, @chatroom) %>
-=======
+
                     <div class="booking-location"><%= mission.location %>
                             <%# <%= mission.chatroom %>
                     </div>
@@ -149,7 +142,6 @@
                     <% if mission.chatroom %>
                       <%= link_to "Chat", mission_chatroom_path(mission, mission.chatroom) %>
                     <% end %>
->>>>>>> 09c35ad50afa1edd108c4d3cb425974e4befac9d
 
                   </div>
                 </div>
@@ -186,14 +178,6 @@
       <i class="fa-solid fa-comments"></i>
     <% end %>
 
-<<<<<<< HEAD
-<%# <% if mission.id != []%>
-  <%# <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
-    <%# <i class="fa-regular fa-message "></i>
-  <% end %>
-<%# <% end %>
-=======
->>>>>>> 09c35ad50afa1edd108c4d3cb425974e4befac9d
 
     <%= link_to profile_path do %>
       <i class="fas fa-user"></i>
