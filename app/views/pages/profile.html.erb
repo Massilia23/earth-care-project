@@ -22,7 +22,9 @@
                     I also wanted to meet people who shared the same interests.""
                   </div>
                   <i class="fa-solid fa-trophy"></i>
-                  <i class="fa-solid fa-thumbs-up"></i>
+                  <%= link_to "#bottom" do %>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                  <% end %>
                   <i class="fa-solid fa-check"></i>
                 </div>
 
@@ -161,7 +163,7 @@
     </div>
   </div>
 
-  <div class="footer">
+  <div class="footer" id="bottom">
     <%= link_to root_path do %>
       <i class="fas fa-home"></i>
     <% end %>
