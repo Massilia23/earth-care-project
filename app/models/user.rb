@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :booking
+  has_many :bookings
   # validates :booking, uniqueness: { scope: :mission,
   #   message: 'Just one booking per user' }
 
