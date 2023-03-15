@@ -301,18 +301,18 @@ input.checkbox:checked:after {
   animation-fill-mode: forwards;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
-  background-color: #04AA6D;
-  background-image: linear-gradient(300deg, #4dc390, #4381C1);
-  border: none;
-  color: white;
-  padding: 16px ;
-  text-decoration: none;
-  border-radius: 1px;
-  margin: 2px 2px;
-  align-self: center;
-  cursor: pointer;
-}
+// input[type=button], input[type=submit], input[type=reset] {
+//   background-color: #04AA6D;
+//   background-image: linear-gradient(300deg, #4dc390, #4381C1);
+//   border: none;
+//   color: white;
+//   padding: 16px ;
+//   text-decoration: none;
+//   border-radius: 1px;
+//   margin: 2px 2px;
+//   align-self: center;
+//   cursor: pointer;
+// }
 
 @keyframes rippling {
   50% {
