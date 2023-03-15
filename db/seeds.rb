@@ -12,6 +12,7 @@ require "open-uri"
 Voucher.destroy_all
 Booking.destroy_all
 DeclinedBooking.destroy_all
+Chatroom.destroy_all
 Mission.destroy_all
 User.destroy_all
 
