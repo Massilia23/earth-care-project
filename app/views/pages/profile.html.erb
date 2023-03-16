@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
 
-  <div class="premier-paraf">
-    <div class="container-card-profile mt-5">
+<div class="profile-background">
+  <div class="profile-paraf">
+    <div class="container-card-profile">
       <div class="row ">
         <div class="col-lg-12">
           <div>
@@ -40,23 +41,30 @@
     </div>
   </div>
 
-  <div class="premier-paraf">
+  <div class="profile-paraf">
     <div class="container">
       <div class="col-12">
         <div class="card card-profile-wallet">
           <div class="card-body">
                   <%# si id de booking exist %>
-            <p class="wallet-title">  Wallet 💰💰💰 </p>
-
               <% @vouchers.each do |voucher| %>
-                <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
-                <strong class="voucher-info"> You collected  <%= voucher.booking.mission.reward %> points for this mission.  </strong>
-                  <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
-                    <br>
-                    <br>
+            <div class="wallet-header">
+              <p class="wallet-title">💰</p>
+              <p class= "mr-3" style="color: white;">
+                <strong class="voucher-info">
+                  <%= voucher.booking.mission.reward %>
+                    <i class="fa-solid fa-coins" style="color: #AC795C"></i>
+                </strong>
+              </p>
+            </div>
 
-              <p class="voucher-info"> Click on the link below to generate your QR code </p>
-              <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher), class: "voucher-link" %>
+                <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
+                  <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
+
+              <p class="voucher-info-generation"> Click on the link below to generate your QR code </p>
+              <div class="generation-link">
+                <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher), class: "voucher-link" %>
+              </div>
               <% end %>
             <%# (voucher.booking) %>
           </div>
@@ -69,50 +77,35 @@
     <br>
 
 
-    <div class="container premier-para">
-      <div class="container-booking">
-        <div class="header-profile">
-          <h1>My missions as a Participant</h1>
-        </div>
-        <div class="bookings">
-
-
           <%# <% current_user.bookings.last.mission.accept %>
-
-          <% @bookings.each do |booking| %>
-            <div class="booking-list">
-              <div class="booking">
-                <div class="booking-info">
-                  <div class="booking-time"><%= booking.mission.title %></div>
-                  <div class="booking-time"><%= booking.mission.start_date %></div>
-                  <div class="booking-time"><%= booking.mission.end_date %></div><br>
-                   <div class="booking-status">Confirmed</div><br>
-
+    <div class="container">
+        <div class="bookings-container">
+            <% @bookings.each do |booking| %>
+              <div class="card-booking">
+                 <div class="booking-title"><%= booking.mission.title %></div>
                   <% if booking.vouchers.empty?  %>
-                    <strong  class="voucher-info"> To unlocked your points for this mission click on the button below </strong>
-                    <%= simple_form_for([booking, @voucher]) do |f| %>
+                    <%= simple_form_for [booking, @voucher], input_html: {class: 'form-valid'} do |f| %>
                         <%= f.text_area :total_points, style: 'display:none' %>
-                        <strong>👇<%= f.submit "Mission completed ", class: "btn btn-success"%> 👈 </strong>
-                        <%= link_to "CHAT", mission_chatroom_path(booking.mission, booking.mission.chatroom) %>
+                        <%= f.button :button, class: "fa-solid fa-check", id: "check-button" do %>
+                        <% end %>
+                         <%= link_to mission_chatroom_path(booking.mission, booking.mission.chatroom) do %>
+                           <i class="fa-solid fa-message"></i>
+                        <% end %>
                     <% end %>
-
+                  <% else %>
+                    <div class="booking-status">Confirmed</div><br>
                   <% end %>
-
-                </div>
-
               </div>
-            </div>
-          <% end %>
+            <% end %>
         </div>
-      </div>
     </div>
 
 
 
-    <div class="container premier-paraf">
+    <div class="container profile-paraf">
       <div class="container-booking">
           <div class="header-profile">
-            <h1>My mission as a Creator</h1>
+            <h1>My missions as a Creator</h1>
           </div>
           <div class="bookings">
             <% @missions.each do |mission| %>
@@ -121,16 +114,12 @@
                   <div class="booking-info">
                     <div class="booking-time"><%= mission.title %>
                     </div>
-                    <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %>
-                    </div>
-
-                    <div class="booking-location"><%= mission.location %>
-                            <%# <%= mission.chatroom %>
-                    </div>
                   </div>
                   <div class="booking-status">
                     <% if mission.chatroom %>
-                      <%= link_to "Chat", mission_chatroom_path(mission, mission.chatroom) %>
+                      <%= link_to mission_chatroom_path(mission, mission.chatroom) do %>
+                          <i class="fa-solid fa-message"></i>
+                      <% end %>
                     <% end %>
 
                   </div>
@@ -148,16 +137,11 @@
     </div>
   </div>
 
-  <div class="green-line">
+  <div class="black-line">
   <br>
   </div>
 
-   <div class="container premier-paraf" id="bottom">
-      <div class="container-booking mt-4">
-      <img src="https://res.cloudinary.com/dzwtudz1z/image/upload/v1678960671/MY_IMPACT-2_d7nhpt.png" alt="">
-      </div>
-      <br>
-  </div>
+      <img src="https://res.cloudinary.com/dzwtudz1z/image/upload/v1678960671/MY_IMPACT-2_d7nhpt.png" class="image-b-profile" id="bottom" alt="">
 
 
   <div class="footer">
@@ -181,3 +165,4 @@
   </div>
 
 <% end %>
+</div>
