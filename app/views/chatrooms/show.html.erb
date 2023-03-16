@@ -3,11 +3,11 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
 
-  <h1>Welcome to your <%= @mission.title  %> dedicated chatroom</h1>
+  <h2><%= @mission.title  %></h2>
 
- <strong> <h3> Hi it's <%= @mission.user.first_name %></h3></strong>
+ <strong> <h3> Welcome it's <%= current_user.first_name %> 😄</h3></strong>
 
-  <p> let's chat !</p>
+  <h4> let's chat !</h4>
   <div class="messages" data-chatroom-subscription-target="messages">
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>

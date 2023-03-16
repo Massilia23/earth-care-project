@@ -73,7 +73,7 @@
 
           <%# <% current_user.bookings.last.mission.accept %>
 
-          <% @bookings.each do |booking, mission| %>
+          <% @bookings.each do |booking| %>
             <div class="booking-list">
               <div class="booking">
                 <div class="booking-info">
@@ -89,6 +89,7 @@
                     <%= simple_form_for([booking, @voucher]) do |f| %>
                         <%= f.text_area :total_points, style: 'display:none' %>
                         <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
+                        <%= link_to "CHAT", mission_chatroom_path(booking.mission, booking.mission.chatroom) %>
                     <% end %>
 
                   <% end %>
@@ -168,14 +169,8 @@
     <% end %>
 
 
-
     <%= link_to profile_path  do %>
       <i class="fa-solid fa-wallet"></i>
-    <% end %>
-
-
-    <%= link_to missions_path do %>
-      <i class="fa-solid fa-comments"></i>
     <% end %>
 
 
