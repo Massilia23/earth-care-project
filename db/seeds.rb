@@ -167,7 +167,7 @@ mission5 = Mission.create(
   rating: rand(1..5),
   user: user1,
   photo_url: "https://images.unsplash.com/photo-1651303812964-44676108f8d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
-  address: "Calanques National Park, Marseille 13008"
+  address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
 
 
