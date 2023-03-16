@@ -34,7 +34,7 @@ user3_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v167879
 user3.photo.attach(io: user3_file, filename: "user3.jpg", content_type: "image/jpg")
 user3.save!
 
-user4 = User.create!(email: "lila@gmail.com", password: "azerty", first_name: "Lila", last_name: "Zahir", nickname:"Lila16")
+user4 = User.create!(email: "lila@gmail.com", password: "azerty", first_name: "Lila", last_name: "Zahir", nickname: "Lila16")
 user4_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795820/g4axleppi0jphmkxitou_neiwfh.jpg")
 user4.photo.attach(io: user4_file, filename: "user4.jpg", content_type: "image/jpg")
 user4.save!
