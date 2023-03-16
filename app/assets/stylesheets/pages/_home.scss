@@ -138,6 +138,7 @@
   align-items: center; /* Center the carousel items vertically */
   animation: carousel 3s linear infinite;
   gap: 4px;
+  animation-fill-mode: alternate;
 }
 
 .logo-item img {
@@ -158,4 +159,3 @@
 .slide-track {
 		animation: scroll 70 linear infinite;
 }
-
