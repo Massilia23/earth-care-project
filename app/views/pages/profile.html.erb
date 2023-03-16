@@ -85,35 +85,18 @@
                 <div class="booking-info">
                   <div class="booking-time"><%= booking.mission.title %></div>
                   <div class="booking-time"><%= booking.mission.start_date %></div>
-                  <div class="booking-time"><%= booking.mission.end_date %></div>
-                   <div class="booking-status">Confirmed</div>
-
-
+                  <div class="booking-time"><%= booking.mission.end_date %></div><br>
+                   <div class="booking-status">Confirmed</div><br>
 
                   <% if booking.vouchers.empty?  %>
                     <strong  class="voucher-info"> To unlocked your points for this mission click on the button below </strong>
                     <%= simple_form_for([booking, @voucher]) do |f| %>
                         <%= f.text_area :total_points, style: 'display:none' %>
-                        <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
+                        <strong>👇<%= f.submit "Mission completed ", class: "btn btn-success"%> 👈 </strong>
                         <%= link_to "CHAT", mission_chatroom_path(booking.mission, booking.mission.chatroom) %>
                     <% end %>
 
                   <% end %>
-
-
-                      <%# <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
-                    <%# <i class="fa-solid fa-comments"></i> %>
-                  <%# <% end %>
-
-
-                      <%# <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
-                    <%# <i class="fa-solid fa-comments"></i> %>
-                    <%# <% end %>
-
-
-
-
-                  <%# <div class="booking-time"><%= booking.mission.description.truncate(20, omission: '...').html_safe %>
 
                 </div>
 
