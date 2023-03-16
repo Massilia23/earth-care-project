@@ -1,3 +1,7 @@
+.profile-background {
+  background-color: #fff;
+}
+
 .green-line {
   height: 2px;
   background-color: #EA9010;
@@ -18,34 +22,27 @@
 
 .container-booking {
   max-width: 800px;
-  margin: 4px 13px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-  border: 1px solid #EADDCA;
-  background-color: #FAF0E6;
+  background-color: #C7DCC5;
 }
 
 .header-profile {
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .header-profile h1 {
-  font-weight: bold;
-  font-family: serif;
-  font-size: 15px;
+  font-family: system-ui;
+  font-size: 18px;
+  color: blcak;
 }
 
 .bookings {
   margin-bottom: 20px;
-  background-color: #FAF0E6;
+  background-color: #C7DCC5;
 }
 
 .booking-list {
-  border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -54,24 +51,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  width: 100%;
-    // overflow: scroll;
-  border: 1px solid  #EADDCA;
   }
 
 .booking-info {
   display: flex;
-  flex-direction: column;
   border-radius: 20px;
 
 }
 
+
+.booking-title {
+  font-size: 11px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  font-family: system-ui
+}
+
 .booking-time {
-  font-size: 12px;
-  font-weight: bold;
-  color: #333;
+  font-size: 14px;
+  color: black;
+  font-family: system-ui;
 }
 
 .booking-location {
@@ -81,9 +81,10 @@
 
 .booking-status {
   font-size: 10px;
-  color: green;
+  color: #ffd89b;
   text-transform: uppercase;
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .card-profile-wallet {
@@ -91,28 +92,64 @@
   overflow: hidden;
   box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
   border: 1px solid #EADDCA;
-  background-color: #FAF0E6;
+  background-color: #D1F9FF;
   ;
 
 }
 
 
 .voucher-link {
-  color:#333;
+  color: black;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .voucher-info {
-  font-size: 12px;
+  font-size: 20px;
 }
-.card-body {
 
+.voucher-info-generation {
+  font-size: 13px;
+  color: black;
+  font-family: system-ui;
 }
+
+.fa-message {
+  color: #ffdb65 !important;
+}
+
+.fa-coins {
+  color: #ffdb65 !important;
+}
+
+.fa-trophy {
+  color: #ffdb65 !important;
+}
+
+.fa-thumbs-up {
+  color: #ffdb65 !important;
+}
+
+.fa-check {
+ color: #ffdb65 !important;
+}
+
+.card-body {
+  background-color: #EEF4ED;
+}
+
+
+
 .wallet-title {
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   font-family: serif;
+}
+
+.generation-link {
+  display: flex;
+  justify-content: center;
 }
 
 .container-card-profile {
@@ -120,7 +157,7 @@
 }
 
 .profile-card {
-	background-color: #AC795C;
+	background-color:#9AC0CF;
   margin-bottom: 20px;
   border-radius: 20px;
 }
@@ -140,14 +177,14 @@
 
 
 .profile-info {
-  color: #E8E8E8;
+  color: black;
   padding: 25px;
   position: relative;
   margin-top: 15px;
 }
 
 .profile-info h2 {
-	color: #E8E8E8;
+	color: black;
   padding-bottom: 12px;
   font-weight: bold;
   font-family: serif;
@@ -218,9 +255,59 @@
   border-radius: 0;
 }
 
-.premier-paraf {
-  background-color: #d2edff;
-  padding-top: 6px;
+.profile-paraf {
+  padding-top: 32
+  px;
   padding-left: 18px;
   padding-right: 18px;
+}
+
+.wallet-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.bookings-container {
+  min-width: 100%;
+}
+
+.card-booking {
+  margin-bottom: 2px;
+  background-color: #EEF4ED ;
+  color: black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.booking-title {
+  margin-right: 10px;;
+}
+
+.image-b-profile {
+  min-width: 100vw;
+}
+
+.black-line {
+  height: 2px;
+  background-color:#D1F9FF;
+  width: 100%;
+}
+
+.valid-btn {
+  background-color: black;
+}
+
+.form-valid {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  justify-content: space-between;
+}
+
+#check-button {
+  padding: 0;
+  border-radius: 0;
+  margin-top: 0;
 }
