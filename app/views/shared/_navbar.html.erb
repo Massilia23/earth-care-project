@@ -3,7 +3,7 @@
   <div class="container-fluid">
 
     <%= link_to missions_path, class: "navbar-brand" do %>
-      <%= image_tag "https://www.logomyway.com/logos_new/9047/1_375621915085.png", class:"rounded" %>
+      <%= image_tag "https://res.cloudinary.com/dzwtudz1z/image/upload/v1678975034/8swozqxfmz-emcvnrl6tm-removebg-preview_az3mnw.png", class:"btn-outline-info" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@
         <% if user_signed_in? %>
 
           <li class="nav-item dropdown text-end ">
-           <%# <%= image_tag "https://avatars.githubusercontent.com/u/119122764?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+           <%= image_tag "https://avatars.githubusercontent.com/u/119122764?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>
             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
             <%= link_to "Discover", new_mission_path, class: "dropdown-item" %>

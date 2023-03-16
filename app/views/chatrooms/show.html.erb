@@ -5,7 +5,7 @@
 
   <h2><%= @mission.title  %></h2>
 
- <strong> <h3> Welcome it's <%= current_user.first_name %> 😄</h3></strong>
+ <strong class = "current-user"> <h3> Welcome it's <%= current_user.first_name %> 😄</h3></strong>
 
   <h4> let's chat !</h4>
   <div class="messages" data-chatroom-subscription-target="messages">
@@ -20,5 +20,5 @@
     label: false,
     placeholder: "Message #{@mission.title}",
     wrapper_html: {class: "flex-grow-1"} %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <%= f.submit "Send", class: "btn btn-info mb-3" %>
 <% end %>
