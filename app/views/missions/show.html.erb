@@ -56,15 +56,16 @@
               </div>
             </div>
           </div>
+          <div class ="d-flex align-items-center">
+            <% if current_user == @mission.user %>
+              <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn btn-secondary mr-1" %> <br>
+              <%= link_to "Delete your mission",  mission_path(@mission.id), method: :delete, data: { confirm: "Are you sure?" },class: "btn btn-warning ml-1" %>
+              <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>
+            <% end %>
+          </div>
         </div>
 
 
-
-          <% if current_user == @mission.user %>
-            <%= link_to "Edit you posted mission", edit_mission_path(@mission.id),class: "btn"  %>
-            <%= link_to "Delete your mission", mission_path(@mission.id), method: :delete, data: { confirm: "Are you sure?" } %>
-            <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>
-          <% end %>
 
       </div>
     </div>
