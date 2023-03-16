@@ -8,17 +8,18 @@
 
 require 'faker'
 require "open-uri"
+# Message.destroy_all
 
+Message.destroy_all
+Chatroom.destroy_all
 Voucher.destroy_all
 Booking.destroy_all
 DeclinedBooking.destroy_all
-Message.destroy_all
-Chatroom.destroy_all
 Mission.destroy_all
 User.destroy_all
 
 
-user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "Amel", last_name: "Zahir", nickname:"Amelou")
+user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "Amel", last_name: "Zahir", nickname:"Amelou23")
 user1_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795627/122739028_mcyvpe.jpg")
 user1.photo.attach(io: user1_file, filename: "user1.jpg", content_type: "image/jpg")
 user1.save!
@@ -84,15 +85,12 @@ mission1 = Mission.create!(
   user: user1,
   address: "Calanques de Marseille, Luminy, Marseille 13008"
 )
-
-
-
+chatroom1 = Chatroom.create!(mission_id: mission1.id)
 mission1_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1604948559069-3287d5c5a6e5_fswyic.jpg")
 mission1.photo.attach(io: mission1_file, filename: "mission1.jpg", content_type: "image/jpg")
 mission1.save
 
 
-chatroom1 = Chatroom.create!(mission_id: mission1.id)
 
 # Seed 2
 mission2 = Mission.create(
@@ -130,6 +128,8 @@ mission3 = Mission.create(
   user: user3,
   address: "1 Av. Jules Ferry, 13100 Aix-en-Provence"
 )
+
+chatroom3 = Chatroom.create!(mission_id: mission3.id)
 mission3_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1513086670993-297187d3a281_zagnh4.jpg")
 mission3.photo.attach(io: mission3_file, filename: "mission3.jpg", content_type: "image/jpg")
 mission3.save
@@ -148,6 +148,8 @@ mission4 = Mission.create(
   user: user2,
   address: "7 Rue Mouffetard, Paris 75005"
 )
+
+chatroom4 = Chatroom.create!(mission_id: mission4.id)
 mission4_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678883714/photo-1622383563227-04401ab4e5ea_fouadq.jpg")
 mission4.photo.attach(io: mission4_file, filename: "mission4.jpg", content_type: "image/jpg")
 mission4.save
@@ -167,6 +169,7 @@ mission5 = Mission.create(
   photo_url: "https://images.unsplash.com/photo-1651303812964-44676108f8d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
   address: "Calanques National Park, Marseille 13008"
 )
+
 
 chatroom5 = Chatroom.create!( mission_id: mission5.id)
 
@@ -189,6 +192,7 @@ mission6 = Mission.create(
   user: user2,
   address: "Plage de la Pointe Rouge, Marseille 13008"
 )
+chatroom6 = Chatroom.create!(mission_id: mission6.id)
 mission6_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1563245159-f793f19d8c37_nu6kcn.jpg")
 mission6.photo.attach(io: mission6_file, filename: "mission6.jpg", content_type: "image/jpg")
 mission6.save
@@ -207,6 +211,8 @@ mission7 = Mission.create(
   user: user3,
   address: "300 avenue Giuseppe Verdi 13100, Aix-en-Provence"
 )
+
+chatroom7 = Chatroom.create!(mission_id: mission7.id)
 mission7_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1624971035514-2bbbc81ea9fe_cmdglc.jpg")
 mission7.photo.attach(io: mission7_file, filename: "mission7.jpg", content_type: "image/jpg")
 mission7.save
@@ -225,6 +231,7 @@ mission8 = Mission.create(
   user: user3,
   address: "Plage des Catalans, Marseille"
 )
+chatroom8 = Chatroom.create!(mission_id: mission8.id)
 mission8_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1569254983547-44dc559f038f_m3sj7b.jpg")
 mission8.photo.attach(io: mission8_file, filename: "mission8.jpg", content_type: "image/jpg")
 mission8.save
@@ -243,6 +250,8 @@ mission9 = Mission.create(
   user: user4,
   address: "Parc de Sceaux, Paris"
 )
+
+chatroom9 = Chatroom.create!(mission_id: mission9.id)
 mission9_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884118/photo-1672760128983-2a30b9d4af10_myebjo.jpg")
 mission9.photo.attach(io: mission9_file, filename: "mission9.jpg", content_type: "image/jpg")
 mission9.save
@@ -283,6 +292,8 @@ mission11 = Mission.create(
   user: user2,
   address: "Plage de la Corniche, Marseille"
 )
+
+chatroom11 = Chatroom.create!(mission_id: mission11.id)
 mission11_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1566840601924-07789e0ad0b0_ocftxj.jpg")
 mission11.photo.attach(io: mission11_file, filename: "mission11.jpg", content_type: "image/jpg")
 mission11.save
@@ -301,6 +312,7 @@ mission12 = Mission.create(
   user: user5,
   address: "Parc Jourdan, Aix-en-Provence"
 )
+chatroom12 = Chatroom.create!(mission_id: mission12.id)
 mission12_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1580600301354-0ce8faef576c_edvkjy.jpg")
 mission12.photo.attach(io: mission12_file, filename: "mission12.jpg", content_type: "image/jpg")
 mission12.save
@@ -326,7 +338,6 @@ mission13_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v16
 mission13.photo.attach(io: mission13_file, filename: "mission13.jpg", content_type: "image/jpg")
 mission13.save
 
-
 # Seed 14
 mission14 = Mission.create(
   title: "Tree Planting in the Parc de la Tête d'Or",
@@ -341,6 +352,7 @@ mission14 = Mission.create(
   user: user4,
   address: "Parc de la Tête d'Or, Lyon"
 )
+chatroom14 = Chatroom.create!(mission_id: mission14.id)
 mission14_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1598335624134-5bceb5de202d_mukodu.jpg")
 mission14.photo.attach(io: mission14_file, filename: "mission14.jpg", content_type: "image/jpg")
 mission14.save
@@ -359,6 +371,7 @@ mission15 = Mission.create(
   user: user5,
   address: "Jardin des Plantes, Aix-en-Provence"
 )
+chatroom15 = Chatroom.create!(mission_id: mission15.id)
 mission15_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1486814758653-7e3f452bdddb_kgs9rg.jpg")
 mission15.photo.attach(io: mission15_file, filename: "mission15.jpg", content_type: "image/jpg")
 mission15.save
@@ -377,6 +390,8 @@ mission16 = Mission.create(
   photo_url: "https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHRlYWNoaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   address: "21 Rue Haxo, Marseille 13001"
 )
+
+chatroom16 = Chatroom.create!(mission_id: mission16.id)
 mission16_file = URI.open("https://res.cloudinary.com/dzwtudz1z/image/upload/v1678884443/photo-1529390079861-591de354faf5_ajgsqt.jpg")
 mission16.photo.attach(io: mission16_file, filename: "mission16.jpg", content_type: "image/jpg")
 mission16.save

@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :missions, through: :bookings
   has_many :vouchers
+  has_many :messages
+  has_many :chatrooms
 end
