@@ -1,8 +1,8 @@
 
 <br>
 <br>
-<h3 class="titre-calendar">Your Calendar</h3>
-<br>
+<div class="container calendar-title"><h1>My Calendar</h1></div>
+
 
 <div class="calendar-container">
   <%= month_calendar(events: @missions, attribute: :start_date, end_attribute: :end_date) do |date, missions| %>

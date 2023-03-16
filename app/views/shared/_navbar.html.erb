@@ -2,6 +2,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb- navbar-custom">
   <div class="container-fluid">
 
+
     <%= link_to missions_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dzwtudz1z/image/upload/v1678975034/8swozqxfmz-emcvnrl6tm-removebg-preview_az3mnw.png", class:"btn-outline-info" %>
     <% end %>
@@ -17,6 +18,9 @@
 
           <li class="nav-item dropdown text-end ">
            <%= image_tag "https://avatars.githubusercontent.com/u/119122764?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+
+
             <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>
             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
             <%= link_to "Discover", new_mission_path, class: "dropdown-item" %>
