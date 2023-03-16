@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :bookings
   # validates :booking, uniqueness: { scope: :mission,
   #   message: 'Just one booking per user' }
-
+  has_one_attached :photo
   has_many :missions, through: :bookings
   has_many :vouchers
   has_many :messages
