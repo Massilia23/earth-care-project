@@ -2,20 +2,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
-  line-height: 80px;
+  height: 50px;
+  line-height: 50px;
   padding: 0 20px;
   background-color: #f8f9fa;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .navbar-brand {
-
-  height: 80px;
-  width: 80px;
+  margin-right: auto;
+  padding: 0;
   display: flex;
 }
 
-
+.navbar-brand img {
+  height: 100px;
+   /* Set height of logo */
+}
 
 /* Styles for smaller screens */
 @media (max-width: 768px) {
@@ -28,7 +30,9 @@
     margin-right: auto; /* Remove margin-right */
     margin-left: 0; /* Add margin-left */
   }
-
+  .navbar-brand img {
+    transform: scale(1.5); /* Scale logo */
+  }
   .navbar-nav:first-child .navbar-nav {
     margin-left: 0; /* Remove margin-left */
   }
