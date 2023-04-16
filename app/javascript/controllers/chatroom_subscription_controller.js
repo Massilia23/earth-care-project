@@ -24,10 +24,8 @@ disconnect() {
 }
 
 
-
 #insertMessageAndScrollDown(data) {
-  this.messagesTarget.insertAdjacentHTML("beforeend", data)
+  this.messagesTarget.insertAdjacentHTML("beforeend", data.message)
   this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
 }
-}
-
+};
