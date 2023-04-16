@@ -1,7 +1,9 @@
 // Specific CSS for your home-page
+@import "components/navbar";
+
 .premier-para {
   background-color: #d2edff;
-  padding-top: 6px;
+  padding-top: 0.1px;
 }
 
 .titre-homepage {
@@ -119,16 +121,14 @@
 .flex-container .item:last-child {
   margin-right: auto;
 }
-/* Code that matters
-* :END
-*/
+
 .logo-carousel {
   width: 100%;
   overflow: hidden;
   position: relative;
-  height: 60px; /* Set the height of the carousel */
+  height: 60px;
   display: flex;
-  justify-content: center; /* Center the carousel horizontally */
+  justify-content: center;
 
 }
 

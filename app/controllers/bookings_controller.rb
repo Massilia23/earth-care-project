@@ -13,24 +13,15 @@ class BookingsController < ApplicationController
     @mission = @booking.mission
   end
 
-  # def total_days
-  #   self.end_date - self.start_date
-  # end
-
   def create
     @booking = Booking.new
     @booking.mission = @mission
-   
-
     @booking.user = current_user
-
     if @booking.save
-      # redirect_to mission_path(@mission)
       redirect_to profile_path
     else
       render :new, status: :unprocessable_entity
     end
-
   end
 
   private

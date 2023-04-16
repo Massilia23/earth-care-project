@@ -3,15 +3,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #EEF4ED;
+  background-color: #ffffff;
   height: 60px;
   bottom: 0;
   padding: 0 20px;
-  border-top: solid green;
+  border-top: solid rgb(16, 35, 245);
   width: 100%;
   margin-bottom: 0;
   position: sticky;
   z-index: 100;
+}
+
+.btn-flat:hover {
+  background-color: #ccc;
 }
 
 .footer a {
@@ -22,7 +26,7 @@
 
 .footer i {
   font-size: 24px;
-  color: #333;
+  color: #7f9df5;
 }
 
 .calendar {
@@ -33,7 +37,7 @@
   height: 60px;
   bottom: 0;
   padding: 0 20px;
-  border-top: solid green;
+  border-top: solid rgb(60, 17, 252);
   width: 100%;
   margin-bottom: 0;
   position: fixed;

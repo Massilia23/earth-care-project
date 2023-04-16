@@ -1,15 +1,12 @@
 require "rqrcode"
 
 class VouchersController < ApplicationController
-# before_action :set_voucher only: %i[show]
-
   def new
     @voucher = Voucher.new
     @booking = Booking.find(params[:booking_id])
   end
 
   def show
-    # Voucher.create(code: "123")
     @booking = Booking.find(params[:booking_id])
     @voucher = Voucher.find(params[:id])
     @voucher = Voucher.last
@@ -19,7 +16,7 @@ class VouchersController < ApplicationController
       off_set: 0,
       color: "000",
       shape_rendering: "crispEdges",
-      module_size: 8,
+      module_size: 8
       # standalone: true,
       # use_path: true
     )
@@ -34,21 +31,10 @@ class VouchersController < ApplicationController
     @voucher.total_points = @voucher.booking.mission.reward
     if @voucher.save
       redirect_to profile_path
-      # wallet
     else
       render :new
     end
   end
-
-  # def completed?(booking)
-  #   @voucher = Voucher.find(params[:id])
-  #   booking.voucher = voucher
-  #   if @booking.completed_mission?
-
-  #   else
-  #     render
-  #   end
-  # end
 
   private
 
