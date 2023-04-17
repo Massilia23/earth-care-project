@@ -10,6 +10,6 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.create
     @chatroom.users << current_user
     @chatroom.users << other_user
-    # redirect_to chatroom_path(@chatroom)
+    redirect_to chatroom_path(@chatroom)
   end
 end
