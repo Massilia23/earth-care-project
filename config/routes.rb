@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :missions do
     resources :bookings, only: %i[new create]
     resources :declined_bookings, only: %i[create]
-    resources :chatrooms,  only: %i[show create] do
+    resources :chatrooms,  only: :show do
       resources :messages, only: :create
     end
   end
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   resources :calendars, only: :index
   resources :vouchers, only: %i[show index]
 
-  mount ActionCable.server => '/cable'
+  # mount ActionCable.server => '/cable'
 end
