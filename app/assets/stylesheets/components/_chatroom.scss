@@ -1,11 +1,39 @@
 // https:gist.githubusercontent.com/dmilon/3db26308391f84b786ae6886a68897ae/raw/5aa85b85f6436794106962c1f3c088b99743f8d8/_chatroom.scss
-
-
-.nickname{
-  color: rgb(197, 32, 51);
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
-
-.current-user {
-
-  color: royalblue;
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.current-user .message {
+  align-items: flex-end;
+}
+.bubble {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 50%;
+}
+.current-user{
+  color: #007BFF ;
+  font-weight: bold ;
+}
+.other-user{
+  color: #57CF9F;
+  font-weight: bold ;
+}
+.current-user .bubble {
+  background-color: #007BFF;
+  color: white;
+  align-self: flex-end;
+}
+.other-user .bubble {
+  background-color: #57CF9F;
+  color: black;
+  align-self: flex-start;
 }

@@ -1,7 +1,8 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong class = "nickname"><%= message.user.nickname %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+<div class="message <%= message.user == current_user ? 'current-user' : 'other-user' %>">
+  <div class="user-nickname">
+    <%= message.user.nickname %>
+  </div>
+  <div class="bubble">
+    <%= message.content %>
+  </div>
 </div>
