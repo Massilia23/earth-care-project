@@ -38,6 +38,7 @@ class MissionsController < ApplicationController
 
     @mission.user = current_user
     if @mission.save
+      Chatroom.create!(mission_id: @mission.id)
       redirect_to profile_path
     else
       render :new

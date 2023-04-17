@@ -6,6 +6,7 @@
 @import "form_new_missions";
 @import "footer";
 @import "calendar";
+@import "chatroom";
 
 $my-blue: #e0eaf2;
 
@@ -333,4 +334,10 @@ body {
 
   .index-bg {
     background-color: $my-blue;
+  }
+
+  .search-bar {
+    margin: 4px;
+    padding: 4px;
+    margin-right: 8px;
   }

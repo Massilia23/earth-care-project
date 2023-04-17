@@ -1,0 +1,8 @@
+<div class="message <%= message.user == current_user ? 'current-user' : 'other-user' %>">
+  <div class="user-nickname">
+    <%= message.user.nickname %>
+  </div>
+  <div class="bubble">
+    <%= message.content %>
+  </div>
+</div>

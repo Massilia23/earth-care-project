@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_163010) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_03_132431) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -100,6 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_163010) do
     t.datetime "duration"
     t.string "location"
     t.string "dess_code"
+    t.integer "reward"
     t.datetime "start_time"
     t.integer "rating"
     t.boolean "personal_choice"
@@ -111,19 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_163010) do
     t.float "longitude"
     t.string "address"
     t.string "accept"
-    t.integer "points"
-    t.integer "reward"
     t.index ["user_id"], name: "index_missions_on_user_id"
-  end
-
-  create_table "rewards", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "mission_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "reward_points"
-    t.index ["mission_id"], name: "index_rewards_on_mission_id"
-    t.index ["user_id"], name: "index_rewards_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -137,6 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_163010) do
     t.string "first_name"
     t.string "last_name"
     t.string "nickname"
+    t.text "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -163,8 +153,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_163010) do
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "missions", "users"
-  add_foreign_key "rewards", "missions"
-  add_foreign_key "rewards", "users"
   add_foreign_key "vouchers", "bookings"
   add_foreign_key "vouchers", "users"
 end

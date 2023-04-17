@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
 
-  <div class="premier-paraf">
-    <div class="container-card-profile mt-5">
+<div class="profile-background">
+  <div class="profile-paraf">
+    <div class="container-card-profile">
       <div class="row ">
         <div class="col-lg-12">
           <div>
@@ -10,15 +11,21 @@
 
                 <div class="profile-info">
 
-                  <img class="profile-pic" src="https://images.unsplash.com/photo-1483884105135-c06ea81a7a80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80">
-                  <%# <img class="profile-pic" <%= image_tag current_user.photo.key %>
+                  <%# <img class="profile-pic" src="https://images.unsplash.com/photo-1483884105135-c06ea81a7a80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"> %>
+                  <% if current_user.photo.attached? %>
+                  <img class="profile-pic" <%= cl_image_tag current_user.photo.key%>>
+                  <% else %>
+                  <img src="https://res.cloudinary.com/dzwtudz1z/image/upload/v1678893370/favicon_ayxzgj.png" alt="">
+                  <% end %>
                   <br>
                   <h2 class="hvr-underline-from-center"><%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%></h2>
                   <div>"I signed up because I had a strong interest in ecology and wanted to make a difference.
                     I also wanted to meet people who shared the same interests.""
                   </div>
                   <i class="fa-solid fa-trophy"></i>
-                  <i class="fa-solid fa-thumbs-up"></i>
+                  <%= link_to "#bottom" do %>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                  <% end %>
                   <i class="fa-solid fa-check"></i>
                 </div>
 
@@ -34,23 +41,30 @@
     </div>
   </div>
 
-  <div class="premier-paraf">
+  <div class="profile-paraf">
     <div class="container">
       <div class="col-12">
         <div class="card card-profile-wallet">
           <div class="card-body">
                   <%# si id de booking exist %>
-            <p class="wallet-title">  Your Wallet </p>
-
               <% @vouchers.each do |voucher| %>
-                <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
-                <strong>  You have  <%= voucher.booking.mission.reward %> points for this mission.  </strong>
-                  <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
-                    <br>
-                    <br>
+            <div class="wallet-header">
+              <p class="wallet-title">💰</p>
+              <p class= "mr-3" style="color: white;">
+                <strong class="voucher-info">
+                  <%= voucher.booking.mission.reward %>
+                    <i class="fa-solid fa-coins" style="color: #AC795C"></i>
+                </strong>
+              </p>
+            </div>
 
-              <p> Click on the link to generate the QR code "voucher" </p>
-              <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher), class: "voucher-link" %>
+                <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
+                  <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
+
+              <p class="voucher-info-generation"> Click on the link below to generate your QR code </p>
+              <div class="generation-link">
+                <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher), class: "voucher-link" %>
+              </div>
               <% end %>
             <%# (voucher.booking) %>
           </div>
@@ -63,82 +77,50 @@
     <br>
 
 
-    <div class="container premier-para">
-      <div class="container-booking">
-        <div class="header-profile">
-          <h1>My Bookings</h1>
-        </div>
-        <div class="bookings">
-
-
           <%# <% current_user.bookings.last.mission.accept %>
-
-          <% @bookings.each do |booking, mission| %>
-            <div class="booking-list">
-              <div class="booking">
-                <div class="booking-info">
-                  <div class="booking-time"><%= booking.mission.title %></div>
-                  <div class="booking-time"><%= booking.mission.start_date %></div>
-                  <div class="booking-time"><%= booking.mission.end_date %></div>
-                   <div class="booking-status">Confirmed</div>
-
-
-
+    <div class="container">
+        <div class="bookings-container">
+            <% @bookings.each do |booking| %>
+              <div class="card-booking">
+                 <div class="booking-title"><%= booking.mission.title %></div>
                   <% if booking.vouchers.empty?  %>
-                    <strong> To unlocked your points for this mission click on the button below </strong>
-                    <%= simple_form_for([booking, @voucher]) do |f| %>
+                    <%= simple_form_for [booking, @voucher], input_html: {class: 'form-valid'} do |f| %>
                         <%= f.text_area :total_points, style: 'display:none' %>
-                        <strong>👉<%= f.submit "I completed my mission ", class: "btn btn-success"%> 👈 </strong>
+                        <%= f.button :button, class: "fa-solid fa-check", id: "check-button" do %>
+                        <% end %>
+                         <%= link_to mission_chatroom_path(booking.mission, booking.mission.chatroom) do %>
+                           <i class="fa-solid fa-message"></i>
+                        <% end %>
                     <% end %>
-
+                  <% else %>
+                    <div class="booking-status">Confirmed</div><br>
                   <% end %>
-
-
-                      <%# <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
-                    <%# <i class="fa-solid fa-comments"></i> %>
-                  <%# <% end %>
-
-
-                      <%# <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
-                    <%# <i class="fa-solid fa-comments"></i> %>
-                    <%# <% end %>
-
-
-
-
-                  <%# <div class="booking-time"><%= booking.mission.description.truncate(20, omission: '...').html_safe %>
-
-                </div>
-
               </div>
-            </div>
-          <% end %>
+            <% end %>
         </div>
-      </div>
     </div>
 
 
 
-    <div class="container premier-paraf">
+    <div class="container profile-paraf">
       <div class="container-booking">
           <div class="header-profile">
-            <h1>My Missions</h1>
+            <h1>My missions as a Creator</h1>
           </div>
           <div class="bookings">
-            <% @missions.each do |mission, chatroom| %>
+            <% @missions.each do |mission| %>
               <div class="booking-list">
                 <div class="booking">
                   <div class="booking-info">
                     <div class="booking-time"><%= mission.title %>
                     </div>
-                    <div class="booking-time"><%= mission.start_date %> - <%= mission.duration.strftime('%H:%M') %>
-                    </div>
-                    <div class="booking-location"><%= mission.location %>
-                            <%# <%= mission.chatroom %> 
-                    </div>
                   </div>
-                  <div class="booking-status">Created
-                    <%= link_to "Chat", mission_chatroom_path(@chatroom.mission, @chatroom)
+                  <div class="booking-status">
+                    <% if mission.chatroom %>
+                      <%= link_to mission_chatroom_path(mission, mission.chatroom) do %>
+                          <i class="fa-solid fa-message"></i>
+                      <% end %>
+                    <% end %>
 
                   </div>
                 </div>
@@ -146,56 +128,41 @@
             <% end %>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
             <%# <%= link_to "Dashboard", profil_path, data: {turbo_method: :get}, class: "btn" %>
-
+          </div>
 
       </div>
 
       <br>
-
+    </div>
   </div>
 
-    <div class="footer">
-      <%= link_to root_path do %>
-        <i class="fas fa-home"></i>
-      <% end %>
+  <div class="black-line">
+  <br>
+  </div>
 
-      <%= link_to calendars_path do %>
-        <i class="fa-solid fa-calendar"></i>
-      <% end %>
+      <img src="https://res.cloudinary.com/dzwtudz1z/image/upload/v1678960671/MY_IMPACT-2_d7nhpt.png" class="image-b-profile" id="bottom" alt="">
 
 
+  <div class="footer">
+    <%= link_to root_path do %>
+      <i class="fas fa-home"></i>
+    <% end %>
 
-      <%= link_to profile_path  do %>
-        <i class="fa-solid fa-wallet"></i>
-      <% end %>
+    <%= link_to calendars_path do %>
+      <i class="fa-solid fa-calendar"></i>
+    <% end %>
 
 
-      <%= link_to missions_path do %>
-        <i class="fa-solid fa-comments"></i>
-      <% end %>
+    <%= link_to profile_path  do %>
+      <i class="fa-solid fa-wallet"></i>
+    <% end %>
 
-<% if mission.if != []%>
-  <%= link_to mission_chatroom_path(@mission, @mission.chatroom) do %>
-    <i class="fa-regular fa-message logochat-color"></i>
-  <% end %>
-<% end %>
 
-      <%= link_to profile_path do %>
-        <i class="fas fa-user"></i>
-      <% end %>
-    </div>
+    <%= link_to profile_path do %>
+      <i class="fas fa-user"></i>
+    <% end %>
+  </div>
 
 <% end %>
+</div>
