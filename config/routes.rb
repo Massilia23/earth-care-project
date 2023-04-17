@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :missions do
     resources :bookings, only: %i[new create]
     resources :declined_bookings, only: %i[create]
-    resources :chatrooms, only: :show do
+    resources :chatrooms,  only: %i[show create] do
       resources :messages, only: :create
     end
   end

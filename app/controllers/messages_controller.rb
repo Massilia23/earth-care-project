@@ -7,7 +7,9 @@ class MessagesController < ApplicationController
     if @message.save
       # redirect_to mission_chatroom_path(@chatroom.mission, @chatroom)
       ChatroomChannel.broadcast_to(
-        @chatroom, @message)
+        @chatroom,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
       head :ok
     else
       render "chatrooms/show", status: :unprocessable_entity

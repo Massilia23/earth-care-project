@@ -18,7 +18,6 @@ DeclinedBooking.destroy_all
 Mission.destroy_all
 User.destroy_all
 
-
 user1 = User.create!(email: "amel@gmail.com", password: "azerty", first_name: "Amel", last_name: "Zahir", nickname:"Amelou23")
 user1_file = URI.open("https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795627/122739028_mcyvpe.jpg")
 user1.photo.attach(io: user1_file, filename: "user1.jpg", content_type: "image/jpg")

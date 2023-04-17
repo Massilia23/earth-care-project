@@ -4,27 +4,18 @@
 >
 
   <h2 class="text-center mt-2 mb-2"><strong><%= @mission.title  %></strong></h2>
-
   <h3>Welcome, <strong class="current-user"><%= current_user.first_name %> 😄</strong></h3>
 
   <h4>Let's chat!</h4>
-
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <div class="message <%= message.user == current_user ? 'current-user' : 'other-user' %>">
-        <div class="user-nickname">
-          <%= message.user.nickname %>
-        </div>
-        <div class="bubble">
-          <%= message.content %>
-        </div>
-      </div>
+      <%= render "messages/message", message: message %>
     <% end %>
   </div>
 
   <div class= "send">
     <%= simple_form_for [@mission, @chatroom, @message],
-        html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex", remote: true }  do |f| %>
+        html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" }  do |f| %>
         <%= f.input :content,
           label: false,
           placeholder: "Message #{@mission.title}",
