@@ -10,8 +10,6 @@
               <div class="profile-card text-center">
 
                 <div class="profile-info">
-
-                  <%# <img class="profile-pic" src="https://images.unsplash.com/photo-1483884105135-c06ea81a7a80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"> %>
                   <% if current_user.photo.attached? %>
                   <img class="profile-pic" <%= cl_image_tag current_user.photo.key%>>
                   <% else %>
@@ -31,8 +29,6 @@
 
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -46,11 +42,10 @@
       <div class="col-12">
         <div class="card card-profile-wallet">
           <div class="card-body">
-                  <%# si id de booking exist %>
               <% @vouchers.each do |voucher| %>
             <div class="wallet-header">
               <p class="wallet-title">💰</p>
-              <p class= "mr-3" style="color: white;">
+              <p class= "mr-3" style="color: rgb(85, 148, 170);">
                 <strong class="voucher-info">
                   <%= voucher.booking.mission.reward %>
                     <i class="fa-solid fa-coins" style="color: #AC795C"></i>
@@ -58,15 +53,11 @@
               </p>
             </div>
 
-                <%# <strong> You unlocked</strong> <%= voucher.booking.mission.reward %>
-                  <%# <strong> You unlocked </strong> <%= @voucher.booking.mission.reward %>
-
               <p class="voucher-info-generation"> Click on the link below to generate your QR code </p>
               <div class="generation-link">
                 <%= link_to "Generate voucher",  booking_voucher_path(voucher.booking, voucher), class: "voucher-link" %>
               </div>
               <% end %>
-            <%# (voucher.booking) %>
           </div>
         </div>
       </div>
@@ -77,7 +68,7 @@
     <br>
 
 
-          <%# <% current_user.bookings.last.mission.accept %>
+
     <div class="container">
         <div class="bookings-container">
             <% @bookings.each do |booking| %>

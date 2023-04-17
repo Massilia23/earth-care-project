@@ -8,21 +8,19 @@
   width: 100%;
 }
 
-
-* {
+*{
   box-sizing: border-box;
   margin: 0;
-  // padding: 0;
 }
-
 .title-dashboard {
-  color: white;
+  color: rgb(31, 29, 29);
 }
-
 
 .container-booking {
   max-width: 800px;
   background-color: #C7DCC5;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .header-profile {
@@ -34,12 +32,13 @@
 .header-profile h1 {
   font-family: system-ui;
   font-size: 18px;
-  color: blcak;
+  color: black;
 }
 
 .bookings {
   margin-bottom: 20px;
   background-color: #C7DCC5;
+  border-radius: 10px;
 }
 
 .booking-list {
@@ -51,21 +50,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  }
+  padding: 10px;
+  border-radius: 5px;
+}
 
 .booking-info {
   display: flex;
   border-radius: 20px;
-
+  padding: 5px 10px;
 }
 
-
 .booking-title {
-  font-size: 11px;
+  font-size: 15px;
   color: black;
   display: flex;
   justify-content: center;
-  font-family: system-ui
+  font-family: system-ui;
 }
 
 .booking-time {
@@ -80,11 +80,13 @@
 }
 
 .booking-status {
-  font-size: 10px;
+  font-size: 13px;
   color: #ffd89b;
   text-transform: uppercase;
   font-weight: bold;
   margin-right: 10px;
+  padding: 3px 8px;
+  border-radius: 5px;
 }
 
 .card-profile-wallet {
@@ -93,10 +95,8 @@
   box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
   border: 1px solid #EADDCA;
   background-color: #D1F9FF;
-  ;
-
+  padding: 15px;
 }
-
 
 .voucher-link {
   color: black;
@@ -114,31 +114,20 @@
   font-family: system-ui;
 }
 
-.fa-message {
-  color: #ffdb65 !important;
-}
-
-.fa-coins {
-  color: #ffdb65 !important;
-}
-
-.fa-trophy {
-  color: #ffdb65 !important;
-}
-
-.fa-thumbs-up {
-  color: #ffdb65 !important;
-}
-
+.fa-message,
+.fa-coins,
+.fa-trophy,
+.fa-thumbs-up,
 .fa-check {
- color: #ffdb65 !important;
+  color: #ffdb65 !important;
+  font-size: 24px !important;
 }
 
 .card-body {
   background-color: #EEF4ED;
+  padding: 15px;
+  border-radius: 10px;
 }
-
-
 
 .wallet-title {
   text-align: center;
@@ -153,13 +142,15 @@
 }
 
 .container-card-profile {
-  padding: 20px;
+  padding: 15px;
 }
 
 .profile-card {
-	background-color:#9AC0CF;
+  background-color:#9AC0CF;
   margin-bottom: 20px;
   border-radius: 20px;
+  padding: 15px;
+  min-width: 300px;
 }
 
 .profile-pic {
@@ -175,7 +166,6 @@
   transition: all 0.4s;
 }
 
-
 .profile-info {
   color: black;
   padding: 25px;
@@ -184,36 +174,30 @@
 }
 
 .profile-info h2 {
-	color: black;
+  color: black;
   padding-bottom: 12px;
   font-weight: bold;
   font-family: serif;
 }
 
-
 .profile-info i {
-	color: white;
-}
-
-.profile-info i {
+  color: rgb(14, 14, 14);
   padding: 15px 35px 0px 35px;
+  font-size: 24px;
 }
-
 
 .profile-card:hover .profile-pic {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-.profile-card:hover .profile-info hr  {
-	opacity: 1;
+.profile-card:hover .profile-info hr {
+  opacity: 1;
 }
 
 .img-responsive {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-
-
 
 /* Underline From Center */
 .hvr-underline-from-center {
@@ -247,7 +231,9 @@
   transition-timing-function: ease-out;
 }
 
-.profile-card:hover .hvr-underline-from-center:before, .profile-card:focus .hvr-underline-from-center:before, .profile-card:active .hvr-underline-from-center:before {
+.profile-card:hover .hvr-underline-from-center:before,
+.profile-card:focus .hvr-underline-from-center:before,
+.profile-card:active .hvr-underline-from-center:before {
   left: 0;
   right: 0;
   height: 1px;
@@ -256,20 +242,20 @@
 }
 
 .profile-paraf {
-  padding-top: 32
-  px;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .wallet-header {
   display: flex;
   justify-content: space-between;
+  padding: 0 20px;
 }
-
 
 .bookings-container {
   min-width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .card-booking {
@@ -279,14 +265,17 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
 
 .booking-title {
-  margin-right: 10px;;
+  margin-right: 10px;
 }
 
 .image-b-profile {
   min-width: 100vw;
+  border-radius: 10px;
 }
 
 .black-line {
@@ -304,10 +293,13 @@
   align-items: center;
   width: 20%;
   justify-content: space-between;
+  padding: 0 10px;
 }
 
 #check-button {
   padding: 0;
   border-radius: 0;
   margin-top: 0;
+  font-size: 24px;
+  align-items: end;
 }
