@@ -4,10 +4,7 @@ class ChatroomsController < ApplicationController
     @chatroom = @mission.chatroom
     @message = Message.new
   end
-<<<<<<< HEAD
-=======
 
->>>>>>> 145584f6509d88cf6cbc1d12f2dbb6ec992e21fd
   def create
     other_user = User.find(params[:user_id])
     @chatroom = Chatroom.create

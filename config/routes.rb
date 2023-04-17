@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   resources :calendars, only: :index
   resources :vouchers, only: %i[show index]
 
-  # mount ActionCable.server => '/cable'
+  mount ActionCable.server => '/cable'
 end
