@@ -2,18 +2,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb- navbar-custom">
   <div class="container-fluid">
     <%= link_to missions_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dzwtudz1z/image/upload/v1678975034/8swozqxfmz-emcvnrl6tm-removebg-preview_az3mnw.png", class:"btn-outline-info" %>
+      <%= image_tag "https://res.cloudinary.com/dz19chcgd/image/upload/v1681604916/Green_Colorful_Illustrated_Small_Act_to_Save_Earth_Poster_3_w7cotu.png"  %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto text-end">
         <% if user_signed_in? %>
-
           <li class="nav-item dropdown text-end ">
            <%= image_tag "https://res.cloudinary.com/dcjjlgguj/image/upload/v1678795627/122739028_mcyvpe.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
@@ -21,9 +19,6 @@
              <%= link_to "Your profile", profile_path, class: "dropdown-item" %>
               <%= link_to "Post a mission", new_mission_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {method: :delete}, class: "dropdown-item" %>
-
-
-
             </div>
           </li>
         <% else %>
@@ -54,15 +49,16 @@
   <br>
   <p class="text-join-us">+1000 Volunteers</p>
   <br>
-  <div class="horizontal-separator"></div>
+  <%# <div class="horizontal-separator"></div> %>
   <br>
   <p class="text-join-us">+500 Missions</p>
   <br>
-  <div class="horizontal-separator"></div>
+  <%# <div class="horizontal-separator"></div> %>
   <br>
   <p class="text-join-us">+100 Partners</p>
-    <div class="logo-carousel">
-<div class="carousel-container-logo slide-track">
+
+<div class="logo-carousel">
+  <div class="carousel-container-logo slide-track">
         <div class="logo-item"><%= image_tag('AMOr-benamor.png', class: "w-100") %></div>
         <div class="logo-item"><%= image_tag('Lidl-Logo.png', class: "h-100") %></div>
         <div class="logo-item"><%= image_tag('Fnac_Logo.png', class: "w-100") %></div>
@@ -136,7 +132,7 @@
   <br>
   <div class="horizontal-separator"></div>
   <br>
-  <p class="text-center">CONTACT: support@earth-care-project.com</p>
-  <p class="text-center">21 rue Haxo, 13001 Marseille</p>
+  <strong><p class="text-center">CONTACT: support@earth-care-project.com</p> </strong>
+  <strong><p class="text-center">21 rue Haxo, 13001 Marseille</p> </strong>
   <br>
 </div>

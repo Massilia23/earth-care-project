@@ -1,7 +1,10 @@
 // Specific CSS for your home-page
+// Specific CSS for your home-page
+@import "components/navbar";
+
 .premier-para {
-  background-color: #d2edff;
-  padding-top: 6px;
+  background-color: #B9CDDA;
+  padding-top: 0.1px;
 }
 
 .titre-homepage {
@@ -46,20 +49,20 @@
 .second-para {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #d2edff;
+  background-color: #ffffff;
 }
 
 .title-h2-home {
   margin-bottom: 0px;
   font-size: 45px;
   line-height: 45px;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.5px;
   font-family: serif;
 }
 
 .text-join-us{
-  font-size: 30px;
+  font-size: 20px;
   font-family: serif;
 }
 
@@ -93,7 +96,7 @@
 }
 
 .fourth-para {
-  background-color: #FFD4B2
+  background-color: #98be9c;
 }
 
 .title-fourth {
@@ -119,23 +122,21 @@
 .flex-container .item:last-child {
   margin-right: auto;
 }
-/* Code that matters
-* :END
-*/
+
 .logo-carousel {
   width: 100%;
   overflow: hidden;
   position: relative;
-  height: 60px; /* Set the height of the carousel */
+  height: 60px;
   display: flex;
-  justify-content: center; /* Center the carousel horizontally */
+  justify-content: center;
 
 }
 
 .carousel-container-logo {
   display: flex;
   width: max-content;
-  align-items: center; /* Center the carousel items vertically */
+  align-items: center;
   animation: carousel 3s linear infinite;
   gap: 4px;
   animation-direction: alternate;
